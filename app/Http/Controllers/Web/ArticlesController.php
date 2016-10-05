@@ -1,0 +1,103 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: humengtao
+ * Date: 16/9/27
+ * Time: 22:11
+ */
+
+namespace App\Http\Controllers\Web;
+
+use App\Models\Article;
+use App\Models\Comment;
+use App\Models\Records;
+use App\User;
+use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpFoundation\Request;
+use Validator;
+use Auth;
+use EndaEditor;
+use Chromabits\Purifier\Contracts\Purifier;
+
+class ArticlesController
+{
+    protected $purifier;
+
+    public function __construct(Purifier $purifier)
+    {
+        $this->purifier = $purifier;
+    }
+
+    function index($id)
+    {
+        if (Auth::check()) {
+            if (Records::where(['id' => $id, 'user_id' => Auth::user()->id])->get()->count() != 0)
+                Records::where(['id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
+            else {
+                Records::insert([
+                    'user_id' => Auth::user()->id,
+                    'article_id' => $id,
+                    'created_at' => gmdate('Y-m-d H:i:s'),
+                    'updated_at' => gmdate('Y-m-d H:i:s')
+                ]);
+            }
+        }
+
+        $content = Article::where('id', $id)->first();
+        $content->content = EndaEditor::MarkDecode($content->content);
+        $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
+        foreach ($comments as $comment) {
+            $comment->user_name = User::where('id', $comment->user_id)->value('name');
+        }
+        return view('web.component.article-content.article-content', compact('content', 'comments'));
+    }
+
+    public function postComment(Request $request, $id)
+    {
+        $rules = ['comment' => 'required|max:100'];
+        $messages = ['comment.max' => 'you can most input 100 characters', 'comment.required' => 'comment must be required'];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return Redirect::back()
+                ->withErrors($validator)
+                ->with($request->input());
+        } else {
+            Comment::insert(
+                [
+                    'content' => $request->comment,
+                    'user_id' => Auth::user()->id,
+                    'article_id' => $id,
+                    'created_at' => gmdate('Y-m-d H:i:s'),
+                    'updated_at' => gmdate('Y-m-d H:i:s')
+                ]);
+            return redirect('/content/' . $id);
+        }
+    }
+
+    public function add()
+    {
+        return view('web.edit');
+    }
+
+    public function validateArticle(Request $request)
+    {
+        $rules = ['contents' => 'required', 'title' => 'required'];
+        $messages = ['contents.required' => 'content must be required', 'title.required' => 'title must be required'];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->with($request->input());
+        } else {
+            $request = $this->purifier->clean($request->all());
+            Article::insert(
+                [
+                    'user_id' => Auth::user()->id,
+                    'title' => $request['title'],
+                    'content' => $request['contents'],
+                    'created_at' => gmdate('Y-m-d H:i:s'),
+                    'updated_at' => gmdate('Y-m-d H:i:s')
+                ]
+            );
+            return redirect('/user');
+        }
+    }
+}
