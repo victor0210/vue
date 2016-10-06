@@ -1,0 +1,1 @@
+{"version":3,"sources":["admin.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B,EAC3B","file":"admin.css","sourcesContent":[".navbar{\n  background-color: #3b3b3b;\n}"],"sourceRoot":"/source/"}

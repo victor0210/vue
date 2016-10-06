@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/admin" class="navbar-brand">Admin</a>
+                <a href="/admin" class="navbar-brand">DashBoard</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <form class="navbar-form navbar-right">

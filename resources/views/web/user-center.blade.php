@@ -2,12 +2,16 @@
 
 @section('title', 'User Center')
 
+@section('extra-css-js')
+    <link rel="stylesheet" href="{{ elixir('assets/css/user-center.css') }}">
+    @endsection
+
 @section('content')
     <div class="jumbotron">
         <div class="container">
             <div class="col-md-3">
                 <a href="#" class="thumbnail">
-                    <img src="{{ elixir('images/thumbligrid.jpg') }}" alt="...">
+                    <img src="{{ elixir('assets/images/bg1.jpg') }} " alt="...">
                 </a>
             </div>
             <div class="col-md-3">

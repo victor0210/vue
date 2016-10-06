@@ -14,7 +14,9 @@ require('laravel-elixir-vue');
  */
 var ScssFile = [
     'app.scss',
-    'article-content.scss'
+    'article-content.scss',
+    'user-center.scss',
+    'admin.scss'
 ];
 
 var ScssPath = 'public/assets/css';
