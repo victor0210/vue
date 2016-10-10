@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
 <head>
-    <title>@yield('title')</title>
+    <meta charset="utf-8"/>
+    <title>Admin Panel</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet"  href="{{ elixir('assets/css/app.css') }}"/>
-    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{{ elixir('assets/js/vue.min.js') }}"></script>
-    @yield('extra-css-js')
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <link rel="stylesheet" href="{{ elixir("css/styles.css") }}"/>
 </head>
-
 <body>
-@include('admin.layout.header')
-
 @yield('content')
-
-
+<script src="{{ elixir("assets/js/admin.js") }}" type="text/javascript"></script>
 </body>
 </html>

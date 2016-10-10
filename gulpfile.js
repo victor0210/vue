@@ -19,15 +19,32 @@ var ScssFile = [
     'admin.scss'
 ];
 
+var JsFile = [
+];
+
 var ScssPath = 'public/assets/css';
+var JsPath = 'public/assets/js';
 
 
 elixir(function (mix) {
+    mix.scripts([
+        'admin/jquery.js',
+        'admin/bootstrap.js',
+        'admin/Chart.js',
+        'admin/metisMenu.js',
+        'admin/app.js',
+        'admin/frontend.js'
+    ], JsPath+'/admin.js');
+
     ScssFile.forEach(function (file) {
         mix.sass(file, ScssPath);
     });
+
+    JsFile.forEach(function (file) {
+        mix.scripts(file, JsPath);
+    });
 });
 
-elixir(function(mix) {
+elixir(function (mix) {
     mix.copy('resources/assets/images', 'public/images');
 });
