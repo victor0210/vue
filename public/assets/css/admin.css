@@ -1,4 +1,11 @@
 .navbar {
-  background-color: #3b3b3b; }
+  margin-bottom: 0; }
+
+.nav-stacked li a {
+  border-radius: 0; }
+
+#dashboard-panel {
+  border: 1px solid #337ab7;
+  padding: 0; }
 
 /*# sourceMappingURL=admin.css.map */

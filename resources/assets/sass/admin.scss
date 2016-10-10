@@ -1,3 +1,14 @@
+@import "common-bootstrap/bootstrap/variables";
+
 .navbar{
-  background-color: #3b3b3b;
+  margin-bottom: 0;
+}
+
+.nav-stacked li a{
+  border-radius: 0;
+}
+
+#dashboard-panel{
+  border:1px solid $brand-primary;
+  padding:0;
 }

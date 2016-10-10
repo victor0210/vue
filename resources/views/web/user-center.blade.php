@@ -11,7 +11,7 @@
         <div class="container">
             <div class="col-md-3">
                 <a href="#" class="thumbnail">
-                    <img src="{{ elixir('assets/images/bg1.jpg') }} " alt="...">
+                    <img src="{{ elixir('assets/images/bg1.jpg') }} " alt="..."  id="user-head">
                 </a>
             </div>
             <div class="col-md-3">

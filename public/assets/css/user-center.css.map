@@ -1,1 +1,1 @@
-{"version":3,"sources":["user-center.css"],"names":[],"mappings":"AAAA","file":"user-center.css","sourceRoot":"/source/","sourcesContent":[]}
+{"version":3,"sources":["user-center.scss"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,cAAc;EACd,mBAAmB,EACpB","file":"user-center.css","sourcesContent":["#user-head{\n  width: 110px;\n  height: 110px;\n  border-radius: 50%;\n}"],"sourceRoot":"/source/"}
