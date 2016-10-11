@@ -5078,7 +5078,8 @@ button.close {
     filter: alpha(opacity=0); }
   .modal-backdrop.in {
     opacity: 0.5;
-    filter: alpha(opacity=50); }
+    filter: alpha(opacity=50);
+    display: none; }
 
 .modal-header {
   padding: 15px;

@@ -17,7 +17,7 @@ class CreateArticleTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('title');
-            $table->string('content')->nullable();
+            $table->string('content',12480)->nullable();
             $table->timestamps('created_at');
         });
     }

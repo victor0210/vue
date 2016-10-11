@@ -1,0 +1,12 @@
+.tab-pane{
+  .list-group{
+    li{
+      -webkit-border-radius:0;
+      -moz-border-radius:0;
+      border-radius:0;
+      &:first-child{
+        border-top: none;
+      }
+    }
+  }
+}

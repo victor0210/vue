@@ -1,0 +1,6 @@
+.tab-pane .list-group li {
+  border-radius: 0; }
+  .tab-pane .list-group li:first-child {
+    border-top: none; }
+
+/*# sourceMappingURL=article.css.map */

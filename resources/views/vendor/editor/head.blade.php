@@ -1,4 +1,5 @@
-<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
+<link href="{{ elixir('assets/css/app.css') }}" rel="stylesheet">
+
 <link rel="stylesheet" href="http://cdn.bootcss.com/codemirror/4.10.0/codemirror.min.css">
 <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.4/styles/default.min.css">
 <script src="http://cdn.bootcss.com/highlight.js/8.4/highlight.min.js"></script>

@@ -59,6 +59,7 @@ class LoginController extends Controller
         ];
         $validator=Validator::make($request->input(),$rules,$message);
         if($validator->fails()){
+            $token = $request->input() ? $request->header('X-CSRF-Token') : $request->input('_token');
             return Redirect::back()
                 ->withErrors($validator)
                 ->with($request->input());

@@ -16,10 +16,12 @@ var ScssFile = [
     'app.scss',
     'article-content.scss',
     'user-center.scss',
-    'admin.scss'
+    'admin.scss',
+    'article.scss'
 ];
 
 var JsFile = [
+    'user-center.js'
 ];
 
 var ScssPath = 'public/assets/css';

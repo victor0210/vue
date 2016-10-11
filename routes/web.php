@@ -19,12 +19,16 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('content/{id}', 'ArticlesController@index');
-    Route::get('/', 'IndexController@index');
+    Route::get('/article', 'IndexController@index');
+    Route::get('/',function (){
+        return view('face-page');
+    });
     Route::get('music', 'MusicController@index');
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::get('/searchArticle', 'ArticlesController@index');
+    Route::post('/uploadImg', 'ArticlesController@uploadImg');
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
@@ -33,6 +37,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
     Route::get('add-article', 'ArticlesController@add');
     Route::post('post-article', 'ArticlesController@validateArticle');
     Route::get('mail','MailController@ship');
+    Route::post('user/uploadAvatar','UserController@updateAvatar');
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {

@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->boolean('is_admin')->default(false);
+            $table->string('avatar_url')->default('http://vue.dev/storage/avatar/default_avatar.jpg');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

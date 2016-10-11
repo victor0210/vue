@@ -1,8 +1,13 @@
+<style>
+    .navbar-toggle .icon-bar{
+        background: #337ab7;
+    }
+</style>
+
 <div class="container">
     <nav class="navbar" role="navigation">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -18,7 +23,9 @@
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if(Auth::check())
-                        <a href="/user">{{ Auth::user()->name }}</a>
+                        <a href="/user" style="margin-right: 30px;text-decoration: none">
+                            <img src="{{ Auth::user()->avatar_url }}" width="40px">
+                        </a>
                         <a href="/logout" type="submit" class="btn btn-danger">Login out</a>
                     @else
                         <a href="/login" type="submit" class="btn btn-primary">Login</a>

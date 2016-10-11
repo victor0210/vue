@@ -1,6 +1,14 @@
 #user-head {
-  width: 110px;
-  height: 110px;
+  width: 100%;
   border-radius: 50%; }
+
+label {
+  margin-bottom: 0;
+  cursor: pointer;
+  margin-left: 25%;
+  width: 50%; }
+
+#upload-head {
+  display: none; }
 
 /*# sourceMappingURL=user-center.css.map */

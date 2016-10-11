@@ -1,0 +1,1 @@
+{"version":3,"sources":["article.scss"],"names":[],"mappings":"AAAA;EAKM,iBAAgB,EAIjB;EATL;IAOQ,iBAAiB,EAClB","file":"article.css","sourcesContent":[".tab-pane{\n  .list-group{\n    li{\n      -webkit-border-radius:0;\n      -moz-border-radius:0;\n      border-radius:0;\n      &:first-child{\n        border-top: none;\n      }\n    }\n  }\n}"],"sourceRoot":"/source/"}

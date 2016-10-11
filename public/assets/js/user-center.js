@@ -24,3 +24,5 @@ $(function () {
     };
     listenFileUpload();
 });
+
+//# sourceMappingURL=user-center.js.map

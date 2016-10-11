@@ -12,6 +12,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use Mail;
 
 class IndexController extends Controller

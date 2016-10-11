@@ -8,13 +8,18 @@ namespace App\Http\Controllers\Web\Api;
  * Time: 16:34
  */
 
+use App\Http\Controllers\Controller;
 use App\Models\Article;
-use Validator;
-
-class ArticlesController
+use YuanChao\Editor\EndaEditor;
+class ArticlesController extends Controller
 {
     public function index(){
         $resp=Article::get();
         dd($resp);
+    }
+
+    public function uploadImg(){
+        $data = EndaEditor::uploadImgFile('path');
+        return json_encode($data);
     }
 }
