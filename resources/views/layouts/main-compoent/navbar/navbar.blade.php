@@ -1,6 +1,12 @@
 <style>
-    .navbar-toggle .icon-bar{
+    .navbar-toggle .icon-bar {
         background: #337ab7;
+    }
+
+    .user-avatar {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
     }
 </style>
 
@@ -24,7 +30,7 @@
                 <div class="form-group">
                     @if(Auth::check())
                         <a href="/user" style="margin-right: 30px;text-decoration: none">
-                            <img src="{{ Auth::user()->avatar_url }}" width="40px">
+                            <img src="{{ Auth::user()->avatar_url }}" class="user-avatar">
                         </a>
                         <a href="/logout" type="submit" class="btn btn-danger">Login out</a>
                     @else

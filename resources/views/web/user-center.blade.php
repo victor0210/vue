@@ -92,5 +92,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#user-head').height($('#user-head').width());
+        $(window).resize(function () {
+            $('#user-head').height($('#user-head').width());
+        });
+    </script>
 @endsection
 

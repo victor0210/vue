@@ -2,5 +2,25 @@
   border-radius: 0; }
   .tab-pane .list-group li:first-child {
     border-top: none; }
+  .tab-pane .list-group li .badge {
+    background-color: #2390b0; }
+
+.article-list-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px; }
+
+.thumbnail .jumbotron {
+  padding: 0;
+  background-color: #ededed;
+  margin-bottom: 0; }
+  .thumbnail .jumbotron img {
+    width: 100%;
+    border-radius: 50%; }
+
+.page-header {
+  margin-top: 0; }
+  .page-header h2 {
+    margin: 0; }
 
 /*# sourceMappingURL=article.css.map */

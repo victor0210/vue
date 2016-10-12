@@ -1,12 +1,44 @@
-.tab-pane{
-  .list-group{
-    li{
-      -webkit-border-radius:0;
-      -moz-border-radius:0;
-      border-radius:0;
-      &:first-child{
+@import "common-bootstrap/bootstrap/variables";
+
+.tab-pane {
+  .list-group {
+    li {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      &:first-child {
         border-top: none;
       }
+      .badge {
+        background-color: darken($brand-info, 10%);
+      }
     }
+  }
+}
+
+.article-list-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  .jumbotron {
+    padding: 0;
+    background-color: lighten(#999999, 33%);
+    margin-bottom: 0;
+    img {
+      width: 100%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.page-header {
+  margin-top: 0;
+  h2 {
+    margin: 0;
   }
 }
