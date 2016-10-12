@@ -54,9 +54,8 @@
             width: 100%;
             height: 100%; /* For at least Firefox */
             min-height: 100%;
-            /*-webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);*/
-            /*box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);*/
-            {{--background: url("{{ elixir('images/bg2.jpg') }}");--}}
+            -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
         }
 
         .site-wrapper img{
@@ -64,10 +63,10 @@
             height: 100%;
             position: fixed;
             z-index: 0;
-            -webkit-filter: blur(10px); /* Chrome, Opera */
-            -moz-filter: blur(10px);
-            -ms-filter: blur(10px);
-            filter: blur(10px);
+            /*-webkit-filter: blur(10px); !* Chrome, Opera *!*/
+            /*-moz-filter: blur(10px);*/
+            /*-ms-filter: blur(10px);*/
+            /*filter: blur(10px);*/
         }
 
         .site-wrapper-inner {
@@ -146,8 +145,11 @@
         }
 
         .cover .btn-lg {
+            width: 250px;
             padding: 10px 20px;
-            font-weight: bold;
+            font-weight: 500;
+            color:#fff;
+            background-color: rgba(0,0,0,0);
         }
 
         /*
@@ -201,7 +203,7 @@
 
 
 <div class="site-wrapper">
-    <img src="{{ elixir('images/bg4.jpg') }}">
+    <img src="{{ elixir('images/bg8.jpg') }}">
     <div class="site-wrapper-inner">
 
         <div class="cover-container">
@@ -212,7 +214,7 @@
                     <nav>
                         <ul class="nav masthead-nav">
                             <li class="active"><a href="#">Home</a></li>
-                            <li><a href="article">Articles</a></li>
+                            <li><a href="article">Article</a></li>
                             <li><a href="music">Music</a></li>
                         </ul>
                     </nav>

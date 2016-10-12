@@ -16,4 +16,3 @@ composer.lock
 /public/assets/web/
 /public/build
 .DS_Store
-/storage

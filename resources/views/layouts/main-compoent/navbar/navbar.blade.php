@@ -13,11 +13,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">BLOG</a>
+            <a href="/" class="navbar-brand">Home</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/article">Article</a></li>
                 <li><a href="/music">Music</a></li>
             </ul>
             <form class="navbar-form navbar-right">

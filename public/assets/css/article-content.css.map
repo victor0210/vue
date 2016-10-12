@@ -1,1 +1,1 @@
-{"version":3,"sources":["article-content.scss"],"names":[],"mappings":"AAAA;EACE,uBAAuB,EACxB","file":"article-content.css","sourcesContent":[".article-content,.panel-body {\n  word-break: break-word;\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["article-content.scss"],"names":[],"mappings":"AAAA;EAEI,sBAAsB,EACvB","file":"article-content.css","sourcesContent":[".article-content, .panel-body {\n  p {\n    word-wrap: break-word;\n  }\n}"],"sourceRoot":"/source/"}
