@@ -10,7 +10,7 @@
     }
 </style>
 
-<div class="container">
+<div class="container music-navbar">
     <nav class="navbar" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

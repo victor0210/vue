@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Comment_Replies;
 use App\Models\Records;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
@@ -46,8 +47,11 @@ class ArticlesController
         $content = Article::where('id', $id)->first();
         $content->content = EndaEditor::MarkDecode($content->content);
         $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
+
+
         foreach ($comments as $comment) {
             $comment->user_name = User::where('id', $comment->user_id)->value('name');
+            $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
         }
         return view('web.component.article-content.article-content', compact('content', 'comments'));
     }
@@ -99,5 +103,18 @@ class ArticlesController
             );
             return redirect('/user');
         }
+    }
+
+    public function reply(Request $request)
+    {
+        Comment_Replies::insert([
+            'comment_id' => $request->comment,
+            'sender_id' => Auth::user()->id,
+            'receiver_id' => $request->receiver,
+            'content' => $request['content'],
+            'created_at' => gmdate('Y-m-d H:i:s'),
+            'updated_at' => gmdate('Y-m-d H:i:s')
+        ]);
+        return Redirect::back();
     }
 }

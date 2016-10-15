@@ -1261,6 +1261,13 @@ a.text-primary:hover,
 a.text-primary:focus {
   color: #286090; }
 
+.text-gray {
+  color: #b3b3b3; }
+
+a.text-gray:hover,
+a.text-gray:focus {
+  color: #999999; }
+
 .text-success {
   color: #3c763d; }
 

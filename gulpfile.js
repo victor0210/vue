@@ -17,7 +17,8 @@ var ScssFile = [
     'article-content.scss',
     'user-center.scss',
     'admin.scss',
-    'article.scss'
+    'article.scss',
+    'zoom.scss'
 ];
 
 var JsFile = [

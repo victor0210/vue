@@ -11,40 +11,126 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>{{ $content->title }}</h1>
+                    <h2><img src="{{ $content->user->avatar_url }}"
+                             class="content-header-avatar">{{ $content->title }}
+                    </h2>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body well" id="article-content">
                     {!!  $content->content !!}
                 </div>
                 <form action="/send-comment/{{ $content->id }}" method="post">
                     {!! csrf_field() !!}
                     <div class="form-group">
-                        <lable for="commentsinput"><h3>Comment Area</h3></lable>
+                        <lable for="commentsinput">
+                            <h3>Comment Area
+                                <small>(Not support markdown now )</small>
+                            </h3>
+                        </lable>
                         <textarea id="commentsinput" class="form-control" name="comment" required></textarea>
                         @if ($errors->has('comment'))
                             <span class="help-block">
                                         <strong class="text-danger">{{ $errors->first('comment') }}</strong>
                                     </span>
                         @endif
-                            <input type="submit" class="btn btn-primary form-control" value="submit"
-                                   style="margin-top: 10px">
+                        <input type="submit" class="btn btn-primary form-control" value="submit"
+                               style="margin-top: 10px">
                     </div>
                 </form>
                 @foreach($comments as $item)
+
                     <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">{{ $item->user_name }}
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><img src="{{ $item->user->avatar_url }}" class="comment-avatar"
+                                                            alt="avatar">{{ $item->user_name }}
                             </div>
                             <div class="panel-body">
                                 {{ $item->content }}
                             </div>
-                            <div class="panel-footer">{{ $item->created_at }}
+                            <div class="panel-footer ">{{ $item->created_at }}
+                                @if(Auth::check())
+                                    @if(Auth::user()->name!=$item->user_name)
+                                        <span class="btn btn-primary reply"
+                                              data-toggle="modal"
+                                              data-target="#myModal"
+                                              data-receiver="{{ $item->user->id }}"
+                                              data-comment="{{ $item->id }}">Reply :</span>
+                                    @endif
+                                @else
+                                    <a href="/login"><span class="btn btn-primary reply">Reply :</span></a>
+                                @endif
                             </div>
                         </div>
+                        @if($item->reply->count()>0)
+                            <div class="well reply-well">
+                                <ul class="list-group reply-list">
+                                    @foreach($item->reply->sortByDesc('created_at') as $reply)
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <a href="">{{ $reply->sender->name }}</a> reply to <a
+                                                            href="">{{ $reply->receiver->name }} </a>: {{ $reply->content }}
+                                                    <p class="text-gray">{{ $reply->created_at }}
+                                                        @if(Auth::check())
+                                                            @if(Auth::user()->id!=$reply->sender->id)
+                                                                <span class="btn btn-primary reply"
+                                                                      data-toggle="modal"
+                                                                      data-target="#myModal"
+                                                                      data-receiver="{{ $reply->sender->id }}"
+                                                                      data-comment="{{ $item->id }}">Reply :</span>
+                                                            @endif
+                                                        @else
+                                                            <a href="/login"><span
+                                                                        class="btn btn-primary reply">Reply :</span></a>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
-
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Reply Area</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/reply-comment" method="post" id="reply-form">
+                        {!! csrf_field() !!}
+                        <div class="form-group">
+                            <input type="hidden" name="comment">
+                            <input type="hidden" name="receiver">
+                            <textarea name="content" id="reply-area" cols="30" rows="10"
+                                      class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="reply-submit">Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#reply-submit').click(function () {
+            $('#reply-form').submit();
+        });
+
+        $('.reply').click(function () {
+            $('input[name=receiver]').val($(this).data('receiver'));
+            $('input[name=comment]').val($(this).data('comment'));
+        });
+    </script>
 @endsection

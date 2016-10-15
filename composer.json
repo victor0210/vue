@@ -10,7 +10,8 @@
         "yuanchao/laravel-5-markdown-editor": "dev-master",
         "chromabits/purifier": "~2.1",
         "predis/predis": "^1.1",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "pusher/pusher-php-server": "^2.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -8,10 +8,14 @@ class Article extends Model
 {
     function comment()
     {
-        return $this->hasMany('Article\Models\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
-    public function Records(){
-        return $this->hasMany('Article\Models\Records');
+    public function records(){
+        return $this->hasMany('App\Models\Records');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User','user_id','id');
     }
 }

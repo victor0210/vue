@@ -1,5 +1,50 @@
-.article-content, .panel-body {
+#article-content, .panel-body {
   p {
     word-wrap: break-word;
   }
+}
+
+#article-content {
+  background: #fff;
+  img {
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid #999999;
+  }
+}
+
+.reply {
+  padding: 0 10px;
+  margin: 0;
+  height: 22px;
+  line-height: 18px;
+  font-size: 14px;
+  float: right;
+}
+
+.comment-avatar {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.reply-well {
+  margin-top: -20px;
+  .reply-list {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.content-header-avatar {
+  height: 50px;
+  width: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin-right: 10px;
 }

@@ -14,6 +14,7 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Mail;
+use YuanChao\Editor\EndaEditor;
 
 class IndexController extends Controller
 {
@@ -22,6 +23,7 @@ class IndexController extends Controller
         $articles = Article::orderBy('created_at', 'desc')->get();
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
+            $article->content = EndaEditor::MarkDecode($article->content);
         }
         return view('web.component.articles.articles', compact('articles'));
     }

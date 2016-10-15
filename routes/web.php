@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
     Route::post('post-article', 'ArticlesController@validateArticle');
     Route::get('mail','MailController@ship');
     Route::post('user/uploadAvatar','UserController@updateAvatar');
+    Route::post('reply-comment','ArticlesController@reply');
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
