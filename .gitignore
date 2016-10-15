@@ -16,3 +16,4 @@ composer.lock
 /public/assets/web/
 /public/build
 .DS_Store
+/public/path
