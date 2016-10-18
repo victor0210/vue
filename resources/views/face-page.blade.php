@@ -63,10 +63,10 @@
             height: 100%;
             position: fixed;
             z-index: 0;
-            /*-webkit-filter: blur(10px); !* Chrome, Opera *!*/
-            /*-moz-filter: blur(10px);*/
-            /*-ms-filter: blur(10px);*/
-            /*filter: blur(10px);*/
+            -webkit-filter: blur(10px); /* Chrome, Opera */
+            -moz-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
         }
 
         .site-wrapper-inner {
@@ -203,7 +203,7 @@
 
 
 <div class="site-wrapper">
-    <img src="{{ elixir('images/bg8.jpg') }}">
+    <img src="{{ elixir('images/bg6.jpg') }}">
     <div class="site-wrapper-inner">
 
         <div class="cover-container">

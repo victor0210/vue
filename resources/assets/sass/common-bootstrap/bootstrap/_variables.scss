@@ -21,6 +21,7 @@ $brand-info:            darken(#5bc0de,10%) !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 $brand-gray:            lighten(#999999,10%) !default;
+$brand-dark:            lighten(#222,10%) !default;
 
 
 //== Scaffolding
@@ -81,7 +82,7 @@ $headings-color:          inherit !default;
 
 // [converter] If $bootstrap-sass-asset-helper if used, provide path relative to the assets load path.
 // [converter] This is because some asset helpers, such as Sprockets, do not work with file-relative paths.
-$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/") !default;
 
 //** File name for all font files.
 $icon-font-name:          "glyphicons-halflings-regular" !default;
@@ -173,6 +174,10 @@ $btn-warning-border:             darken($btn-warning-bg, 5%) !default;
 $btn-danger-color:               #fff !default;
 $btn-danger-bg:                  $brand-danger !default;
 $btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+
+$btn-dark-color:                 #fff !default;
+$btn-dark-bg:                    $brand-dark !default;
+$btn-dark-border:                darken($btn-dark-bg, 5%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 

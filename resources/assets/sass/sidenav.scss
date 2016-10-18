@@ -1,0 +1,26 @@
+@import "common-bootstrap/bootstrap/variables";
+
+.sidenav-container {
+  margin: 0;
+  padding:0;
+  background: url("/images/bg9.jpg") no-repeat center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  .sidenav-info {
+    position: relative;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+  }
+  #dropdownMenu1{
+    position: relative;
+    left: 20px;
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    font-size: 20px;
+  }
+}
+

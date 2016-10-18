@@ -107,6 +107,8 @@ mark,
 
 @include text-emphasis-variant('.text-gray', $brand-gray);
 
+@include text-emphasis-variant('.text-gray', $brand-dark);
+
 @include text-emphasis-variant('.text-success', $state-success-text);
 
 @include text-emphasis-variant('.text-info', $state-info-text);

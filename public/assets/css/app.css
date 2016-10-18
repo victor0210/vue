@@ -238,8 +238,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("../fonts/glyphicons-halflings-regular.eot");
+  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -1267,6 +1267,13 @@ a.text-primary:focus {
 a.text-gray:hover,
 a.text-gray:focus {
   color: #999999; }
+
+.text-gray {
+  color: #3c3c3c; }
+
+a.text-gray:hover,
+a.text-gray:focus {
+  color: #222222; }
 
 .text-success {
   color: #3c763d; }
@@ -3038,6 +3045,43 @@ fieldset[disabled] a.btn {
     color: #d9534f;
     background-color: #fff; }
 
+.btn-dark {
+  color: #fff;
+  background-color: #3c3c3c;
+  border-color: #2f2f2f; }
+  .btn-dark:focus, .btn-dark.focus {
+    color: #fff;
+    background-color: #222222;
+    border-color: black; }
+  .btn-dark:hover {
+    color: #fff;
+    background-color: #222222;
+    border-color: #101010; }
+  .btn-dark:active, .btn-dark.active,
+  .open > .btn-dark.dropdown-toggle {
+    color: #fff;
+    background-color: #222222;
+    border-color: #101010; }
+    .btn-dark:active:hover, .btn-dark:active:focus, .btn-dark:active.focus, .btn-dark.active:hover, .btn-dark.active:focus, .btn-dark.active.focus,
+    .open > .btn-dark.dropdown-toggle:hover,
+    .open > .btn-dark.dropdown-toggle:focus,
+    .open > .btn-dark.dropdown-toggle.focus {
+      color: #fff;
+      background-color: #101010;
+      border-color: black; }
+  .btn-dark:active, .btn-dark.active,
+  .open > .btn-dark.dropdown-toggle {
+    background-image: none; }
+  .btn-dark.disabled:hover, .btn-dark.disabled:focus, .btn-dark.disabled.focus, .btn-dark[disabled]:hover, .btn-dark[disabled]:focus, .btn-dark[disabled].focus,
+  fieldset[disabled] .btn-dark:hover,
+  fieldset[disabled] .btn-dark:focus,
+  fieldset[disabled] .btn-dark.focus {
+    background-color: #3c3c3c;
+    border-color: #2f2f2f; }
+  .btn-dark .badge {
+    color: #3c3c3c;
+    background-color: #fff; }
+
 .btn-link {
   color: #337ab7;
   font-weight: normal;
@@ -3535,8 +3579,7 @@ tbody.collapse.in {
       display: block;
       padding: 10px 15px; }
       .nav > li > a:hover, .nav > li > a:focus {
-        text-decoration: none;
-        background-color: #eeeeee; }
+        text-decoration: none; }
     .nav > li.disabled > a {
       color: #777777; }
       .nav > li.disabled > a:hover, .nav > li.disabled > a:focus {
@@ -5773,5 +5816,12 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+#content-area {
+  padding-top: 50px; }
+
+#user-sidenav {
+  z-index: 999;
+  padding: 0; }
 
 /*# sourceMappingURL=app.css.map */

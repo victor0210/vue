@@ -18,11 +18,16 @@ var ScssFile = [
     'user-center.scss',
     'admin.scss',
     'article.scss',
-    'zoom.scss'
+    'zoom.scss',
+    'music.scss',
+    'navbar.scss',
+    'sidenav.scss'
 ];
 
 var JsFile = [
-    'user-center.js'
+    'common.js',
+    'user-center.js',
+    'music.js'
 ];
 
 var ScssPath = 'public/assets/css';

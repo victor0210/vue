@@ -1,36 +1,57 @@
 @import "common-bootstrap/bootstrap/variables";
 
+body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 .tab-pane {
   .list-group {
     li {
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      border-radius: 0;
-      &:first-child {
-        border-top: none;
+      margin: 10px 0;
+      border-bottom: 2px solid #F5F5F5;
+      padding-left: 70px;
+      padding-right: 70px;
+      .badge.agreement {
+        //background-color: $brand-primary;
       }
-      .badge {
-        background-color: darken($brand-info, 10%);
+      .glyphicon {
+        font-size: 20px;
+        //color: $brand-primary;
       }
     }
   }
 }
 
-.article-list-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+.list-group-item {
+  border: none;
+}
+
+.article-list-title.h2 {
+  color: #222;
+  font-size: 1.8em;
+  margin: 0 0 0.2em;
+  font-family: 'Open Sans', serif;
+  font-weight: 700;
 }
 
 .article-list-content {
-  height: 90px;
+  * {
+    font-size: 17px;
+    line-height: 23px;
+    margin: 0 0 10px;
+  }
+  height: 99px;
   overflow: hidden;
   word-wrap: break-word;
   margin-bottom: 10px;
-  * {
-    font-size: 14px;
-    line-height: 14px;
-  }
   img {
     display: none;
   }
@@ -52,4 +73,30 @@
   h2 {
     margin: 0;
   }
+}
+
+.nav[role='tablist'] {
+  li {
+    border: none;
+    transition: 1s;
+    border-bottom: 1px solid #fff;
+    letter-spacing: 1.1em;
+    a {
+      border: none;
+      color: #777;
+    }
+  }
+
+  li.active, li:hover {
+    border: none;
+    border-bottom: 1px solid #b4b4b4;
+    a {
+      border: none;
+      color: $brand-primary;
+    }
+  }
+}
+
+.nav.nav-tabs {
+  padding: 40px 70px 1px;
 }

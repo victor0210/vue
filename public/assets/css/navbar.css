@@ -1,0 +1,30 @@
+.navbar-toggle .icon-bar {
+  background: #333; }
+
+nav {
+  z-index: 999; }
+
+.navbar .nav li {
+  -webkit-transition: 1s;
+  transition: 1s;
+  border-bottom: 1px solid transparent; }
+  .navbar .nav li a {
+    -webkit-transition: 1s;
+    transition: 1s;
+    color: #666;
+    font-weight: 500; }
+
+.navbar .nav li.active, .navbar .nav li:hover {
+  border-bottom: 1px solid #eeeeee; }
+  .navbar .nav li.active a, .navbar .nav li:hover a {
+    color: #fff; }
+  .navbar .nav li.active .glyphicon, .navbar .nav li:hover .glyphicon {
+    color: #222; }
+
+#navbar[aria-expanded="false"] {
+  background-color: transparent; }
+
+#navbar[aria-expanded="true"] {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+/*# sourceMappingURL=navbar.css.map */

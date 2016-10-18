@@ -1,1 +1,10 @@
 @import "common-bootstrap/bootstrap";
+
+#content-area{
+  padding-top: 50px;
+}
+
+#user-sidenav{
+  z-index: 999;
+  padding:0;
+}

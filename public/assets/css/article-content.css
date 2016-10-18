@@ -1,5 +1,5 @@
-#article-content p, .panel-body p {
-  word-wrap: break-word; }
+#article-content, .panel-body {
+  word-break: break-all; }
 
 #article-content {
   background: #fff; }
