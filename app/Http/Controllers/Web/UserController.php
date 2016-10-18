@@ -16,6 +16,7 @@ use App\User;
 use Auth;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -28,7 +29,8 @@ class UserController extends Controller
             ->article()
             ->where('user_id', Auth::user()->id)
             ->get();
-        $records = Records::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
+        $records = Records::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(10);
+//        dd($records);
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
         }

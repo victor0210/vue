@@ -11,7 +11,7 @@ nav {
   .navbar .nav li a {
     -webkit-transition: 1s;
     transition: 1s;
-    color: #666;
+    color: #888;
     font-weight: 500; }
 
 .navbar .nav li.active, .navbar .nav li:hover {

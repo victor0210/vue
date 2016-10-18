@@ -2,23 +2,31 @@
 
 .sidenav-container {
   margin: 0;
-  padding:0;
-  background: url("/images/bg9.jpg") no-repeat center;
+  padding: 0;
+  //background: url("/images/bg9.jpg") no-repeat center;
   -webkit-background-size: cover;
   background-size: cover;
   color: #fff;
+  width: 300%;
+  //transition: all 2s 0.5s;
   .sidenav-info {
     position: relative;
+    font-family: 'Playfair Display', serif;
     img {
-      width: 100px;
-      height: 100px;
+      width: 140px;
+      height: 140px;
+      border: 3px solid #fff;
       border-radius: 50%;
     }
+    h4 {
+      width: 80%;
+      margin-left: 10%;
+    }
   }
-  #dropdownMenu1{
+  #dropdownMenu1 {
     position: relative;
     left: 20px;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     color: #fff;
     font-size: 20px;
   }

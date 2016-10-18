@@ -19,12 +19,8 @@ body {
       border-bottom: 2px solid #F5F5F5;
       padding-left: 70px;
       padding-right: 70px;
-      .badge.agreement {
-        //background-color: $brand-primary;
-      }
       .glyphicon {
         font-size: 20px;
-        //color: $brand-primary;
       }
     }
   }
@@ -34,24 +30,28 @@ body {
   border: none;
 }
 
-.article-list-title.h2 {
-  color: #222;
-  font-size: 1.8em;
-  margin: 0 0 0.2em;
-  font-family: 'Open Sans', serif;
-  font-weight: 700;
+.article-list-title h2 {
+  a {
+    letter-spacing: 0.05em;
+    color: $brand-dark;
+    font-size: 1.2em;
+    margin: 0 0 0.2em;
+    font-weight: 600;
+    font-family: 'Monaco', 'Lucida Console', monospace;
+  }
 }
 
 .article-list-content {
-  * {
-    font-size: 17px;
-    line-height: 23px;
-    margin: 0 0 10px;
-  }
   height: 99px;
   overflow: hidden;
   word-wrap: break-word;
   margin-bottom: 10px;
+  * {
+    font-family: 'Monaco', 'Lucida Console', monospace;
+    font-size: 17px;
+    line-height: 24px;
+    margin: 0 0 10px;
+  }
   img {
     display: none;
   }
@@ -79,24 +79,26 @@ body {
   li {
     border: none;
     transition: 1s;
-    border-bottom: 1px solid #fff;
-    letter-spacing: 1.1em;
+    border-bottom: 2px solid #fff;
     a {
       border: none;
-      color: #777;
+      color: #b4b4b4;
     }
   }
 
   li.active, li:hover {
     border: none;
-    border-bottom: 1px solid #b4b4b4;
+    border-bottom: 2px solid $brand-dark;
     a {
       border: none;
-      color: $brand-primary;
+      color: $brand-dark;
     }
   }
 }
 
 .nav.nav-tabs {
-  padding: 40px 70px 1px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 0 70px 1px;
 }

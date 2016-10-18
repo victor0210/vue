@@ -32,15 +32,15 @@ class ArticlesController
     function index($id)
     {
         if (Auth::check()) {
-            if (Records::where(['id' => $id, 'user_id' => Auth::user()->id])->get()->count() != 0)
-                Records::where(['id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
-            else {
+            if (Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->get()->isEmpty()) {
                 Records::insert([
                     'user_id' => Auth::user()->id,
                     'article_id' => $id,
                     'created_at' => gmdate('Y-m-d H:i:s'),
                     'updated_at' => gmdate('Y-m-d H:i:s')
                 ]);
+            } else {
+                Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
             }
         }
 

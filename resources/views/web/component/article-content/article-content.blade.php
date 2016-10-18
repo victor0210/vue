@@ -9,8 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row">
+        <div class="row"  id="article-main-content">
             <div class="col-md-10 col-md-offset-1">
                 <div class="page-header">
                     <h2><img src="{{ $content->user->avatar_url }}"
@@ -31,17 +30,17 @@
                         <textarea id="commentsinput" class="form-control" name="comment" required></textarea>
                         @if ($errors->has('comment'))
                             <span class="help-block">
-                                        <strong class="text-danger">{{ $errors->first('comment') }}</strong>
-                                    </span>
+        <strong class="text-danger">{{ $errors->first('comment') }}</strong>
+        </span>
                         @endif
-                        <input type="submit" class="btn btn-primary form-control" value="submit"
+                        <input type="submit" class="btn btn-dark form-control" value="submit"
                                style="margin-top: 10px">
                     </div>
                 </form>
                 @foreach($comments as $item)
 
                     <div class="col-md-12">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-dark">
                             <div class="panel-heading"><img src="{{ $item->user->avatar_url }}" class="comment-avatar"
                                                             alt="avatar">{{ $item->user_name }}
                             </div>
@@ -51,14 +50,14 @@
                             <div class="panel-footer ">{{ $item->created_at }}
                                 @if(Auth::check())
                                     @if(Auth::user()->name!=$item->user_name)
-                                        <span class="btn btn-primary reply"
+                                        <span class="btn btn-dark reply"
                                               data-toggle="modal"
                                               data-target="#myModal"
                                               data-receiver="{{ $item->user->id }}"
                                               data-comment="{{ $item->id }}">Reply :</span>
                                     @endif
                                 @else
-                                    <a href="/login"><span class="btn btn-primary reply">Reply :</span></a>
+                                    <a href="/login"><span class="btn btn-dark reply">Reply :</span></a>
                                 @endif
                             </div>
                         </div>
@@ -96,7 +95,6 @@
                 @endforeach
             </div>
         </div>
-    </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">

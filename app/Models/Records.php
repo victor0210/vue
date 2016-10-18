@@ -13,8 +13,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Records extends Model
 {
-    public function article()
-    {
-        return $this->article_id;
-    }
+//    public function article()
+//    {
+//        //return $this->article_id;
+//    }
 }

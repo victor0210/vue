@@ -13,8 +13,6 @@
                 <li name="tab1"><a href="/article">Article</a></li>
                 <li name="tab2"><a href="/music">Music</a></li>
                 <li name="tab3"><a href="/about">About</a></li>
-                <li name="tab4"><a href="/contact">Contact</a></li>
-                <li name="tab5"><a href="/user">User</a></li>
                 @if(Auth::user()->is_admin)
                     <li><a href="/admin">Admin</a></li>
                 @endif

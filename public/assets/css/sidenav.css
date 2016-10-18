@@ -1,15 +1,20 @@
 .sidenav-container {
   margin: 0;
   padding: 0;
-  background: url("/images/bg9.jpg") no-repeat center;
   background-size: cover;
-  color: #fff; }
+  color: #fff;
+  width: 300%; }
   .sidenav-container .sidenav-info {
-    position: relative; }
+    position: relative;
+    font-family: 'Playfair Display', serif; }
     .sidenav-container .sidenav-info img {
-      width: 100px;
-      height: 100px;
+      width: 140px;
+      height: 140px;
+      border: 3px solid #fff;
       border-radius: 50%; }
+    .sidenav-container .sidenav-info h4 {
+      width: 80%;
+      margin-left: 10%; }
   .sidenav-container #dropdownMenu1 {
     position: relative;
     left: 20px;

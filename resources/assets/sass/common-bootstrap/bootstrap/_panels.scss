@@ -269,3 +269,6 @@
 .panel-danger {
   @include panel-variant($panel-danger-border, $panel-danger-text, $panel-danger-heading-bg, $panel-danger-border);
 }
+.panel-dark {
+  @include panel-variant($panel-dark-border, $panel-dark-text, $panel-dark-heading-bg, $panel-dark-border);
+}

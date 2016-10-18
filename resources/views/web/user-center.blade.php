@@ -10,22 +10,25 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-            <a href="javascript:void(0);" class="thumbnail">
-                <form action="/user/uploadAvatar" method="POST" enctype="multipart/form-data">
-                    {!! csrf_field() !!}
-                    <label for="upload-head">
-                        <img src="{{ Auth::user()->avatar_url }}" id="user-head">
-                    </label>
-                    <input type="file" name="avatar" id="upload-head" accept="image/*">
-                </form>
-            </a>
+    <div class="row user-center">
+        <div class="col-md-12 col-sm-12 col-xs-12 page-header">
+            <h1>{{ Auth::user()->name }}
+                <small>Welcome to UserCenter !</small>
+                <span class="glyphicon glyphicon-cog" style="font-family: 'Glyphicons Halflings';cursor: pointer"
+                      data-toggle="modal" data-target="#editModal"></span>
+            </h1>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <div class="btn-group pull-left">
+                <a href="/add-article" class="btn btn-lg btn-primary">Add Article</a>
+                <a href="/article" class="btn btn-lg btn-dark">Article Center</a>
+                <a href="/admin" class="btn btn-lg btn-warning">Admin Center</a>
+            </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row user-center">
         <div class="col-md-6">
-            <div class="page-header text-center">
+            <div class="page-header">
                 <h2>My Articles</h2>
             </div>
             <div class="row">
@@ -41,7 +44,7 @@
         </div>
         @if($records)
             <div class="col-md-6">
-                <div class="page-header text-center">
+                <div class="page-header">
                     <h2>Watching Records</h2>
                 </div>
                 <div class="row">
@@ -69,23 +72,34 @@
             </div>
         @endif
     </div>
-
-
-
-    {{--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>--}}
-
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content text-center alert-danger">
-                请勿上传图片格式以外的文件 !
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Upload Avatar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form action="/user/uploadAvatar" method="POST" enctype="multipart/form-data">
+                            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+                                <a href="javascript:void(0);" class="thumbnail">
+                                    {!! csrf_field() !!}
+                                    <label for="upload-head">
+                                        <img src="{{ Auth::user()->avatar_url }}" id="user-head">
+                                    </label>
+                                    <input type="file" name="avatar" id="upload-head" accept="image/*">
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="alert-danger text-center" style="display: none"> 请勿上传图片格式以外的文件 !
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        $('#user-head').height($('#user-head').width());
-        $(window).resize(function () {
-            $('#user-head').height($('#user-head').width());
-        });
-    </script>
 @endsection

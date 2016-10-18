@@ -11,4 +11,7 @@ label {
 #upload-head {
   display: none; }
 
+.user-center * {
+  font-family: 'Monaco', 'Lucida Console', monospace; }
+
 /*# sourceMappingURL=user-center.css.map */

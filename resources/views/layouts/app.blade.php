@@ -19,10 +19,11 @@
 </head>
 
 <body>
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="user-sidenav">
+        <script>
+        </script>
+        <div class="col-xs-12" id="user-sidenav">
             @include('layouts.sidebar')
         </div>
         <div class="col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-12"

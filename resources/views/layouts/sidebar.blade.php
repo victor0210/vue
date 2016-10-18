@@ -1,12 +1,12 @@
 <div class="container sidenav-container">
+    <div class="floating" style="position: absolute;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5)"></div>
     <div class="sidenav-info text-center">
         @if(Auth::check())
             <a href="/user"><img src="{{ Auth::user()->avatar_url }}"></a>
-            <h2>{{ Auth::user()->name }}</h2>
-            <h3>
-                Here is some description of your own !
-                Here is some description of your own !
-            </h3>
+            <h1>{{ Auth::user()->name }}</h1>
+            <h4  style="font-family: 'Playfair Display', serif">
+                A modern blog theme, designed to optimize your reading experience as much as possible.
+            </h4>
         @else
             <h2>Welcome !</h2>
             <div class="btn-group">
