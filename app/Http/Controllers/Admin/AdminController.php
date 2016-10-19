@@ -13,12 +13,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdminController
 {
-
     public function index(Request $request)
     {
         if ($request->user()->isAdmin()) {
             return view('admin.index');
         }
-        return view('admin.web.permission-denied');
+        return view('errors.404');
     }
 }

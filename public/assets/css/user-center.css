@@ -1,4 +1,4 @@
-#user-head {
+#user-head, #user-background {
   width: 100%;
   border-radius: 50%; }
 
@@ -8,10 +8,13 @@ label {
   margin-left: 25%;
   width: 50%; }
 
-#upload-head {
+#upload-head, #upload-background {
   display: none; }
 
 .user-center * {
   font-family: 'Monaco', 'Lucida Console', monospace; }
+
+.glyphicon {
+  font-family: 'Glyphicons Halflings'; }
 
 /*# sourceMappingURL=user-center.css.map */

@@ -39,19 +39,20 @@ $(function () {
                     $('.sidenav-info').css('top', '30%');
                 });
                 $('.sidenav-container').css({
-                    'background-image': 'url("/images/bg8.jpg")',
+                    'background-image': 'url("'+ $('.sidenav-container').data('src') +'")',
                     'background-size': 'cover',
                     'background-repeat': 'no-repeat',
-                    'background-position': 'center'
+                    'background-position': 'center',
+                    'transition': '1s'
                 });
             });
-            $('.sidenav-container').height($(window).height()).width($(window).width()).fadeIn(500, function () {
-            }).animate({
+            $('.sidenav-container').height($(window).height()).width($(window).width()).fadeIn(500).animate({
                 'width': $(window).width() / 3
             }, 500);
         }
     };
     var resizeScreen = function () {
+        $('.sidenav-container').css('transition', 'none');
         if ($(window).width() < 768) {
             $('#user-sidenav').css(
                 {

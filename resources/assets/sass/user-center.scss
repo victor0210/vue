@@ -1,4 +1,4 @@
-#user-head {
+#user-head,#user-background {
   width: 100%;
   border-radius: 50%;
 }
@@ -10,10 +10,14 @@ label {
   width: 50%;
 }
 
-#upload-head {
+#upload-head,#upload-background {
   display: none;
 }
 
 .user-center *{
   font-family: 'Monaco', 'Lucida Console', monospace;
+}
+
+.glyphicon{
+  font-family: 'Glyphicons Halflings';
 }

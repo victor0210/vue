@@ -60,6 +60,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'background' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/background'),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',
