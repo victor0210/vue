@@ -92,7 +92,9 @@ a.btn {
   @include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
 }
 
-
+.btn-undark{
+  @include button-variant($btn-undark-color, $btn-undark-bg, $btn-undark-border);
+}
 // Link buttons
 // -------------------------
 

@@ -3082,6 +3082,43 @@ fieldset[disabled] a.btn {
     color: #3c3c3c;
     background-color: #fff; }
 
+.btn-undark {
+  color: #3c3c3c;
+  background-color: #fff;
+  border-color: #bfbfbf; }
+  .btn-undark:focus, .btn-undark.focus {
+    color: #3c3c3c;
+    background-color: #e6e6e6;
+    border-color: gray; }
+  .btn-undark:hover {
+    color: #3c3c3c;
+    background-color: #e6e6e6;
+    border-color: #a1a1a1; }
+  .btn-undark:active, .btn-undark.active,
+  .open > .btn-undark.dropdown-toggle {
+    color: #3c3c3c;
+    background-color: #e6e6e6;
+    border-color: #a1a1a1; }
+    .btn-undark:active:hover, .btn-undark:active:focus, .btn-undark:active.focus, .btn-undark.active:hover, .btn-undark.active:focus, .btn-undark.active.focus,
+    .open > .btn-undark.dropdown-toggle:hover,
+    .open > .btn-undark.dropdown-toggle:focus,
+    .open > .btn-undark.dropdown-toggle.focus {
+      color: #3c3c3c;
+      background-color: #d4d4d4;
+      border-color: gray; }
+  .btn-undark:active, .btn-undark.active,
+  .open > .btn-undark.dropdown-toggle {
+    background-image: none; }
+  .btn-undark.disabled:hover, .btn-undark.disabled:focus, .btn-undark.disabled.focus, .btn-undark[disabled]:hover, .btn-undark[disabled]:focus, .btn-undark[disabled].focus,
+  fieldset[disabled] .btn-undark:hover,
+  fieldset[disabled] .btn-undark:focus,
+  fieldset[disabled] .btn-undark.focus {
+    background-color: #fff;
+    border-color: #bfbfbf; }
+  .btn-undark .badge {
+    color: #fff;
+    background-color: #3c3c3c; }
+
 .btn-link {
   color: #337ab7;
   font-weight: normal;

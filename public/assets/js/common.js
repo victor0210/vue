@@ -9,7 +9,7 @@ $(function () {
                 }
             );
             $('.sidenav-container').css({
-                'background-image': 'url("/images/bg8.jpg")',
+                'background-image': 'url("'+$('.sidenav-container').data('src')+'")',
                 'background-size': 'cover',
                 'background-repeat': 'no-repeat',
                 'background-position': 'center'

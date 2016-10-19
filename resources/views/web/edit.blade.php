@@ -16,7 +16,7 @@
         }
     </style>
     @include('layouts.navbar')
-    <div class="container" style="margin-top: 50px;opacity: 0.9;">
+    <div class="container" style="margin-top: 50px;">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <form action="/post-article" method="post">
