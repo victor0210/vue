@@ -10,7 +10,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-menu" data-tab="@yield('tab')">
-                <li name="tab1"><a href="/article">Article</a></li>
+                <li name="tab1"><a href="{!! route('article',['collection'=>'all']) !!}">Article</a></li>
                 <li name="tab2"><a href="/music">Music</a></li>
                 <li name="tab3"><a href="/about">About</a></li>
                 @if(Auth::user()->is_admin)

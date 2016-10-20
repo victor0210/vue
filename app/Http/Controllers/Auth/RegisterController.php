@@ -90,7 +90,7 @@ class RegisterController extends Controller
                 ->withErrors($validate)
                 ->withInput($request->input());
         } else {
-            $this->mail($request);
+//            $this->mail($request);
             $this->create($request->input());
             Auth::attempt(['email' => $request->email, 'password' => $request->password]);
             return redirect('/');

@@ -41,7 +41,7 @@ elixir(function (mix) {
         'admin/Chart.js',
         'admin/metisMenu.js',
         'admin/app.js',
-        'admin/frontend.js'
+        // 'admin/frontend.js'
     ], JsPath+'/admin.js');
 
     ScssFile.forEach(function (file) {

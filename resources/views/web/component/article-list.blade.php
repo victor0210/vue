@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12 article-list-title">
             <h2>
-                <a href="content/{{ $item->id }}" class="text-gray">
+                <a href="/content/{{ $item->id }}" class="text-gray">
                     {{$item->title}}
                 </a>
             </h2>

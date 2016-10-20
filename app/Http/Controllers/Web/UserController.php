@@ -29,7 +29,6 @@ class UserController extends Controller
             ->where('user_id', Auth::user()->id)
             ->get();
         $records = Records::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(10);
-//        dd($records);
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
         }

@@ -24,16 +24,15 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('content/{id}', 'ArticlesController@index');
-    Route::get('/article', 'IndexController@index');
-    Route::get('/', function () {
-        return view('face-page');
-    });
+    Route::get('/article/{collection?}', ['as' => 'article', 'uses' => 'IndexController@index']);
+    Route::get('/', ['as' => 'collection', 'uses' => 'IndexController@collection']);
     Route::get('music', 'MusicController@index');
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::get('/searchArticle', 'ArticlesController@index');
     Route::post('/uploadImg', 'ArticlesController@uploadImg');
+    Route::post('/collection-status', ['as' => 'collectionStatus', 'uses' => 'AdminController@collectionStatus']);
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
@@ -49,5 +48,9 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'AdminController@index');
-    Route::get('Category', 'AdminController@category');
+    Route::get('categories', 'AdminController@category');
+    Route::post('categories/add-new-collection', 'AdminController@create');
+    Route::get('categories/add-new-collection', 'AdminController@categoryAdd');
+    Route::get('categories/edit/{id}', 'AdminController@categoryEdit');
+    Route::post('categories/edit', 'AdminController@categoryUploadImage');
 });

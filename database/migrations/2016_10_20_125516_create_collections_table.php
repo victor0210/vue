@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleTable extends Migration
+class CreateCollectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->string('title');
-            $table->string('collection');
-            $table->string('content',12480)->nullable();
-            $table->timestamps('created_at');
+            $table->string('name');
+            $table->string('image');
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
         });
     }
 
