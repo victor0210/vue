@@ -240,6 +240,10 @@
                             <a href="{{ url ('/admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li {{ (Request::is('/admin/charts') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('/admin/Categories') }}"><i class="fa fa-th-list fa-fw"></i> Categories</a>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li {{ (Request::is('/admin/charts') ? 'class="active"' : '') }}>
                             <a href="{{ url ('/admin/charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
                             <!-- /.nav-second-level -->
                         </li>

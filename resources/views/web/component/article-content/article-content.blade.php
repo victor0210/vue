@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <lable for="commentsinput">
                         <h3>Comment Area
-                            <small>(Not support markdown now )</small>
+                            <small>(Not support markdown now)</small>
                         </h3>
                     </lable>
                     <textarea id="commentsinput" class="form-control" name="comment" required></textarea>
@@ -40,10 +40,14 @@
             @foreach($comments as $item)
                 <div class="col-md-12">
                     <div class="page-header">
-                        <p class="text-primary comment-title"><img src="{{ $item->user->avatar_url }}" class="comment-avatar"
-                                                     alt="avatar">{{ $item->user_name }} :</p>
-                        <p class="comment-content">{{ $item->content }}</p>
-                        <div class="comment-footer">{{ $item->created_at }}
+                        <p class="text-primary comment-title"><img src="{{ $item->user->avatar_url }}"
+                                                                   class="comment-avatar"
+                                                                   alt="avatar">{{ $item->user_name }} :</p>
+                        <p class="comment-content well">{{ $item->content }}</p>
+                        <div class="comment-footer">
+                            <div class="badge">
+                                {!! $item->created_at->diffForHumans() !!}
+                            </div>
                             @if(Auth::check())
                                 @if(Auth::user()->name!=$item->user_name)
                                     <span class="btn btn-undark reply"
@@ -59,15 +63,22 @@
                     </div>
 
                     @if($item->reply->count()>0)
-                        <div class="well reply-well">
+                        <div class="reply-well">
                             <ul class="list-group reply-list">
                                 @foreach($item->reply->sortByDesc('created_at') as $reply)
                                     <li class="list-group-item">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <a href="">{{ $reply->sender->name }}</a> reply to <a
-                                                        href="">{{ $reply->receiver->name }} </a>: {{ $reply->content }}
-                                                <p class="text-gray">{{ $reply->created_at }}
+                                                <a href=""><img src="{{ $reply->sender->avatar_url }}"
+                                                                class="reply-avatar">{{ $reply->sender->name }}</a>
+                                                <span class="glyphicon glyphicon-bullhorn text-danger"
+                                                      title="reply to"
+                                                      style="font-family: 'Glyphicons Halflings';"></span>
+                                                <a href=""><img src="{{ $reply->receiver->avatar_url }}"
+                                                                class="reply-avatar">{{ $reply->receiver->name }}
+                                                </a>: {{ $reply->content }}
+                                                <p class="text-gray"><span
+                                                            class="badge">{!! $reply->created_at->diffForHumans() !!}</span>
                                                     @if(Auth::check())
                                                         @if(Auth::user()->id!=$reply->sender->id)
                                                             <span class="btn btn-undark reply"

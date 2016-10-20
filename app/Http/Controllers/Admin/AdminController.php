@@ -13,11 +13,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdminController
 {
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->user()->isAdmin()) {
-            return view('admin.index');
-        }
-        return view('errors.404');
+        return view('admin.index');
+    }
+
+    public function category()
+    {
+        return view('admin.web.category');
     }
 }
