@@ -49,7 +49,6 @@
         $('input[type=checkbox]').change(function () {
             var status = $(this)[0].checked ? '1' : '0';
             var id = $(this).data('id');
-            console.log(id);
             $.ajax('/api/collection-status', {
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

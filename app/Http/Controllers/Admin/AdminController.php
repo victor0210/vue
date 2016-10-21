@@ -9,13 +9,14 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Http\Controllers\Controller;
 use App\Models\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Validator;
 
-class AdminController
+class AdminController extends Controller
 {
     public function index()
     {
@@ -62,19 +63,19 @@ class AdminController
 
     public function categoryAdd()
     {
-        return view('admin.web.category-add');
+        return view('admin.web.category.category-add');
     }
 
     public function category()
     {
         $collections = Collection::get();
-        return view('admin.web.category', compact('collections'));
+        return view('admin.web.category.category', compact('collections'));
     }
 
     public function categoryEdit($id)
     {
         $name = Collection::where('id', $id)->value('name');
-        return view('admin.web.category-edit', compact('name'));
+        return view('admin.web.category.category-edit', compact('name'));
     }
 
     public function categoryUploadImage(Request $request)

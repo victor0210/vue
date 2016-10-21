@@ -17,4 +17,8 @@ label {
 .glyphicon {
   font-family: 'Glyphicons Halflings'; }
 
+#records-board .glyphicon-remove, #articles-board .glyphicon-remove {
+  display: none;
+  cursor: pointer; }
+
 /*# sourceMappingURL=user-center.css.map */

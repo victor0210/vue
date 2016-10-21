@@ -239,8 +239,12 @@
                         <li {{ (Request::is('/admin/') ? 'class="active"' : '') }}>
                             <a href="{{ url ('/admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li {{ (Request::is('/admin/charts') ? 'class="active"' : '') }}>
+                        <li {{ (Request::is('/admin/categories') ? 'class="active"' : '') }}>
                             <a href="{{ url ('/admin/categories') }}"><i class="fa fa-th-list fa-fw"></i> Categories</a>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li {{ (Request::is('/admin/articles') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('/admin/articles') }}"><i class="fa fa-pencil fa-fw"></i> Articles</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li {{ (Request::is('/admin/charts') ? 'class="active"' : '') }}>

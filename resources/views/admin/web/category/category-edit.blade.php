@@ -2,7 +2,7 @@
 @section('page_heading','Collections')
 @section('section')
     <div class="col-md-4">
-        <form action="./" method="post" enctype="multipart/form-data">
+        <form action="../" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group form-horizontal">
                 <input type="hidden" name="name" value="{{ $name }}">

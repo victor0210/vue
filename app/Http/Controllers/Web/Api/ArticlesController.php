@@ -14,8 +14,6 @@ use YuanChao\Editor\EndaEditor;
 class ArticlesController extends Controller
 {
     public function index(){
-        $resp=Article::get();
-        dd($resp);
     }
 
     public function uploadImg(){

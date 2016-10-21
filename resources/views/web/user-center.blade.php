@@ -21,7 +21,8 @@
                 <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#editModal">Avatar Upload <span
                             class="glyphicon glyphicon-cog"></span>
                 </button>
-                <button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#backgroundModal">Background Upload <span
+                <button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#backgroundModal">Background Upload
+                    <span
                             class="glyphicon glyphicon-cog"></span>
                 </button>
             </div>
@@ -30,23 +31,26 @@
             <div class="btn-group pull-left">
                 <a href="/add-article" class="btn btn-lg btn-primary">Add Article</a>
                 <a href="/article" class="btn btn-lg btn-danger">Article Center</a>
-                @if(Auth::user()->isAdmin())
-                    <a href="/admin" class="btn btn-lg btn-warning">Admin Center</a>
-                @endif
             </div>
         </div>
     </div>
     <div class="row user-center">
         <div class="col-md-6">
             <div class="page-header">
-                <h2>My Articles</h2>
+                <h2>My Articles
+                    <button class="btn btn-sm btn-warning pull-right articles-edit"><span
+                                class="glyphicon glyphicon-edit"></span>Edit
+                    </button>
+                </h2>
             </div>
             <div class="row">
                 @foreach($articles as $article)
                     <div class="col-md-12">
-                        <li class="list-group-item">
-                            <span class="badge">{{ $article->comment_count }}</span>
+                        <li class="list-group-item" id="articles-board">
+                            <span class="badge articles-badge">{{ $article->comment_count }}</span>
                             <a href="content/{{ $article->id }}">{{$article->title}}</a>
+                            <span class="glyphicon glyphicon-remove text-danger pull-right articles-remove"
+                                  data-id="{{ $article->id }}"></span>
                         </li>
                     </div>
                 @endforeach
@@ -55,14 +59,20 @@
         @if($records)
             <div class="col-md-6">
                 <div class="page-header">
-                    <h2>Watching Records</h2>
+                    <h2>Watching Records
+                        <button class="btn btn-sm btn-warning pull-right records-edit"><span
+                                    class="glyphicon glyphicon-edit"></span>Edit
+                        </button>
+                    </h2>
                 </div>
                 <div class="row">
                     @foreach($records as $record)
                         <div class="col-md-12">
-                            <li class="list-group-item">
-                                <span class="badge">{{ $record->updated_at }}</span>
+                            <li class="list-group-item" id="records-board">
+                                <span class="badge records-badge">{{ $record->updated_at }}</span>
                                 <a href="content/{{ $record->article_id }}">{{$record->title}}</a>
+                                <span class="glyphicon glyphicon-remove text-danger pull-right records-remove"
+                                      data-id="{{ $record->id }}"></span>
                             </li>
                         </div>
                     @endforeach
@@ -92,7 +102,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form action="/user/uploadAvatar" method="POST" enctype="multipart/form-data"  id="form-avater">
+                        <form action="/user/uploadAvatar" method="POST" enctype="multipart/form-data" id="form-avater">
                             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
                                 <a href="javascript:void(0);" class="thumbnail">
                                     {!! csrf_field() !!}
@@ -123,7 +133,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form action="/user/uploadBackground" method="POST" enctype="multipart/form-data"  id="form-background">
+                        <form action="/user/uploadBackground" method="POST" enctype="multipart/form-data"
+                              id="form-background">
                             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
                                 <a href="javascript:void(0);" class="thumbnail">
                                     {!! csrf_field() !!}
@@ -145,4 +156,13 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="reply-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="reply-info" class="text-center"></p>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @endsection

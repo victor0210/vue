@@ -21,3 +21,10 @@ label {
 .glyphicon{
   font-family: 'Glyphicons Halflings';
 }
+
+#records-board,#articles-board{
+  .glyphicon-remove{
+    display: none;
+    cursor: pointer;
+  }
+}

@@ -31,29 +31,33 @@ class ArticlesController
 
     function index($id)
     {
-        if (Auth::check()) {
-            if (Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->get()->isEmpty()) {
-                Records::insert([
-                    'user_id' => Auth::user()->id,
-                    'article_id' => $id,
-                    'created_at' => gmdate('Y-m-d H:i:s'),
-                    'updated_at' => gmdate('Y-m-d H:i:s')
-                ]);
-            } else {
-                Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
+        if (Article::where('id', $id)->get()->isEmpty()) {
+            return Redirect::back();
+        } else {
+            if (Auth::check()) {
+                if (Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->get()->isEmpty()) {
+                    Records::insert([
+                        'user_id' => Auth::user()->id,
+                        'article_id' => $id,
+                        'created_at' => gmdate('Y-m-d H:i:s'),
+                        'updated_at' => gmdate('Y-m-d H:i:s')
+                    ]);
+                } else {
+                    Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
+                }
             }
+
+            $content = Article::where('id', $id)->first();
+            $content->content = EndaEditor::MarkDecode($content->content);
+            $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
+
+
+            foreach ($comments as $comment) {
+                $comment->user_name = User::where('id', $comment->user_id)->value('name');
+                $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
+            }
+            return view('web.component.article-content.article-content', compact('content', 'comments'));
         }
-
-        $content = Article::where('id', $id)->first();
-        $content->content = EndaEditor::MarkDecode($content->content);
-        $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
-
-
-        foreach ($comments as $comment) {
-            $comment->user_name = User::where('id', $comment->user_id)->value('name');
-            $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
-        }
-        return view('web.component.article-content.article-content', compact('content', 'comments'));
     }
 
     public function postComment(Request $request, $id)
