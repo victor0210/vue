@@ -24,7 +24,7 @@
             @include('layouts.sidebar')
         </div>
         <div class="col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-12"
-             id="content-area" >
+             id="content-area">
             @yield('content')
         </div>
     </div>

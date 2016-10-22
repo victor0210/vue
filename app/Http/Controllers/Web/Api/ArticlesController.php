@@ -18,8 +18,8 @@ class ArticlesController extends Controller
     public function index(Request $request)
     {
         $articles = Article::where($request->key, $request->val)->get();
-        if ($request->val=='all') {
-            $articles=Article::get();
+        if ($articles->count()==0) {
+            $articles=Article::limit(10)->get();
         }
         return $articles;
     }
@@ -28,5 +28,10 @@ class ArticlesController extends Controller
     {
         $data = EndaEditor::uploadImgFile('path');
         return json_encode($data);
+    }
+
+    public function getArticlePage(){
+        $articles = Article::paginate(10);
+        return $articles;
     }
 }

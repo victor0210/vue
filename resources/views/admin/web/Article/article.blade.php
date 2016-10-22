@@ -63,9 +63,14 @@
         </table>
         <nav aria-label="...">
             <ul class="pagination">
-                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+                <li>
+                    <button title="@{{ previous }}" aria-label="Previous" class="api-btn"><span
+                                aria-hidden="true">&laquo;</span></button>
+                </li>
+                <li>
+                    <button title="@{{ next }}" aria-label="Next" class="api-btn"><span
+                                aria-hidden="true">&raquo;</span></button>
+                </li>
             </ul>
         </nav>
     </div>
@@ -81,14 +86,29 @@
     </div><!-- /.modal -->
 
     <script>
+        var articleArr = [];
+
+        var current = 1;
+        var total;
+
         var articleList = new Vue({
             el: '#list-article',
             data: {
-                articles: ''
+                articles: '',
+                next: '',
+                previous: ''
             },
             methods: {
                 setData: function (data) {
                     this.articles = data;
+                },
+                setUrl: function (data) {
+                    this.next = data.next_page_url;
+                    this.previous = data.prev_page_url;
+                    this.current = data.current_page;
+                },
+                getCurrentPage: function () {
+                    return this.current;
                 }
             }
         });
@@ -99,9 +119,11 @@
 
         });
 
-        var getArticle = function (val) {
-
-            $.ajax('/api/articles', {
+        $('.api-btn').click(function () {
+            getArticlePage($(this)[0].title)
+        });
+        var getArticle = function (url, val) {
+            $.ajax(url, {
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -111,11 +133,37 @@
                     val: val
                 },
                 success: function (data) {
+                    console.log(data);
                     articleList.setData(data);
                 },
             });
         };
+        var getArticlePage = function (url) {
+            if (!!articleArr[url.split('=')[1]-1]) {
+                articleList.setData(articleArr[url.split('=')[1]-1].data);
+                articleList.setUrl(articleArr[url.split('=')[1]-1]);
+            } else {
+                if (!!url.split('=')[1]) {
+                    $.ajax(url, {
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: 'get',
+                        success: function (data) {
+                            articleList.setData(data.data);
+                            articleList.setUrl(data);
+                            articleArr[data.current_page-1] = data;
+                            total = data.last_page;
+                            current = data.current_page;
+                        }
+                    });
+                }
+                else
+                    return ;
 
-        getArticle('all')
+            }
+        };
+
+        getArticlePage('/api/articles-page?page=1')
     </script>
 @endsection
