@@ -30,7 +30,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12 text-center">
             <div class="btn-group pull-left">
                 <a href="/add-article" class="btn btn-lg btn-primary">Add Article</a>
-                <a href="/article" class="btn btn-lg btn-danger">Article Center</a>
+                <a href="/article/all" class="btn btn-lg btn-danger">Article Center</a>
             </div>
         </div>
     </div>

@@ -14,6 +14,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Records;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -35,8 +36,16 @@ class UserController extends Controller
 
     public function deleteArticles(Request $request)
     {
-//        return Comment::find(7)->comment_replies()->get();
-////         Article::find($request->id)->comment()->get();
-////        Article::find($request->id)->delete();
+        if (Auth::user()->id == Article::find($request->id)->user->id) {
+            $comments = Article::find($request->id)->comment()->get();
+            foreach ($comments as $comment) {
+                Comment::find($comment->id)->comment_replies()->delete();
+            }
+            Article::find($request->id)->comment()->delete();
+            Article::find($request->id)->delete();
+            return response('Succeed', 200);
+        } else {
+            return response('Failed', 500);
+        }
     }
 }
