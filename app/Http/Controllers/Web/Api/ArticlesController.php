@@ -10,13 +10,22 @@ namespace App\Http\Controllers\Web\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use Illuminate\Http\Request;
 use YuanChao\Editor\EndaEditor;
+
 class ArticlesController extends Controller
 {
-    public function index(){
+    public function index(Request $request)
+    {
+        $articles = Article::where($request->key, $request->val)->get();
+        if ($request->val=='all') {
+            $articles=Article::get();
+        }
+        return $articles;
     }
 
-    public function uploadImg(){
+    public function uploadImg()
+    {
         $data = EndaEditor::uploadImgFile('path');
         return json_encode($data);
     }

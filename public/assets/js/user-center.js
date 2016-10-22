@@ -70,8 +70,7 @@ $(function () {
                 data: {
                     id: id
                 },
-                success: function (data) {
-                    console.log(data);
+                success: function () {
                     _this.parent('li').fadeOut(200);
                     modalSuccess();
                 },

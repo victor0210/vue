@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ elixir('assets/css/zoom.css') }}">
     <script src="{{ elixir("assets/js/admin.js") }}" type="text/javascript"></script>
     <script src="{{ elixir('js/zoom.min.js') }}"></script>
+    <script src="{{ elixir('assets/js/vue.min.js') }}"></script>
 </head>
 <body>
 @yield('content')

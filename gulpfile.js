@@ -38,10 +38,8 @@ elixir(function (mix) {
     mix.scripts([
         'admin/jquery.js',
         'admin/bootstrap.js',
-        'admin/Chart.js',
-        'admin/metisMenu.js',
         'admin/app.js',
-        // 'admin/frontend.js'
+        'admin/metisMenu.js'
     ], JsPath+'/admin.js');
 
     ScssFile.forEach(function (file) {

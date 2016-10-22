@@ -30,7 +30,7 @@ Route::group(['namespace' => 'Web'], function () {
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
-    Route::get('/searchArticle', 'ArticlesController@index');
+    Route::get('/articles', 'ArticlesController@index');
     Route::post('/uploadImg', 'ArticlesController@uploadImg');
     Route::post('/collection-status', ['as' => 'collectionStatus', 'uses' => 'AdminController@collectionStatus']);
     Route::post('/delete-record', 'UserController@deleteRecords');
