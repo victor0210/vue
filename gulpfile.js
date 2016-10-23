@@ -27,7 +27,8 @@ var ScssFile = [
 var JsFile = [
     'common.js',
     'user-center.js',
-    'music.js'
+    'music.js',
+    'article.js'
 ];
 
 var ScssPath = 'public/assets/css';

@@ -3157,6 +3157,12 @@ fieldset[disabled] a.btn {
   line-height: 1.5;
   border-radius: 3px; }
 
+.btn-xxs {
+  padding: 3px 3px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px; }
+
 .btn-block {
   display: block;
   width: 100%; }
@@ -5867,9 +5873,6 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-
-* {
-  font-family: 'Gentium Basic', serif; }
 
 #content-area {
   padding-top: 50px;

@@ -2,10 +2,10 @@
      @if(Auth::check())
      data-src="{{ Auth::user()->background_url }}"
      @else
-     data-src="{{ elixir('images/bg9.jpg') }}"
+     data-src="{{ elixir('images/bg12.jpg') }}"
         @endif
 >
-    <div class="floating" style="position: absolute;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5)"></div>
+    <div class="floating" style="position: absolute;width: 100%;height: 100%;background-color: rgba(0,0,0,0.1)"></div>
     <div class="sidenav-info text-center">
         @if(Auth::check())
             <a href="/user"><img src="{{ Auth::user()->avatar_url }}"></a>
@@ -14,14 +14,12 @@
                 A modern blog theme, designed to optimize your reading experience as much as possible.
             </h4>
         @else
-            <h2>Welcome !</h2>
+            <h1>Light Blog</h1>
+            <h3>Communication · Share · Progress</h3>
+            <h4>A place for Web-Engineer</h4>
             <div class="btn-group">
-                <a href="/login" class="btn btn-dark btn-lg">Login</a>
-                <a href="/register" class="btn btn-default btn-lg">Sign up</a>
+            <a href="/login" class="btn btn-lg btn-success">Get To Write</a>
             </div>
         @endif
     </div>
-    @if(Auth::check())
-        @include('layouts.navbar')
-    @endif
 </div>

@@ -5,26 +5,13 @@
     <title>@yield('title')</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="initial-scale=1">
     <link rel="stylesheet" href="{{ elixir('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/navbar.css') }}">
     <script src="{{ elixir('js/jquery.js') }}"></script>
     <script src="{{ elixir('js/bootstrap.js') }}"></script>
     @yield('extra-css-js')
     <style>
-        #auth-temp {
-            background-size: contain;
-            -webkit-background-size: contain;
-            background: url('{{ elixir("images/4k2.jpg") }}') no-repeat left;
-            transition: 100s linear;
-        }
-
-        .affix {
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: -1
-        }
-
         .container {
             padding-top: 10%;
         }

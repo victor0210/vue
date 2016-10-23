@@ -1,17 +1,22 @@
 <li class="list-group-item">
     <div class="row">
-        <div class="col-md-12 article-list-title">
-            <h2>
+        <div class="col-md-10 col-xs-8 col-sm-8 article-list-title">
+
+            <a href="" class="text-primary">{{ $item->user->name }}
+                <span style="color:#999;margin-bottom: 30px">· about {!! $item->created_at->diffForHumans() !!}</span>
+            </a>
+            <h4 style="margin:10px auto">
                 <a href="/content/{{ $item->id }}" class="text-gray">
                     {{$item->title}}
                 </a>
-            </h2>
+                <img src="" alt="">
+            </h4>
+            <h6 style="color: #999999">
+                watch(20) · comment(30) · bingo(50)
+            </h6>
         </div>
-        <div class="col-md-12 article-list-content">
-            {!!  $item->content !!}
-        </div>
-        <div class="col-md-12" style="color:#999;margin-bottom: 30px">
-            <a href="" class="text-primary">{{ $item->user->name }}</a> ● {{ $item->created_at->setTimeZone('Asia/Chongqing')->format('y-m-d') }}
+        <div class="col-md-2 col-xs-4 col-sm-4">
+            <img src="{{ elixir('images/bg8.jpg') }}" alt="" style="height: 90px;width: 90px">
         </div>
     </div>
 </li>

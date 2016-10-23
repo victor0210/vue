@@ -10,16 +10,14 @@ body {
 
 .tab-pane .list-group li {
   margin: 10px 0;
-  border-bottom: 2px solid #F5F5F5;
-  padding-left: 70px;
-  padding-right: 70px; }
+  border-bottom: 2px solid #F5F5F5; }
   .tab-pane .list-group li .glyphicon {
     font-size: 20px; }
 
 .list-group-item {
   border: none; }
 
-.article-list-title h2 a {
+.article-list-title h4 a {
   letter-spacing: 0.05em;
   color: #3c3c3c;
   font-size: 1.2em;
@@ -37,8 +35,6 @@ body {
     font-size: 17px;
     line-height: 24px;
     margin: 0 0 10px; }
-  .article-list-content img {
-    display: none; }
 
 .thumbnail .jumbotron {
   padding: 0;
@@ -56,7 +52,7 @@ body {
   border: none;
   -webkit-transition: 1s;
   transition: 1s;
-  border-bottom: 2px solid #fff; }
+  border-bottom: 2px solid transparent; }
   .nav[role='tablist'] li a {
     border: none;
     color: #b4b4b4; }
@@ -71,7 +67,6 @@ body {
 .nav.nav-tabs {
   border-bottom: 1px solid #ddd;
   font-size: 16px;
-  letter-spacing: 2px;
-  padding: 0 70px 1px; }
+  letter-spacing: 2px; }
 
 /*# sourceMappingURL=article.css.map */

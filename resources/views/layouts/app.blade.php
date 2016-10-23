@@ -5,6 +5,7 @@
     <title>@yield('title')</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="initial-scale=1">
     <link rel="stylesheet" href="{{ elixir('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/zoom.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/navbar.css') }}">
@@ -19,6 +20,7 @@
 
 <body>
 <div class="container-fluid">
+    @include('layouts.navbar')
     <div class="row">
         <div class="col-xs-12" id="user-sidenav">
             @include('layouts.sidebar')

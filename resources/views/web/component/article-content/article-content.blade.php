@@ -10,56 +10,41 @@
 
 @section('content')
     <div class="row" id="article-main-content">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-8 col-md-offset-2">
             <div class="page-header">
-                <h2>
-                    {{ $content->title }}
-                </h2>
+                <img src="{{ $content->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
+                <a href="">{{ $content->user->name }}</a> · <span
+                        style="color:#b4b4b4">{{ $content->created_at->format('M·d·Y')}}</span>
             </div>
-            <div class="well" id="article-content">
+            <div id="article-content">
                 {!!  $content->content !!}
             </div>
-            <form action="/send-comment/{{ $content->id }}" method="post">
-                {!! csrf_field() !!}
-                <div class="form-group">
-                    <lable for="commentsinput">
-                        <h3>Comment Area
-                            <small>(Not support markdown now)</small>
-                        </h3>
-                    </lable>
-                    <textarea id="commentsinput" class="form-control" name="comment" required></textarea>
-                    @if ($errors->has('comment'))
-                        <span class="help-block">
-        <strong class="text-danger">{{ $errors->first('comment') }}</strong>
-        </span>
-                    @endif
-                    <input type="submit" class="btn btn-undark form-control" value="submit"
-                           style="margin-top: 10px">
-                </div>
-            </form>
             @foreach($comments as $item)
                 <div class="col-md-12">
                     <div class="page-header">
-                        <p class="text-primary comment-title"><img src="{{ $item->user->avatar_url }}"
-                                                                   class="comment-avatar"
-                                                                   alt="avatar">{{ $item->user_name }} :</p>
-                        <p class="comment-content well">{{ $item->content }}</p>
-                        <div class="comment-footer">
-                            <div class="badge">
-                                {!! $item->created_at->diffForHumans() !!}
-                            </div>
-                            @if(Auth::check())
-                                @if(Auth::user()->name!=$item->user_name)
-                                    <span class="btn btn-undark reply"
-                                          data-toggle="modal"
-                                          data-target="#myModal"
-                                          data-receiver="{{ $item->user->id }}"
-                                          data-comment="{{ $item->id }}">Reply</span>
-                                @endif
-                            @else
-                                <a href="/login"><span class="btn btn-undark reply">Reply</span></a>
+                        <img src="{{ $item->user->avatar_url }}"
+                             class="comment-avatar"
+                             alt="avatar" style="display: inline-block">
+                        <p class="text-primary comment-title"
+                           style="font-size: 12px;line-height: 18px;display: inline-block">{{ $item->user_name }}
+                            <br/><span style="color: #999;">{{ $item->created_at->format('M·d·Y') }}</span></p>
+                    </div>
+
+                    <p class="comment-content well">{{ $item->content }}</p>
+                    <div class="comment-footer">
+                        <span class="glyphicon glyphicon-heart-empty"
+                              style="font-family:'Glyphicons Halflings'; "> 赞(1)</span>
+                        @if(Auth::check())
+                            @if(Auth::user()->name!=$item->user_name)
+                                <span class="btn btn-link reply"
+                                      data-toggle="modal"
+                                      data-target="#myModal"
+                                      data-receiver="{{ $item->user->id }}"
+                                      data-comment="{{ $item->id }}">回复</span>
                             @endif
-                        </div>
+                        @else
+                            <a href="/login"><span class="btn btn-link reply">回复</span></a>
+                        @endif
                     </div>
 
                     @if($item->reply->count()>0)
@@ -81,15 +66,15 @@
                                                             class="badge">{!! $reply->created_at->diffForHumans() !!}</span>
                                                     @if(Auth::check())
                                                         @if(Auth::user()->id!=$reply->sender->id)
-                                                            <span class="btn btn-undark reply"
+                                                            <span class="btn btn-link reply"
                                                                   data-toggle="modal"
                                                                   data-target="#myModal"
                                                                   data-receiver="{{ $reply->sender->id }}"
-                                                                  data-comment="{{ $item->id }}">Reply :</span>
+                                                                  data-comment="{{ $item->id }}">回复</span>
                                                         @endif
                                                     @else
                                                         <a href="/login"><span
-                                                                    class="btn btn-undark reply">Reply :</span></a>
+                                                                    class="btn btn-link reply">回复</span></a>
                                                     @endif
                                                 </p>
                                             </div>
@@ -101,6 +86,23 @@
                     @endif
                 </div>
             @endforeach
+        </div>
+        <div class="comment-area col-md-8 col-md-offset-2">
+            <form action="/send-comment/{{ $content->id }}" method="post">
+                {!! csrf_field() !!}
+                <div class="form-group">
+                    <lable for="commentsinput">
+                    </lable>
+                    <textarea id="commentsinput" class="form-control" name="comment" required></textarea>
+                    @if ($errors->has('comment'))
+                        <span class="help-block">
+        <strong class="text-danger">{{ $errors->first('comment') }}</strong>
+        </span>
+                    @endif
+                    <input type="submit" class="btn btn-success form-control" value="submit"
+                           style="margin-top: 10px">
+                </div>
+            </form>
         </div>
     </div>
     <!-- Modal -->

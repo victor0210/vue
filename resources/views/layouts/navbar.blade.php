@@ -1,5 +1,5 @@
 <div class="row">
-    <nav class="navbar navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-left" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -13,7 +13,7 @@
                 <li name="tab1"><a href="{!! route('article',['collection'=>'all']) !!}">Article</a></li>
                 <li name="tab2"><a href="/music">Music</a></li>
                 <li name="tab3"><a href="/about">About</a></li>
-                @if(Auth::user()->is_admin)
+                @if(Auth::check()&&Auth::user()->is_admin)
                     <li><a href="/admin">Admin</a></li>
                 @endif
             </ul>

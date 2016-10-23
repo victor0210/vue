@@ -56,19 +56,19 @@
                 <td>@{{ article.collection@ ? article.collection : 'None' }}</td>
                 <td>@{{ article.created_at }}</td>
                 <td>
-                    <a href="categories/edit/@{{ article.id }}" class="btn btn-danger"><span
-                                class="glyphicon glyphicon-remove"></span> Remove</a>
+                    <a href="categories/edit/@{{ article.id }}" class="btn btn-danger btn-remove"><span
+                                class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
         </table>
         <nav aria-label="...">
             <ul class="pagination">
                 <li>
-                    <button title="@{{ previous }}" aria-label="Previous" class="api-btn"><span
+                    <button title="@{{ previous }}" aria-label="Previous" class="btn btn-primary api-btn"><span
                                 aria-hidden="true">&laquo;</span></button>
                 </li>
                 <li>
-                    <button title="@{{ next }}" aria-label="Next" class="api-btn"><span
+                    <button title="@{{ next }}" aria-label="Next" class="btn btn-primary api-btn"><span
                                 aria-hidden="true">&raquo;</span></button>
                 </li>
             </ul>
@@ -115,7 +115,7 @@
 
         $('.search-input').keyup(function () {
             var val = $(this).val();
-            getArticle(val);
+            getArticle('/api/articles',val);
 
         });
 

@@ -15,6 +15,7 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <link rel="stylesheet" href="{{ elixir("css/styles.css") }}"/>
+    <link rel="stylesheet" href="{{ elixir("assets/css/admin.css") }}"/>
     <link rel="stylesheet" href="{{ elixir('assets/css/zoom.css') }}">
     <script src="{{ elixir("assets/js/admin.js") }}" type="text/javascript"></script>
     <script src="{{ elixir('js/zoom.min.js') }}"></script>

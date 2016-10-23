@@ -6,6 +6,7 @@
 
 @section('extra-css-js')
     <link rel="stylesheet" href="{{ elixir('assets/css/article.css') }}">
+    <script src="{{ elixir('assets/js/article.js') }}"></script>
 @endsection
 @section('content')
         <div class="row">

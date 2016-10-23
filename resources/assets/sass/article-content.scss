@@ -1,16 +1,37 @@
-#article-main-content * {
-  font-family: 'Monaco', 'Lucida Console', monospace;
-}
+//#article-main-content * {
+//  font-family: 'Monaco', 'Lucida Console', monospace;
+//}
 
 #article-content, .panel-body {
   word-break: break-all;
 }
 
+.card {
+  background-color: #fafafa;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 2px 2px 2px 2px #eeeeee;
+}
+
 #article-content {
   background: #fff;
+  border-bottom: 1px solid #eeeeee;
   img {
-    width: 20%;
-    border: 1px solid #b4b4b4;
+    display: block;
+    width: 90%;
+    border: 1px solid #eeeeee;
+  }
+  .content-author {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  #article-content {
+    img {
+      width: 20%;
+      border: 1px solid #eeeeee;
+    }
   }
 }
 
@@ -24,8 +45,9 @@
 }
 
 .comment-avatar {
-  width: 25px;
-  height: 25px;
+  width: 36px;
+  height: 36px;
+  float: left;
   margin-right: 10px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -35,14 +57,22 @@
 .reply-well {
   margin-top: -20px;
   .reply-list {
+    word-break: break-all;
+    &:first-child {
+      margin-top: 40px;
+    }
     p {
       margin-top: 15px;
     }
-    .reply-avatar{
+    .reply-avatar {
       width: 20px;
       height: 20px;
       border-radius: 50%;
       margin-right: 3px;
+    }
+    .list-group-item{
+      border: 1px dashed #b4b4b4;
+      border-left: 4px solid;
     }
   }
 }
@@ -68,4 +98,20 @@
   box-shadow: none;
   padding: 5px;
   text-indent: 30px;
+}
+
+.comment-footer{
+  *{
+    color: #999;
+    padding: 0;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .glyphicon{
+    font-weight: 100;
+  }
+}
+
+.comment-area{
+  margin-top:50px;
 }
