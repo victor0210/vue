@@ -10,7 +10,7 @@ body {
 
 .tab-pane .list-group li {
   margin: 10px 0;
-  border-bottom: 2px solid #F5F5F5; }
+  border-bottom: 2px dashed #F5F5F5; }
   .tab-pane .list-group li .glyphicon {
     font-size: 20px; }
 

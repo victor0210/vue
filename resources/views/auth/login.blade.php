@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
+                    <div class="panel-heading text-gray">Login</div>
                     <div class="panel-body">
 
                         <form class="form-horizontal" role="form" method="POST" action="/login">
@@ -48,10 +48,12 @@
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn btn-dark">
+                                    <button type="submit" class="btn btn-success">
                                         Login
                                     </button>
-
+                                    <a class="btn btn-danger" href="{{ url('/register') }}">
+                                        Sign Up
+                                    </a>
                                     <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                         Forgot Your Password?
                                     </a>

@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<div class="container-fluid">
+<div class="container-fluid unToggled">
     @include('layouts.navbar')
     <div class="row">
         <div class="col-xs-12" id="user-sidenav">

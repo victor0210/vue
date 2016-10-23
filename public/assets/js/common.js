@@ -1,4 +1,6 @@
 $(function () {
+    var ml = 0;
+
     var initAnimation = function () {
         if ($(window).width() < 768) {
             $('#content-area').css('display', 'block');
@@ -9,7 +11,7 @@ $(function () {
                 }
             );
             $('.sidenav-container').css({
-                'background-image': 'url("'+$('.sidenav-container').data('src')+'")',
+                'background-image': 'url("' + $('.sidenav-container').data('src') + '")',
                 'background-size': 'cover',
                 'background-repeat': 'no-repeat',
                 'background-position': 'center'
@@ -19,7 +21,6 @@ $(function () {
             });
             $('.sidenav-container').width($(window).width()).height(450);
             $('.floating').width($(window).width()).height(450);
-
         }
         else {
             $('.sidenav-info').css({
@@ -33,13 +34,14 @@ $(function () {
                 }
             );
             $('#user-sidenav').width($(window).width()).height($(window).height()).fadeIn(500).animate({
-                'width': $(window).width() / 3
+                'width': $(window).width() / 3.5
             }, 500, function () {
                 $('#content-area').fadeIn(1000, function () {
                     $('.sidenav-info').css('top', '30%');
+                    $('.navbar').fadeIn(1000);
                 });
                 $('.sidenav-container').css({
-                    'background-image': 'url("'+ $('.sidenav-container').data('src') +'")',
+                    'background-image': 'url("' + $('.sidenav-container').data('src') + '")',
                     'background-size': 'cover',
                     'background-repeat': 'no-repeat',
                     'background-position': 'center',
@@ -47,42 +49,47 @@ $(function () {
                 });
             });
             $('.sidenav-container').height($(window).height()).width($(window).width()).fadeIn(500).animate({
-                'width': $(window).width() / 3
+                'width': $(window).width() / 3.5
             }, 500);
         }
     };
     var resizeScreen = function () {
         $('.sidenav-container').css('transition', 'none');
         if ($(window).width() < 768) {
-            $('#user-sidenav').css(
-                {
-                    'position': 'relative',
-                }
-            );
-            $('.sidenav-info').css({
-                'top': 50
-            });
+            $('#user-sidenav').css({'position': 'relative'});
+            $('.sidenav-info').css({'top': 50});
             $('.sidenav-container').width($(window).width()).height(450);
             $('#user-sidenav').width($(window).width()).height(450);
             $('.floating').width($(window).width()).height(450);
+            $('.container-fluid').css('marginLeft', 0);
+            ml=0;
         }
         else {
-            $('.sidenav-info').css({
-                'top': '30%'
-            });
-            $('#user-sidenav').css(
-                {
-                    'position': 'fixed',
-                    'width': '100%'
-                }
-            );
-            $('.floating').width($(window).width() / 3).height($(window).height());
-            $('#user-sidenav').width($(window).width() / 3).height($(window).height());
-            $('.sidenav-container').height($(window).height()).width($(window).width() / 3);
+            $('.sidenav-info').css({'top': '30%'});
+            $('#user-sidenav').css({'position': 'fixed', 'width': '100%'});
+            $('.floating').width($(window).width() / 3.5).height($(window).height());
+            $('#user-sidenav').width($(window).width() / 3.5).height($(window).height());
+            $('.sidenav-container').height($(window).height()).width($(window).width() / 3.5);
+            $('.glyphicon-menu-hamburger').css({transform: "rotate(0deg)"});
+            $('.navbar').css('visibility','visible');
         }
     };
 
+    var toggledMenu = function () {
+        $('.glyphicon-menu-hamburger').click(function () {
+            if (ml == 0) {
+                ml = 205;
+                $('.container-fluid').css('marginLeft', ml + 'px');
+                $(this).css({transform: "rotate(90deg)"});
+            } else {
+                ml = 0;
+                $('.container-fluid').css('marginLeft', ml + 'px');
+                $(this).css({transform: "rotate(0deg)"});
+            }
+        });
+    };
     initAnimation();
+    toggledMenu();
     $(window).resize(function () {
         resizeScreen();
     });

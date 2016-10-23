@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('tab','0')
+
 @section('content')
     <style>
         .thumbnail {
@@ -17,21 +19,23 @@
         $('.thumbnail img').height($('.thumbnail img').width());
     </script>
     <div class="row" id="categories">
-        <div class="col-md-12">
-            <div class="page-header">
-                <h1>
+        <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+            <div class="page-header text-center">
+                <h2>
                     Categories
-                </h1>
+                </h2>
             </div>
         </div>
-        @foreach($collections as $collection)
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="{!! route('article',['collection'=>$collection->name]) !!}">
-                        <img src="{{ $collection->image }}" alt="">
-                    </a>
+        <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+            @foreach($collections as $collection)
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href="{!! route('article',['collection'=>$collection->name]) !!}">
+                            <img src="{{ $collection->image }}" alt="">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 @endsection

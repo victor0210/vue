@@ -16,7 +16,8 @@
             </h6>
         </div>
         <div class="col-md-2 col-xs-4 col-sm-4">
-            <img src="{{ elixir('images/bg8.jpg') }}" alt="" style="height: 90px;width: 90px">
+            <img src="{{ elixir('images/bg8.jpg') }}" alt="" style="
+            border: 1px solid #eeeeee;height: 90px;width: 90px;padding: 2px;border-radius: 5px;">
         </div>
     </div>
 </li>

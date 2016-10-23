@@ -3,12 +3,10 @@
 .sidenav-container {
   margin: 0;
   padding: 0;
-  //background: url("/images/bg9.jpg") no-repeat center;
   -webkit-background-size: cover;
   background-size: cover;
   color: #fff;
   width: 300%;
-  //transition: all 2s 0.5s;
   .sidenav-info {
     position: relative;
     font-family: 'Playfair Display', serif;
@@ -22,13 +20,6 @@
       width: 80%;
       margin-left: 10%;
     }
-    a.btn{
-      //width: 100px;
-      //color:#fff;
-      //background-color: transparent;
-      //border-radius: 0;
-      //border-color: #fff;
-    }
   }
   #dropdownMenu1 {
     position: relative;
@@ -36,6 +27,16 @@
     background-color: rgba(0, 0, 0, 0);
     color: #fff;
     font-size: 20px;
+  }
+  .toggle {
+    visibility: hidden;
+    color: #fff;
+    transition: 0.5s
+  }
+  @media screen and (min-width: 768px) {
+    .toggle {
+      visibility: visible;
+    }
   }
 }
 

@@ -52,7 +52,7 @@
       margin-right: 3px; }
     .reply-well .reply-list .list-group-item {
       border: 1px dashed #b4b4b4;
-      border-left: 4px solid; }
+      border-left: 4px solid #b4b4b4; }
 
 .content-header-avatar {
   height: 50px;

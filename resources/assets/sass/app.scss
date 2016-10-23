@@ -4,13 +4,31 @@
 //  font-family: 'Gentium Basic', serif;
 //}
 
-#content-area{
+#content-area {
   padding-top: 50px;
   display: none;
 }
 
-#user-sidenav{
+#user-sidenav {
   z-index: 123;
-  padding:0;
+  padding: 0;
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    height: 100%;
+    width: 250px;
+    background-color: #2a2a2a;
+    z-index: 1;
+    display: none;
+    li {
+      width: 100%;
+    }
+  }
+}
+
+.container-fluid {
+  transition: 0.5s;
+  margin-left: 0;
 }

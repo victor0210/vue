@@ -21,5 +21,13 @@
     background-color: transparent;
     color: #fff;
     font-size: 20px; }
+  .sidenav-container .toggle {
+    visibility: hidden;
+    color: #fff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
+  @media screen and (min-width: 768px) {
+    .sidenav-container .toggle {
+      visibility: visible; } }
 
 /*# sourceMappingURL=sidenav.css.map */

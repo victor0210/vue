@@ -21,8 +21,12 @@
             border-radius: 0;
         }
 
+        .panel-default{
+            box-shadow: 1px 1px 1px 1px #eee;
+        }
+
         .panel-default > .panel-heading {
-            background-color: #3c3c3c;
+            background-color: #b14f4f;
             color: #fff;
             font-size: 1.2em;
             border: none;
