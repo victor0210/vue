@@ -18,7 +18,7 @@
                     <li name="tab3"><a href="/login"><span class="glyphicon glyphicon-log-in"> Login</span></a></li>
                     @endif
                 @if(Auth::check())
-                    <li name="tab3"><a href="/about"><span class="glyphicon glyphicon-user"> User</span></a></li>
+                    <li name="tab3"><a href="/user"><span class="glyphicon glyphicon-user"> User</span></a></li>
                     @if(Auth::user()->is_admin)
                         <li><a href="/admin"><span class="glyphicon glyphicon-flash"> Admin</span></a></li>
                     @endif

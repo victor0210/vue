@@ -43,6 +43,7 @@ class UserController extends Controller
             }
             Article::find($request->id)->comment()->delete();
             Article::find($request->id)->delete();
+            Records::where('article_id', $request->id)->delete();
             return response('Succeed', 200);
         } else {
             return response('Failed', 500);
