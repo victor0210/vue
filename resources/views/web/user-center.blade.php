@@ -66,8 +66,8 @@
                     </h2>
                 </div>
                 <div class="row">
-                    @foreach($records as $record)
-                        <div class="col-md-12">
+                    @foreach($records->sortByDesc('updated_at') as $record)
+                        <div class="col-md-12" title="{{ $record->article_id }}">
                             <li class="list-group-item" id="records-board">
                                 <span class="badge records-badge">{{ $record->updated_at }}</span>
                                 <a href="content/{{ $record->article_id }}">{{$record->title}}</a>

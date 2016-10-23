@@ -72,6 +72,7 @@ $(function () {
                 },
                 success: function () {
                     _this.parent('li').fadeOut(200);
+                    $('div[title="' + id + '"]').fadeOut(200);
                     modalSuccess();
                 },
                 error: function () {
