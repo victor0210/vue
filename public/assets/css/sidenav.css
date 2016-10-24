@@ -22,9 +22,16 @@
     color: #fff;
     font-size: 20px; }
   .sidenav-container .toggle {
+    position: relative;
+    left: 85%;
     visibility: visible;
     color: #fff;
     -webkit-transition: 0.5s;
-    transition: 0.5s; }
+    transition: 0.5s;
+    z-index: 125; }
+  @media screen and (min-width: 768px) {
+    .sidenav-container .toggle {
+      left: 0;
+      visibility: visible; } }
 
 /*# sourceMappingURL=sidenav.css.map */

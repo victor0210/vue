@@ -29,14 +29,18 @@
     font-size: 20px;
   }
   .toggle {
+    position: relative;
+    left: 85%;
     visibility: visible;
     color: #fff;
-    transition: 0.5s
+    transition: 0.5s;
+    z-index: 125;
   }
-  //@media screen and (min-width: 768px) {
-  //  .toggle {
-  //    visibility: visible;
-  //  }
-  //}
+  @media screen and (min-width: 768px) {
+    .toggle {
+      left:0;
+      visibility: visible;
+    }
+  }
 }
 

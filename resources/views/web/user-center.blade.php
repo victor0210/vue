@@ -12,35 +12,29 @@
 @section('content')
     <div class="row user-center">
         <div class="col-md-12 col-sm-12 col-xs-12 page-header">
-            <h1>{{ Auth::user()->name }}
-                <small>Welcome to UserCenter !</small>
+            <h1>
+                <small>Hello {{ Auth::user()->name }}!</small>
             </h1>
         </div>
         <div class="col-md-12">
-            <div class="btn-group pull-left">
-                <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#editModal">Avatar Upload <span
-                            class="glyphicon glyphicon-cog"></span>
-                </button>
-                <button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#backgroundModal">Background Upload
-                    <span
-                            class="glyphicon glyphicon-cog"></span>
-                </button>
-            </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-            <div class="btn-group pull-left">
-                <a href="/add-article" class="btn btn-lg btn-primary">Add Article</a>
-                <a href="/article/all" class="btn btn-lg btn-danger">Article Center</a>
-            </div>
+            <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#editModal">Avatar<span
+                        class="glyphicon glyphicon-cog"></span>
+            </button>
+            <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">Background<span
+                        class="glyphicon glyphicon-cog"></span>
+            </button>
         </div>
     </div>
     <div class="row user-center">
         <div class="col-md-6">
             <div class="page-header">
-                <h2>My Articles
-                    <button class="btn btn-sm btn-warning pull-right articles-edit"><span
-                                class="glyphicon glyphicon-edit"></span>Edit
-                    </button>
+                <h2>
+                    <small>
+                        My Articles
+                        <button class="btn btn-sm btn-warning pull-right articles-edit"><span
+                                    class="glyphicon glyphicon-edit"></span>Edit
+                        </button>
+                    </small>
                 </h2>
             </div>
             <div class="row">
@@ -59,10 +53,12 @@
         @if($records)
             <div class="col-md-6">
                 <div class="page-header">
-                    <h2>Watching Records
-                        <button class="btn btn-sm btn-warning pull-right records-edit"><span
-                                    class="glyphicon glyphicon-edit"></span>Edit
-                        </button>
+                    <h2>
+                        <small>Watching Records
+                            <button class="btn btn-sm btn-warning pull-right records-edit"><span
+                                        class="glyphicon glyphicon-edit"></span>Edit
+                            </button>
+                        </small>
                     </h2>
                 </div>
                 <div class="row">
