@@ -5886,10 +5886,13 @@ button.close {
 @media screen and (min-width: 768px) {
   .navbar {
     height: 100%;
-    width: 250px;
+    width: 215px;
     background-color: #2a2a2a;
     z-index: 1;
-    display: none; }
+    display: none;
+    left: -215px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
     .navbar li {
       width: 100%; } }
 

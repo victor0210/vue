@@ -1,13 +1,13 @@
 <div class="row">
     <nav class="navbar navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+        {{--<div class="navbar-header">--}}
+            {{--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">--}}
+                {{--<span class="sr-only">Toggle navigation</span>--}}
+                {{--<span class="icon-bar"></span>--}}
+                {{--<span class="icon-bar"></span>--}}
+                {{--<span class="icon-bar"></span>--}}
+            {{--</button>--}}
+        {{--</div>--}}
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-menu" data-tab="@yield('tab')">
                 <li name="tab0"><a href="/"><span class="glyphicon glyphicon-home"> Home</span></a></li>

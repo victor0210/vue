@@ -1,6 +1,6 @@
 <li class="list-group-item">
     <div class="row">
-        <div class="col-md-10 col-xs-8 col-sm-8 article-list-title">
+        <div class="col-md-10 col-xs-9 col-sm-9 article-list-title">
 
             <a href="" class="text-primary">{{ $item->user->name }}
                 <span style="color:#999;margin-bottom: 30px">· about {!! $item->created_at->diffForHumans() !!}</span>
@@ -15,8 +15,8 @@
                 watch(20) · comment(30) · bingo(50)
             </h6>
         </div>
-        <div class="col-md-2 col-xs-4 col-sm-4">
-            <img src="{{ elixir('images/bg8.jpg') }}" alt="" style="
+        <div class="col-md-2 col-xs-3 col-sm-3">
+            <img src="{{ elixir('images/bg14.jpg') }}" alt="" style="
             border: 1px solid #eeeeee;height: 90px;width: 90px;padding: 2px;border-radius: 5px;">
         </div>
     </div>

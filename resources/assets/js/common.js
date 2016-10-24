@@ -38,7 +38,6 @@ $(function () {
             }, 500, function () {
                 $('#content-area').fadeIn(1000, function () {
                     $('.sidenav-info').css('top', '30%');
-                    $('.navbar').fadeIn(1000);
                 });
                 $('.sidenav-container').css({
                     'background-image': 'url("' + $('.sidenav-container').data('src') + '")',
@@ -81,10 +80,12 @@ $(function () {
                 ml = 205;
                 $('.container-fluid').css('marginLeft', ml + 'px');
                 $(this).css({transform: "rotate(90deg)"});
+                $('.navbar').fadeIn(100).css('left','0px');
             } else {
                 ml = 0;
                 $('.container-fluid').css('marginLeft', ml + 'px');
                 $(this).css({transform: "rotate(0deg)"});
+                $('.navbar').css('left','-215px');
             }
         });
     };

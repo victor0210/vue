@@ -29,14 +29,14 @@
     font-size: 20px;
   }
   .toggle {
-    visibility: hidden;
+    visibility: visible;
     color: #fff;
     transition: 0.5s
   }
-  @media screen and (min-width: 768px) {
-    .toggle {
-      visibility: visible;
-    }
-  }
+  //@media screen and (min-width: 768px) {
+  //  .toggle {
+  //    visibility: visible;
+  //  }
+  //}
 }
 
