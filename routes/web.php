@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/article/{collection?}', ['as' => 'article', 'uses' => 'IndexController@index']);
     Route::get('/', ['as' => 'collection', 'uses' => 'IndexController@collection']);
     Route::get('music', 'MusicController@index');
+    Route::get('about', 'StaticPageController@index');
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
     Route::post('user/uploadAvatar', 'UserController@updateAvatar');
     Route::post('user/uploadBackground', 'UserController@updateBackground');
     Route::post('reply-comment', 'ArticlesController@reply');
+    Route::get('setting','UserController@setting');
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {

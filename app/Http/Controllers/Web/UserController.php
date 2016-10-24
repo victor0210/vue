@@ -63,4 +63,8 @@ class UserController extends Controller
             return 'upload failed';
         }
     }
+
+    public function setting(){
+        return view('web.setting');
+    }
 }
