@@ -1,5 +1,6 @@
 $(function () {
     var listenFileUpload = function () {
+
         $("#upload-head").change(function () {
             var filepath = $(this).val();
             var extStart = filepath.lastIndexOf(".");

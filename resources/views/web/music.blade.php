@@ -9,7 +9,5 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        Music
-    </div>
+    <h1 class="text-center text-gray">Music Page !</h1>
 @endsection

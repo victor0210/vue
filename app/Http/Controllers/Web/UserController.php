@@ -45,7 +45,7 @@ class UserController extends Controller
         if (Storage::disk('avatar')->exists($filename)){
             $url=asset(Storage::url("public/avatar/".$request->user()->email.'.png'));
             User::where('id',$request->user()->id)->update(['avatar_url'=>$url]);
-            return redirect('/user');
+            return redirect('/setting');
         } else{
             return 'upload failed';
         }
@@ -58,7 +58,7 @@ class UserController extends Controller
         if (Storage::disk('background')->exists($filename)){
             $url=asset(Storage::url("public/background/".$request->user()->email.'.png'));
             User::where('id',$request->user()->id)->update(['background_url'=>$url]);
-            return redirect('/user');
+            return redirect('/setting');
         } else{
             return 'upload failed';
         }
