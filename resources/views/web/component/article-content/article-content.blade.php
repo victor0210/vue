@@ -9,12 +9,21 @@
 @endsection
 
 @section('content')
-    <div class="row" id="article-main-content">
+    <div class="row" id="article-main-content" data-article-id="{{ $content->id }}">
         <div class="col-md-9 col-md-offset-1">
             <div class="page-header">
                 <img src="{{ $content->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
                 <a href="">{{ $content->user->name }}</a> · <span
                         style="color:#b4b4b4">{{ $content->created_at->format('M·d·Y')}}</span>
+                @if(Auth::check())
+                    @if($status==true)
+                        <button class="btn btn-success" disabled>已赞 <span class="fa fa-thumbs-up"></span></button>
+                    @elseif ($status)
+                        <button class="btn btn-success" id="thumb-up">赞一个 <span class="fa fa-thumbs-up"></span></button>
+                    @endif
+                @else
+                    <a href="/login" class="btn btn-success" id="thumb-up">赞一个 <span class="fa fa-thumbs-up"></span></a>
+                @endif
             </div>
             <div id="article-content">
                 {!!  $content->content !!}
@@ -29,11 +38,9 @@
                            style="font-size: 12px;line-height: 18px;display: inline-block">{{ $item->user_name }}
                             <br/><span style="color: #999;">{{ $item->created_at->format('M·d·Y') }}</span></p>
                     </div>
-
                     <p class="comment-content well">{{ $item->content }}</p>
                     <div class="comment-footer">
-                        <span class="glyphicon glyphicon-heart-empty"
-                              style="font-family:'Glyphicons Halflings'; "> 赞(1)</span>
+                        <span class="badge">{{ $item->created_at->diffForHumans() }}</span>
                         @if(Auth::check())
                             @if(Auth::user()->name!=$item->user_name)
                                 <span class="btn btn-link reply"
@@ -127,7 +134,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="reply-submit">Reply</button>
+                    <button type="button" class="btn btn-success" id="reply-submit">Reply</button>
                 </div>
             </div>
         </div>
@@ -141,6 +148,19 @@
         $('.reply').click(function () {
             $('input[name=receiver]').val($(this).data('receiver'));
             $('input[name=comment]').val($(this).data('comment'));
+        });
+        $('#thumb-up').click(function () {
+            var url = '/api/thumbs';
+            $.ajax(url, {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'post',
+                data: {'article_id': $('#article-main-content').data('article-id')},
+                success: function (data) {
+                    console.log(data);
+                }
+            });
         });
     </script>
 @endsection

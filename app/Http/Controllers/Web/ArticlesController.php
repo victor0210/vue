@@ -12,6 +12,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Comment_Replies;
 use App\Models\Records;
+use App\Models\Thumbs;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,6 +32,8 @@ class ArticlesController
 
     function index($id)
     {
+        Article::find($id)->increment('view');
+        $status='';
         if (Article::where('id', $id)->get()->isEmpty()) {
             return Redirect::back();
         } else {
@@ -45,18 +48,17 @@ class ArticlesController
                 } else {
                     Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
                 }
+                $status =!!Thumbs::where(['article_id'=>$id,'user_id'=>Auth::user()->id]);
             }
 
             $content = Article::where('id', $id)->first();
             $content->content = EndaEditor::MarkDecode($content->content);
             $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
-
-
             foreach ($comments as $comment) {
                 $comment->user_name = User::where('id', $comment->user_id)->value('name');
                 $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
             }
-            return view('web.component.article-content.article-content', compact('content', 'comments'));
+            return view('web.component.article-content.article-content', compact('content', 'comments','status'));
         }
     }
 

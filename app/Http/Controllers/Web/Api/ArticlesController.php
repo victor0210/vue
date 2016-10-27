@@ -10,7 +10,9 @@ namespace App\Http\Controllers\Web\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Thumbs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use YuanChao\Editor\EndaEditor;
 
 class ArticlesController extends Controller
@@ -18,8 +20,8 @@ class ArticlesController extends Controller
     public function index(Request $request)
     {
         $articles = Article::where($request->key, $request->val)->get();
-        if ($articles->count()==0) {
-            $articles=Article::limit(10)->get();
+        if ($articles->count() == 0) {
+            $articles = Article::limit(10)->get();
         }
         return $articles;
     }
@@ -30,8 +32,25 @@ class ArticlesController extends Controller
         return json_encode($data);
     }
 
-    public function getArticlePage(){
+    public function getArticlePage()
+    {
         $articles = Article::paginate(10);
         return $articles;
+    }
+
+    public function thumb(Request $request)
+    {
+        if (!!Thumbs::where(['article_id' => $request->article_id, 'user_id' => Auth::user()->id])->value('created_at')) {
+            return response('Failed', 500);
+        } else {
+            Thumbs::insert([
+                'article_id' => $request->article_id,
+                'user_id' => Auth::user()->id,
+                'created_at' => gmdate('Y-m-d H:i:s'),
+                'updated_at' => gmdate('Y-m-d H:i:s')
+            ]);
+            Article::find($request->article_id)->increment('thumb_up');
+            return response('Success', 200);
+        }
     }
 }

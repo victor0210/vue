@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
-                            <ul class="list-group">
+                            <ul class="list-group list-unstyled">
                                 <li>
                                     @foreach($collections as $collection)
                                         <a href="/article/{{ $collection->name }}"><span class="badge">{{ $collection->name }}</span></a>

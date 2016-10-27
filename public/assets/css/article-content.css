@@ -72,13 +72,7 @@
   box-shadow: none;
   padding: 5px; }
 
-.comment-footer * {
-  color: #999;
-  padding: 0;
-  font-size: 14px;
-  line-height: 14px; }
-
-.comment-footer .glyphicon {
+.comment-footer i .glyphicon {
   font-weight: 100; }
 
 .comment-area {

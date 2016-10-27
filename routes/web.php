@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/', ['as' => 'collection', 'uses' => 'IndexController@collection']);
     Route::get('music', 'MusicController@index');
     Route::get('about', 'StaticPageController@index');
+    Route::get('user/{id}', 'OtherUserController@index');
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
@@ -37,6 +38,7 @@ Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::post('/collection-status', ['as' => 'collectionStatus', 'uses' => 'AdminController@collectionStatus']);
     Route::post('/delete-record', 'UserController@deleteRecords');
     Route::post('/delete-article', 'UserController@deleteArticles');
+    Route::post('/thumbs','ArticlesController@thumb')->middleware('auth');
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
