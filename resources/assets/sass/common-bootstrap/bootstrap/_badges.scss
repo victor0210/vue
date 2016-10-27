@@ -2,7 +2,6 @@
 // Badges
 // --------------------------------------------------
 
-
 // Base class
 .badge {
   display: inline-block;
@@ -17,7 +16,7 @@
   text-align: center;
   background-color: $badge-bg;
   border-radius: $badge-border-radius;
-
+  border: 1px solid $brand-success;
   // Empty badges collapse automatically (not available in IE8)
   &:empty {
     display: none;

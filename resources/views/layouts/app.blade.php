@@ -15,6 +15,7 @@
     <script src="{{ elixir('assets/js/vue.min.js') }}"></script>
     <script src="{{ elixir('js/zoom.min.js') }}"></script>
     <script src="{{ elixir('assets/js/common.js')}}"></script>
+    <script src="{{ elixir('js/tmpl.min.js') }}"></script>
     @yield('extra-css-js')
 </head>
 

@@ -35,6 +35,7 @@ Route::group(['namespace' => 'Web'], function () {
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::get('/articles', 'ArticlesController@index');
     Route::get('/articles-page', 'ArticlesController@getArticlePage');
+    Route::get('/articles-list', 'ArticlesController@getArticleList');
     Route::post('/uploadImg', 'ArticlesController@uploadImg');
     Route::post('/collection-status', ['as' => 'collectionStatus', 'uses' => 'AdminController@collectionStatus']);
     Route::post('/delete-record', 'UserController@deleteRecords');

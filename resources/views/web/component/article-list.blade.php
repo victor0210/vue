@@ -8,7 +8,6 @@
                 <a href="/content/{{ $item->id }}" class="text-gray">
                     {{$item->title}}
                 </a>
-                <img src="" alt="">
             </h4>
             <h6 style="color: #999999">
                 浏览({{ $item->view }}) · 评论({{ $item->comment->count() }}) · 赞({{ $item->thumb_up }}) <span class="badge">{{ $item->collection }}</span>

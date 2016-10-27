@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Web\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Thumbs;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use YuanChao\Editor\EndaEditor;
@@ -35,6 +36,16 @@ class ArticlesController extends Controller
     public function getArticlePage()
     {
         $articles = Article::paginate(10);
+        return $articles;
+    }
+
+    public function getArticleList(){
+        $articles = Article::paginate(10);
+        foreach ($articles as $article){
+            $article->user=User::find($article->user_id);
+            $article->comment_count=$article->comment->count();
+            $article->created=$article->created_at->diffForHumans();
+        }
         return $articles;
     }
 
