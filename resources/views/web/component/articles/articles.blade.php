@@ -10,7 +10,7 @@
 @endsection
 @section('content')
         <div class="row">
-            <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"

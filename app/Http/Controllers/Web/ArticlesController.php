@@ -60,7 +60,7 @@ class ArticlesController
                 $comment->user_name = User::where('id', $comment->user_id)->value('name');
                 $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
             }
-            $records=Records::where(['article_id'=>$id])->get();
+            $records=Records::where(['article_id'=>$id])->limit(50)->get();
             return view('web.component.article-content.article-content', compact('content', 'comments', 'status', 'user','records'));
         }
     }

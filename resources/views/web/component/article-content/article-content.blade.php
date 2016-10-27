@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="row" id="article-main-content" data-article-id="{{ $content->id }}">
-        <div class="col-md-9 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
             <div class="page-header">
                 <img src="{{ $content->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
                 <a href="">{{ $content->user->name }}</a> · <span
@@ -28,7 +28,7 @@
             <div id="article-content">
                 {!!  $content->content !!}
             </div>
-            <p style="color:#999">recent browse :
+            <p style="color:#999">最近访问 :
                 @foreach($records as $item)
                     <a href="/user/{{ $item->user->id }}" style="display: inline-block"><img
                                 style="width: 25px;height: 25px;margin-top:5px;margin-right:-15px;border-radius: 50%"
@@ -102,7 +102,7 @@
                 </div>
             @endforeach
         </div>
-        <div class="comment-area col-md-9 col-md-offset-1">
+        <div class="comment-area col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
             <form action="/send-comment/{{ $content->id }}" method="post">
                 {!! csrf_field() !!}
                 <div class="form-group">

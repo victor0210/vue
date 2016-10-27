@@ -1,8 +1,10 @@
 @import "common-bootstrap/bootstrap/variables";
+
 .navbar-toggle .icon-bar {
   background: #333;
 }
-nav{
+
+nav {
   z-index: 999;
 }
 
@@ -10,7 +12,7 @@ nav{
   .nav {
     li {
       transition: 1s;
-      border-bottom: 1px solid rgba(0,0,0,0);
+      border-bottom: 1px solid rgba(0, 0, 0, 0);
       a {
         transition: 1s;
         color: #888;
@@ -18,19 +20,18 @@ nav{
       }
     }
     li.active, li:hover {
-      border-bottom: 1px solid #eeeeee;
-      a {
+      background-color: #5cb85c;
+      .glyphicon {
         color: #fff;
-      }
-      .glyphicon{
-        color: #5cb85c;
       }
     }
   }
 }
-#navbar[aria-expanded="false"]{
-  background-color: rgba(0,0,0,0);
+
+#navbar[aria-expanded="false"] {
+  background-color: rgba(0, 0, 0, 0);
 }
-#navbar[aria-expanded="true"]{
-  background-color: rgba(0,0,0,0.8);
+
+#navbar[aria-expanded="true"] {
+  background-color: rgba(0, 0, 0, 0.8);
 }

@@ -15,11 +15,9 @@ nav {
     font-weight: 500; }
 
 .navbar .nav li.active, .navbar .nav li:hover {
-  border-bottom: 1px solid #eeeeee; }
-  .navbar .nav li.active a, .navbar .nav li:hover a {
-    color: #fff; }
+  background-color: #5cb85c; }
   .navbar .nav li.active .glyphicon, .navbar .nav li:hover .glyphicon {
-    color: #5cb85c; }
+    color: #fff; }
 
 #navbar[aria-expanded="false"] {
   background-color: transparent; }

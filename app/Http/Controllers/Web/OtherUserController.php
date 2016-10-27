@@ -19,8 +19,14 @@ class OtherUserController extends Controller
     public function index($id)
     {
         $user = User::find($id);
-        $articles = Article::where(['user_id' => $id])->limit(10)->get();
-        $records = Records::where('belong',$id)->limit(10)->get();
+        $articles = Article::where(['user_id' => $id])->paginate(3);
+        $records = Records::where('belong',$id)->limit(50)->get();
         return view('web.other-user.index', compact('user', 'articles','records'));
+    }
+
+    public function article($id){
+        $articles = Article::where(['user_id' => $id])->paginate(50);
+        $user = User::find($id);
+        return view('web.other-user.article',compact('articles','user'));
     }
 }

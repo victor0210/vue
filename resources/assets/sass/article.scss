@@ -17,14 +17,14 @@ body {
     li {
       margin: 10px 0;
       border-bottom: 2px dashed #F5F5F5;
-      &:first-child{
+      &:first-child {
         border: none;
       }
       .glyphicon {
         font-size: 20px;
       }
-      .badge{
-        margin:8px;
+      .badge {
+        margin: 8px;
       }
     }
   }
@@ -83,7 +83,7 @@ body {
   li {
     border: none;
     transition: 1s;
-    border-bottom: 2px solid rgba(0,0,0,0);
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
     a {
       border: none;
       color: #b4b4b4;

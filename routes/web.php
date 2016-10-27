@@ -29,6 +29,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('music', 'MusicController@index');
     Route::get('about', 'StaticPageController@index');
     Route::get('user/{id}', 'OtherUserController@index');
+    Route::get('user/{id}/article', 'OtherUserController@article');
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
