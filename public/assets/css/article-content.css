@@ -61,7 +61,8 @@
   margin-right: 10px; }
 
 .comment-title {
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  color: #337ab7; }
 
 .comment-content {
   word-break: break-all;

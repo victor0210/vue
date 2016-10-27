@@ -12,7 +12,7 @@
             <a href="/user"><img src="{{ Auth::user()->avatar_url }}"></a>
             <h1>{{ Auth::user()->name }}</h1>
             <h4 style="font-family: 'Playfair Display', serif">
-                A modern blog theme, designed to optimize your reading experience as much as possible.
+                {{ Auth::user()->description }}
             </h4>
         @else
             <h1>Light Blog</h1>

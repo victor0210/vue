@@ -48,7 +48,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
     Route::post('user/uploadAvatar', 'UserController@updateAvatar');
     Route::post('user/uploadBackground', 'UserController@updateBackground');
     Route::post('reply-comment', 'ArticlesController@reply');
-    Route::get('setting','UserController@setting');
+    Route::get('/setting','UserController@setting');
+    Route::post('/setting','UserController@setInfo');
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {

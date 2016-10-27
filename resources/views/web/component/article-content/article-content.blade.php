@@ -25,7 +25,7 @@
                         <img src="{{ $item->user->avatar_url }}"
                              class="comment-avatar"
                              alt="avatar" style="display: inline-block">
-                        <p class="text-primary comment-title"
+                        <p class="comment-title"
                            style="font-size: 12px;line-height: 18px;display: inline-block">{{ $item->user_name }}
                             <br/><span style="color: #999;">{{ $item->created_at->format('M·d·Y') }}</span></p>
                     </div>

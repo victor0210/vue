@@ -29,7 +29,9 @@ class IndexController extends Controller
             $article->comment_count = Comment::where('article_id', $article->id)->count();
             $article->content = EndaEditor::MarkDecode($article->content);
         }
-        return view('web.component.articles.articles', compact('articles'));
+        $collections=Collection::all();
+
+        return view('web.component.articles.articles', compact('articles','collections'));
     }
 
     public function collection()

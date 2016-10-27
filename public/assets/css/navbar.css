@@ -19,7 +19,7 @@ nav {
   .navbar .nav li.active a, .navbar .nav li:hover a {
     color: #fff; }
   .navbar .nav li.active .glyphicon, .navbar .nav li:hover .glyphicon {
-    color: #b14f4f; }
+    color: #5cb85c; }
 
 #navbar[aria-expanded="false"] {
   background-color: transparent; }

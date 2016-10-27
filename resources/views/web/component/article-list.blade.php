@@ -11,7 +11,7 @@
                 <img src="" alt="">
             </h4>
             <h6 style="color: #999999">
-                watch(20) · comment(30) · bingo(50)
+                watch(20) · comment(30) · bingo(50) <span class="badge">{{ $item->collection }}</span>
             </h6>
         </div>
         <div class="col-md-2 col-xs-4 col-sm-3">

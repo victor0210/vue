@@ -17,8 +17,14 @@ body {
     li {
       margin: 10px 0;
       border-bottom: 2px dashed #F5F5F5;
+      &:first-child{
+        border: none;
+      }
       .glyphicon {
         font-size: 20px;
+      }
+      .badge{
+        margin:8px;
       }
     }
   }

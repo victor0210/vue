@@ -1,4 +1,9 @@
 $(function () {
+    var showModal = function (content, color) {
+        $('#reply-modal').modal();
+        $('#reply-info').text(content).css('color', color);
+    }
+
     var listenFileUpload = function () {
 
         $("#upload-head").change(function () {
@@ -84,16 +89,26 @@ $(function () {
     };
 
     var modalSuccess = function () {
-        $('#reply-modal').modal();
-        $('#reply-info').text('Delete Success !').css('color', 'green');
+        showModal('Delete Success !', 'green');
     };
 
     var modalFailed = function () {
-        $('#reply-modal').modal();
-        $('#reply-info').text('Delete Failed !').css('color', 'red');
+        showModal('Delete Failed !', 'red');
+    };
+
+    var validateForm = function () {
+        $('#basic-submit').click(function () {
+            var description = $('#inputDescription').val();
+            if (description.length > 50) {
+                showModal('description most 50 character', 'red');
+            } else {
+                $('#basic-info').submit();
+            }
+        });
     };
 
     deleteArticles();
     deleteRecords();
     listenFileUpload();
+    validateForm();
 });

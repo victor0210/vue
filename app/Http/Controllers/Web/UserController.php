@@ -28,7 +28,7 @@ class UserController extends Controller
             ->article()
             ->where('user_id', Auth::user()->id)
             ->get();
-        $records = Records::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(10);
+        $records = Records::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
         }
@@ -40,31 +40,38 @@ class UserController extends Controller
 
     public function updateAvatar(Request $request)
     {
-        $filename=$request->user()->email.'.png';
+        $filename = $request->user()->email . '.png';
         Storage::disk('avatar')->put($filename, file_get_contents($request->file('avatar')->getRealPath()));
-        if (Storage::disk('avatar')->exists($filename)){
-            $url=asset(Storage::url("public/avatar/".$request->user()->email.'.png'));
-            User::where('id',$request->user()->id)->update(['avatar_url'=>$url]);
+        if (Storage::disk('avatar')->exists($filename)) {
+            $url = asset(Storage::url("public/avatar/" . $request->user()->email . '.png'));
+            User::where('id', $request->user()->id)->update(['avatar_url' => $url]);
             return redirect('/setting');
-        } else{
+        } else {
             return 'upload failed';
         }
     }
 
     public function updateBackground(Request $request)
     {
-        $filename=$request->user()->email.'.png';
+        $filename = $request->user()->email . '.png';
         Storage::disk('background')->put($filename, file_get_contents($request->file('background')->getRealPath()));
-        if (Storage::disk('background')->exists($filename)){
-            $url=asset(Storage::url("public/background/".$request->user()->email.'.png'));
-            User::where('id',$request->user()->id)->update(['background_url'=>$url]);
+        if (Storage::disk('background')->exists($filename)) {
+            $url = asset(Storage::url("public/background/" . $request->user()->email . '.png'));
+            User::where('id', $request->user()->id)->update(['background_url' => $url]);
             return redirect('/setting');
-        } else{
+        } else {
             return 'upload failed';
         }
     }
 
-    public function setting(){
+    public function setting()
+    {
         return view('web.setting');
+    }
+
+    public function setInfo(Request $request)
+    {
+        User::where('id', $request->user()->id)->update(['description' => $request->description]);
+        return redirect('/setting');
     }
 }

@@ -53,12 +53,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ], [
             'name.required' => 'name is required',
             'name.max' => 'name is not validate',
+            'name.unique' => 'name has been registed',
             'email.required' => 'email is required',
             'email.email' => '邮箱无效',
             'email.unique' => 'email has been registed',
@@ -99,7 +100,7 @@ class RegisterController extends Controller
 
     protected function mail(Request $request)
     {
-        $activationcode = md5($request.time());
-        Mail::to($request->email)->send(new OrderShipped(['email'=>$request->email,'activationcode'=>$activationcode]));
+        $activationcode = md5($request . time());
+        Mail::to($request->email)->send(new OrderShipped(['email' => $request->email, 'activationcode' => $activationcode]));
     }
 }

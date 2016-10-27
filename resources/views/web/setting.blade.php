@@ -11,9 +11,9 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12 page-header">
+        <div class="page-header">
             <h1>
-                <small>Hello {{ Auth::user()->name }}!</small>
+                <small>Basic Info</small>
             </h1>
         </div>
         <div class="col-md-12">
@@ -23,6 +23,20 @@
             <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">Background<span
                         class="glyphicon glyphicon-cog"></span>
             </button>
+        </div>
+        <div class="col-md-4">
+            <form class="form-horizontal" id="basic-info" action="/setting" method="post">
+                <div class="form-group">
+                    <label for="inputDescription" class="col-sm-2 control-label"></label>
+                    <div class="col-md-12 col-sm-10">
+                        <input type="text" class="form-control" id="inputDescription" name="description"
+                               placeholder="Description (30 characters)">
+                    </div>
+                    <div class="col-md-12 col-sm-10">
+                        <input type="button" id="basic-submit" class="btn btn-success form-control" value="Submit">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -90,4 +104,14 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="reply-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="reply-info" class="text-center"></p>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @endsection

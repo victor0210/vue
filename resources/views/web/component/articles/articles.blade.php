@@ -20,7 +20,12 @@
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home">
-                            <ul class="list-group">
+                            <ul class="list-group list-unstyled">
+                                <li>
+                                    @foreach($collections as $collection)
+                                        <a href="/article/{{ $collection->name }}"><span class="badge">{{ $collection->name }}</span></a>
+                                    @endforeach
+                                </li>
                                 @foreach($articles as $item)
                                     @include('web.component.article-list')
                                 @endforeach
@@ -28,6 +33,11 @@
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
                             <ul class="list-group">
+                                <li>
+                                    @foreach($collections as $collection)
+                                        <a href="/article/{{ $collection->name }}"><span class="badge">{{ $collection->name }}</span></a>
+                                    @endforeach
+                                </li>
                                 @foreach($articles->sortByDesc('comment_count') as $item)
                                     @include('web.component.article-list')
                                 @endforeach

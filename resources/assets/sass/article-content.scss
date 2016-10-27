@@ -1,6 +1,4 @@
-//#article-main-content * {
-//  font-family: 'Monaco', 'Lucida Console', monospace;
-//}
+@import "common-bootstrap/bootstrap/variables";
 
 #article-content, .panel-body {
   word-break: break-all;
@@ -88,6 +86,7 @@
 
 .comment-title {
   font-size: 1.2em;
+  color: $brand-primary;
 }
 
 .comment-content {
