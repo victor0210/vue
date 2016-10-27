@@ -24,13 +24,13 @@
                 </div>
                 @else
                     <h3>
-                        <small> 这个人很懒,还没有写过文章 ^_^ !!
+                        <small> 这个人很懒,还没有写过什么作品 ^_^ !!
                         </small>
                     </h3>
                 @endif
                 @if($records->count()==0)
                     <h3>
-                        <small> 好像还么有人来看过他 ~.~ !!
+                        <small> 好像还么有人来看过他的作品 ~.~ !!
                         </small>
                     </h3>
                 @else
