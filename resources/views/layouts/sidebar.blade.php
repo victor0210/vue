@@ -18,9 +18,7 @@
             <h1>Light Blog</h1>
             <h3>Communication · Share · Progress</h3>
             <h4>A place for Web-Engineer</h4>
-            <div class="btn-group">
-            <a href="/login" class="btn btn-lg btn-success">Get To Write</a>
-            </div>
         @endif
+        <a href="/add-article" class="btn btn-lg btn-success">Get To Write</a>
     </div>
 </div>

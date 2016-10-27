@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.other-user.app')
 
 @section('title', $content->title)
 
@@ -18,7 +18,7 @@
                 @if(Auth::check())
                     @if($status==true)
                         <button class="btn btn-success" disabled>已赞 <span class="fa fa-thumbs-up"></span></button>
-                    @elseif ($status)
+                    @else
                         <button class="btn btn-success" id="thumb-up">赞一个 <span class="fa fa-thumbs-up"></span></button>
                     @endif
                 @else
@@ -28,6 +28,14 @@
             <div id="article-content">
                 {!!  $content->content !!}
             </div>
+            <p style="color:#999">recent browse :
+                @foreach($records as $item)
+                    <a href="/user/{{ $item->user->id }}" style="display: inline-block"><img
+                                style="width: 25px;height: 25px;margin-top:5px;margin-right:-15px;border-radius: 50%"
+                                src="{{ $item->user->avatar_url }}" data-toggle="tooltip"
+                                data-placement="bottom" title="{{ $item->user->name }}"></a>
+                @endforeach
+            </p>
             @foreach($comments as $item)
                 <div class="col-md-12">
                     <div class="page-header">
@@ -141,26 +149,29 @@
     </div>
 
     <script>
-        $('#reply-submit').click(function () {
-            $('#reply-form').submit();
-        });
-
-        $('.reply').click(function () {
-            $('input[name=receiver]').val($(this).data('receiver'));
-            $('input[name=comment]').val($(this).data('comment'));
-        });
-        $('#thumb-up').click(function () {
-            var url = '/api/thumbs';
-            $.ajax(url, {
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'post',
-                data: {'article_id': $('#article-main-content').data('article-id')},
-                success: function (data) {
-                    console.log(data);
-                }
+        $(function () {
+            $('#reply-submit').click(function () {
+                $('#reply-form').submit();
             });
-        });
+
+            $('.reply').click(function () {
+                $('input[name=receiver]').val($(this).data('receiver'));
+                $('input[name=comment]').val($(this).data('comment'));
+            });
+            $('#thumb-up').click(function () {
+                var url = '/api/thumbs';
+                $.ajax(url, {
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
+                    data: {'article_id': $('#article-main-content').data('article-id')},
+                    success: function (data) {
+                        $('#thumb-up').html('已赞 <span class="fa fa-thumbs-up"></span>').attr('disabled', 'disabled');
+                    }
+                });
+            });
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
 @endsection

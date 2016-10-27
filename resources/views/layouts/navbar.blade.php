@@ -2,8 +2,8 @@
     <nav class="navbar navbar-fixed-top" role="navigation">
         <div id="navbar">
             <ul class="nav navbar-nav navbar-menu" data-tab="@yield('tab')">
-                <li name="tab0"><a href="/"><span class="glyphicon glyphicon-home"> Home</span></a></li>
                 <li name="tab1"><a href="/article/all"><span class="glyphicon glyphicon-list-alt"> Article</span></a></li>
+                <li name="tab0"><a href="/"><span class="glyphicon glyphicon-home"> Collection</span></a></li>
                 <li name="tab2"><a href="/music"><span class="glyphicon glyphicon-headphones"> Music</span></a></li>
                 <li name="tab3"><a href="/about"><span class="glyphicon glyphicon-globe"> About</span></a></li>
                 <li><a href="/add-article"><span class="glyphicon glyphicon-pencil"> Writing</span></a></li>

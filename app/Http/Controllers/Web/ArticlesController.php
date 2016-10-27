@@ -32,8 +32,9 @@ class ArticlesController
 
     function index($id)
     {
+        $user = Article::find($id)->user;
         Article::find($id)->increment('view');
-        $status='';
+        $status = false;
         if (Article::where('id', $id)->get()->isEmpty()) {
             return Redirect::back();
         } else {
@@ -42,13 +43,14 @@ class ArticlesController
                     Records::insert([
                         'user_id' => Auth::user()->id,
                         'article_id' => $id,
+                        'belong' => Article::find($id)->user->id,
                         'created_at' => gmdate('Y-m-d H:i:s'),
                         'updated_at' => gmdate('Y-m-d H:i:s')
                     ]);
                 } else {
                     Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
                 }
-                $status =!!Thumbs::where(['article_id'=>$id,'user_id'=>Auth::user()->id]);
+                $status = !!Thumbs::where(['article_id' => $id, 'user_id' => Auth::user()->id])->first();
             }
 
             $content = Article::where('id', $id)->first();
@@ -58,7 +60,8 @@ class ArticlesController
                 $comment->user_name = User::where('id', $comment->user_id)->value('name');
                 $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
             }
-            return view('web.component.article-content.article-content', compact('content', 'comments','status'));
+            $records=Records::where(['article_id'=>$id])->get();
+            return view('web.component.article-content.article-content', compact('content', 'comments', 'status', 'user','records'));
         }
     }
 

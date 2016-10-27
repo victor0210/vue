@@ -13,8 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Records extends Model
 {
-//    public function article()
-//    {
-//        //return $this->article_id;
-//    }
+    function article(){
+        return $this->belongsTo('App\Models\Article','article_id','id');
+    }
+
+    function user(){
+        return $this->belongsTo('App\User','user_id','id');
+    }
 }
