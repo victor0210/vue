@@ -105,3 +105,12 @@ body {
   font-size: 16px;
   letter-spacing: 2px;
 }
+
+.show-more {
+  transition: 0.3s;
+  img {
+    width: 50px;
+    height: 50px;
+    display: none
+  }
+}

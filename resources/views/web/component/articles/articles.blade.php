@@ -20,7 +20,7 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="home">
-                        <ul class="list-group list-unstyled hottest">
+                        <ul class="list-group list-unstyled" id="latest">
                             <li>
                                 @foreach($collections as $collection)
                                     <a href="/article/{{ $collection->name }}"><span
@@ -31,25 +31,33 @@
                                 @include('web.component.article-list')
                             @endforeach
                         </ul>
+                        <div class="text-center">
+                            <button class="btn btn-success btn-lg show-more" data-status="latest">
+                                <span>查看更多 ~ ~</span>
+                                <img src="{{ elixir('images/loading.gif') }}">
+                            </button>
+                        </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="profile">
-                        <ul class="list-group list-unstyled">
+                        <ul class="list-group list-unstyled" id="hottest">
                             <li>
                                 @foreach($collections as $collection)
                                     <a href="/article/{{ $collection->name }}"><span
                                                 class="badge">{{ $collection->name }}</span></a>
                                 @endforeach
                             </li>
-                            @foreach($articles->sortByDesc('comment_count') as $item)
+                            @foreach($articles->sortByDesc('view') as $item)
                                 @include('web.component.article-list')
                             @endforeach
                         </ul>
+                        <div class="text-center">
+                            <button class="btn btn-success btn-lg show-more" data-status="hottest">
+                                <span>查看更多 ~ ~</span>
+                                <img src="{{ elixir('images/loading.gif') }}">
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-success btn-lg show-more">查看更多 ~ ~
-                </button>
             </div>
             @include('layouts.footer')
         </div>
@@ -57,29 +65,44 @@
     @include('web.component.article-list-tmpl')
     <script>
         $(function () {
-            var page = 3;
-
+            var page_latest = 3;
+            var page_hottest = 3;
             $('.thumbnail img').height($('.thumbnail img').width());
             $(window).resize(function () {
                 $('.thumbnail img').height($('.thumbnail img').width());
             })
 
             $('.show-more').click(function () {
+                $(this).find('span').hide();
+                $(this).find('img').show();
+                var status = $(this).data('status');
+                switch (status) {
+                    case 'latest':
+                        var page = page_latest++;
+                        break;
+                    case 'hottest':
+                        var page = page_hottest++;
+                        break;
+                }
                 $.ajax('/api/articles-list?page=' + page, {
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     type: 'GET',
+                    data: {status: status},
                     success: function (data) {
+                        if (data.next_page_url == null) {
+                            $('.show-more[data-status=' + status + ']').text('No More !').attr('disabled', 'disabled');
+                        }
                         if (data.data != '') {
                             var data = data.data;
                             data.map(function (index) {
                                 var text = tmpl('article-list', index);
-                                $('.list-group.hottest').append(text);
+                                $('#' + status).append(text);
                             });
-                            page++;
+                            $('.show-more[data-status=' + status + ']').find('span').show();
+                            $('.show-more[data-status=' + status + ']').find('img').hide();
                         }
-                        else $('.show-more').text('No More !').attr('disabled','disabled');
                     },
                     error: function () {
                         alert('请求失败');

@@ -39,12 +39,22 @@ class ArticlesController extends Controller
         return $articles;
     }
 
-    public function getArticleList(){
-        $articles = Article::paginate(10);
-        foreach ($articles as $article){
-            $article->user=User::find($article->user_id);
-            $article->comment_count=$article->comment->count();
-            $article->created=$article->created_at->diffForHumans();
+    public function getArticleList(Request $request)
+    {
+        switch ($request->status) {
+            case 'latest':
+                $articles = Article::orderBy('created_at', 'desc')->paginate(10);
+                break;
+            case 'hottest':
+                $articles = Article::orderBy('view', 'desc')->paginate(10);
+                break;
+        }
+
+
+        foreach ($articles as $article) {
+            $article->user = User::find($article->user_id);
+            $article->comment_count = $article->comment->count();
+            $article->created = $article->created_at->diffForHumans();
         }
         return $articles;
     }

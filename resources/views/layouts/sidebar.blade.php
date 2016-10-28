@@ -19,6 +19,6 @@
             <h3>Communication · Share · Progress</h3>
             <h4>A place for Web-Engineer</h4>
         @endif
-        <a href="/add-article" class="btn btn-lg btn-success">Get To Write</a>
+        <a href="/add-article" class="btn btn-lg btn-success">Get To Write <span class="fa fa-pencil"></span></a>
     </div>
 </div>

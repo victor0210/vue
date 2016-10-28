@@ -23,7 +23,7 @@ class IndexController extends Controller
         if ($collection != 'all')
             $articles = Article::where(['collection' => $collection])->orderBy('created_at', 'desc')->paginate(20);
         else
-            $articles = Article::orderBy('created_at', 'desc')->paginate(40);
+            $articles = Article::orderBy('created_at', 'desc')->paginate(1);
 
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
