@@ -14,6 +14,7 @@
     <style>
         .container {
             padding-top: 10%;
+            opacity:0.9;
         }
 
         .panel-default {
@@ -59,6 +60,7 @@
 
 <div class="affix"></div>
 @yield('content')
+@include('web.component.bird')
 </body>
 
 <script>
