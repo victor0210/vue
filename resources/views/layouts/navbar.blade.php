@@ -6,7 +6,7 @@
                 <li name="tab0"><a href="/"><span class="glyphicon glyphicon-home"> 推荐分类</span></a></li>
                 <li name="tab2"><a href="/recommend"><span class="glyphicon glyphicon-headphones"> 风云人物</span></a></li>
                 @if(!Auth::check())
-                    <li name="tab3"><a href="/login"><span class="glyphicon glyphicon-log-in"> 登录</span></a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"> 登录</span></a></li>
                 @endif
                 @if(Auth::check())
                     <li name="tab4"><a href="/user"><span class="glyphicon glyphicon-user"> 个人中心</span></a></li>
@@ -17,7 +17,6 @@
                     <li><a href="/logout"><span class="glyphicon glyphicon-log-out"> 注销登录</span></a></li>
                 @endif
                 <li name="tab3"><a href="/about"><span class="glyphicon glyphicon-qrcode"> 关于我们</span></a></li>
-
             </ul>
         </div>
     </nav>

@@ -11,7 +11,7 @@
 @section('content')
     <div class="row">
         @foreach($articles->sortByDesc(['total_view','view']) as $article)
-            <div class="col-sm-9 col-md-offset-1 col-md-9 col-sm-offset-1 col-xs-12">
+            <div class="col-sm-10  col-md-10 col-xs-12">
                 <div class="thumbnail" style="background: url('{{ $article->user->background_url }}') center no-repeat">
                     <div class="row">
                         <div class="col-md-2">

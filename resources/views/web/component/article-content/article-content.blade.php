@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="row" id="article-main-content" data-article-id="{{ $content->id }}">
-        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+        <div class="col-md-10 col-sm-10">
             <div class="page-header">
                 <img src="{{ $content->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
                 <a href="/user/{{ $content->user->id }}">{{ $content->user->name }}</a> · <span
@@ -102,7 +102,7 @@
                 </div>
             @endforeach
         </div>
-        <div class="comment-area col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+        <div class="comment-area col-md-10 col-sm-10 ">
             <form action="/send-comment/{{ $content->id }}" method="post">
                 {!! csrf_field() !!}
                 <div class="form-group">

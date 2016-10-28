@@ -35,7 +35,7 @@ $(function () {
                 }
             );
             $('#user-sidenav').width($(window).width()).height($(window).height()).fadeIn(500).animate({
-                'width': $(window).width() / 3.5
+                'width': $(window).width() / 4.5
             }, 500, function () {
                 $('#content-area').fadeIn(1000, function () {
                     $('.sidenav-info').css('top', '25%');
@@ -49,7 +49,7 @@ $(function () {
                 });
             });
             $('.sidenav-container').height($(window).height()).width($(window).width()).fadeIn(500).animate({
-                'width': $(window).width() / 3.5
+                'width': $(window).width() / 4.5
             }, 500);
         }
     };
@@ -69,11 +69,11 @@ $(function () {
         }
         else {
             $('.container-fluid').css('marginLeft', ml + 'px');
-            $('.sidenav-info').css({'top': '30%'});
+            $('.sidenav-info').css({'top': '25%'});
             $('#user-sidenav').css({'position': 'fixed', 'width': '100%'});
-            $('.floating').width($(window).width() / 3.5).height($(window).height());
-            $('#user-sidenav').width($(window).width() / 3.5).height($(window).height());
-            $('.sidenav-container').height($(window).height()).width($(window).width() / 3.5);
+            $('.floating').width($(window).width() / 4.5).height($(window).height());
+            $('#user-sidenav').width($(window).width() / 4.5).height($(window).height());
+            $('.sidenav-container').height($(window).height()).width($(window).width() / 4.5);
             $('.glyphicon-menu-hamburger').css({transform: "rotate(0deg)"});
             $('.navbar').css('visibility', 'visible');
         }

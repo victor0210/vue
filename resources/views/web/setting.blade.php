@@ -11,32 +11,34 @@
 
 @section('content')
     <div class="row">
-        <div class="page-header">
-            <h1>
-                <small>Basic Info</small>
-            </h1>
-        </div>
-        <div class="col-md-12">
-            <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#editModal">Avatar<span
-                        class="glyphicon glyphicon-cog"></span>
-            </button>
-            <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">Background<span
-                        class="glyphicon glyphicon-cog"></span>
-            </button>
-        </div>
-        <div class="col-md-4">
-            <form class="form-horizontal" id="basic-info" action="/setting" method="post">
-                <div class="form-group">
-                    <label for="inputDescription" class="col-sm-2 control-label"></label>
-                    <div class="col-md-12 col-sm-10">
-                        <input type="text" class="form-control" id="inputDescription" name="description"
-                               placeholder="Description (30 characters)">
+        <div class="col-md-10 col-sm-10">
+            <div class="page-header text-center">
+                <h1>
+                    Basic Info
+                </h1>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#editModal">Avatar<span
+                            class="glyphicon glyphicon-cog"></span>
+                </button>
+                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">Background<span
+                            class="glyphicon glyphicon-cog"></span>
+                </button>
+            </div>
+            <div class="col-md-4">
+                <form class="form-horizontal" id="basic-info" action="/setting" method="post">
+                    <div class="form-group">
+                        <label for="inputDescription" class="col-sm-2 control-label"></label>
+                        <div class="col-md-12 col-sm-10">
+                            <input type="text" class="form-control" id="inputDescription" name="description"
+                                   placeholder="Description (30 characters)">
+                        </div>
+                        <div class="col-md-12 col-sm-10">
+                            <input type="button" id="basic-submit" class="btn btn-success form-control" value="Submit">
+                        </div>
                     </div>
-                    <div class="col-md-12 col-sm-10">
-                        <input type="button" id="basic-submit" class="btn btn-success form-control" value="Submit">
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 

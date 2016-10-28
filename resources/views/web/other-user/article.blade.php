@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-9 col-md-offset-1">
+        <div class="col-md-10">
             <h1 class="text-center text-gray page-header">
                 <small>{{ $user->name }}</small>
             </h1>

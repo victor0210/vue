@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="row user-center">
-        <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+        <div class="col-md-10 col-sm-10">
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="page-header">
                     <h3>
