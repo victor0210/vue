@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+@include('web.component.back-top')
 
 </body>
 </html>

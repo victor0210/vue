@@ -257,81 +257,12 @@
                         <li {{ (Request::is('admin/forms') ? 'class="active"' : '') }}>
                             <a href="{{ url ('admin/forms') }}"><i class="fa fa-edit fa-fw"></i> Forms</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('admin/panels') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/panels') }}">Panels and Collapsibles</a>
-                                </li>
-                                <li {{ (Request::is('admin/buttons') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/buttons' ) }}">Buttons</a>
-                                </li>
-                                <li {{ (Request::is('admin/notifications') ? 'class="active"' : '') }}>
-                                    <a href="{{ url('admin/notifications') }}">Alerts</a>
-                                </li>
-                                <li {{ (Request::is('admin/typography') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/typography') }}">Typography</a>
-                                </li>
-                                <li {{ (Request::is('admin/icons') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/icons') }}"> Icons</a>
-                                </li>
-                                <li {{ (Request::is('admin/grid') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/grid') }}">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
-                                        class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span
-                                        class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('admin/blank') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/blank') }}">Blank Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li {{ (Request::is('admin/documentation') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> Documentation</a>
-                        </li>
+
                         <li>
                             <a href="/user"><i class="fa fa-user-md fa-fw"></i> User Center</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
-                    </li>
-                    </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>

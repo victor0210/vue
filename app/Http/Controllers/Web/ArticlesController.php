@@ -94,8 +94,8 @@ class ArticlesController
 
     public function validateArticle(Request $request)
     {
-        $rules = ['contents' => 'required', 'title' => 'required'];
-        $messages = ['contents.required' => 'content must be required', 'title.required' => 'title must be required'];
+        $rules = ['contents' => 'required', 'title' => 'required|max:15'];
+        $messages = ['contents.required' => '请填写内容', 'title.required' => '请填写标题','title.max'=>'标题最多15个字符'];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->with($request->input());

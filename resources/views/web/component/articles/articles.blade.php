@@ -32,8 +32,8 @@
                             @endforeach
                         </ul>
                         <div class="text-center">
-                            <button class="btn btn-success btn-lg show-more" data-status="latest">
-                                <span>查看更多 ~ ~</span>
+                            <button class="btn btn-success show-more" data-status="latest">
+                                <span>查看更多</span>
                                 <img src="{{ elixir('images/loading.gif') }}">
                             </button>
                         </div>
@@ -51,8 +51,8 @@
                             @endforeach
                         </ul>
                         <div class="text-center">
-                            <button class="btn btn-success btn-lg show-more" data-status="hottest">
-                                <span>查看更多 ~ ~</span>
+                            <button class="btn btn-success show-more" data-status="hottest">
+                                <span>查看更多</span>
                                 <img src="{{ elixir('images/loading.gif') }}">
                             </button>
                         </div>

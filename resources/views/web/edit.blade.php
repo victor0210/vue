@@ -8,10 +8,7 @@
 
 @section('content')
     <style>
-        body {
-            background-color: #2e2e2e;
-        }
-        .container *{
+        .container * {
             font-family: 'Monaco', 'Lucida Console', monospace;
         }
     </style>
@@ -40,7 +37,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <input type="submit" value="Submit" class="btn btn-block btn-dark">
+                        <input type="submit" value="Submit" class="btn btn-block btn-default">
                     </div>
                 </form>
             </div>
