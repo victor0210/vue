@@ -1,9 +1,11 @@
 .thumbnail {
   color: #fff; }
   .thumbnail img {
-    width: 30%;
+    width: 100px;
+    height: 100px;
     margin: 20px auto 20px 35%;
-    border-radius: 50%; }
+    border-radius: 50%;
+    border: 2px solid #fff; }
   .thumbnail .caption {
     color: #fff; }
     .thumbnail .caption small {
