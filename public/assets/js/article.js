@@ -26,9 +26,7 @@ $(function () {
             data: {status: status},
             success: function (data) {
                 if (data.next_page_url == null) {
-                    setTimeout(function () {
                         $('.show-more[data-status=' + status + ']').text('No More !').attr('disabled', 'disabled');
-                    }, 1000);
                 }
                 if (data.data != '') {
                     var data = data.data;
