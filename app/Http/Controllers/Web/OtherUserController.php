@@ -18,6 +18,7 @@ class OtherUserController extends Controller
 {
     public function index($id)
     {
+        User::find($id)->increment('browse');
         $user = User::find($id);
         $articles = Article::where(['user_id' => $id])->paginate(3);
         $records = Records::where('belong',$id)->limit(50)->get();

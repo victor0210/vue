@@ -14,14 +14,14 @@
         <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="page-header">
-                    <h2>
+                    <h3>
                         <small>
-                            My Articles
+                            Articles
                             <button class="btn btn-sm btn-warning pull-right articles-edit"><span
                                         class="glyphicon glyphicon-edit"></span>Edit
                             </button>
                         </small>
-                    </h2>
+                    </h3>
                 </div>
                 <div class="row">
                     @foreach($articles as $article)
@@ -39,19 +39,19 @@
             @if($records)
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="page-header">
-                        <h2>
-                            <small>Watching Records
+                        <h3>
+                            <small>Records
                                 <button class="btn btn-sm btn-warning pull-right records-edit"><span
                                             class="glyphicon glyphicon-edit"></span>Edit
                                 </button>
                             </small>
-                        </h2>
+                        </h3>
                     </div>
                     <div class="row">
                         @foreach($records->sortByDesc('updated_at') as $record)
                             <div class="col-md-12" title="{{ $record->article_id }}">
                                 <li class="list-group-item" id="records-board">
-                                    <span class="badge records-badge">{{ $record->updated_at }}</span>
+                                    <span class="badge records-badge">{{ $record->updated_at->diffForHumans() }}</span>
                                     <a href="content/{{ $record->article_id }}">{{$record->title}}</a>
                                     <span class="glyphicon glyphicon-remove text-danger pull-right records-remove"
                                           data-id="{{ $record->id }}"></span>

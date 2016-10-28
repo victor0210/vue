@@ -26,7 +26,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('content/{id}', 'ArticlesController@index');
     Route::get('/article/{collection?}', ['as' => 'article', 'uses' => 'IndexController@index']);
     Route::get('/', ['as' => 'collection', 'uses' => 'IndexController@collection']);
-    Route::get('music', 'MusicController@index');
+    Route::get('/recommend', 'IndexController@recommend');
     Route::get('about', 'StaticPageController@index');
     Route::get('user/{id}', 'OtherUserController@index');
     Route::get('user/{id}/article', 'OtherUserController@article');

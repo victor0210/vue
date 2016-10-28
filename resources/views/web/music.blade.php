@@ -9,5 +9,28 @@
 @endsection
 
 @section('content')
-    <h1 class="text-center text-gray">Music Page !</h1>
+    <div class="row">
+        @foreach($articles->sortByDesc(['total_view','view']) as $article)
+            <div class="col-sm-9 col-md-offset-1 col-md-9 col-sm-offset-1 col-xs-12">
+                <div class="thumbnail" style="background: url('{{ $article->user->background_url }}') center no-repeat">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="/user/{{ $article->user->id }}"><img src="{{ $article->user->avatar_url }}"
+                                                                          alt="..."></a>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="caption">
+                                <h3>{{ $article->user->name  }}
+                                    <small>{{ $article->total_view }} 看过他写的文章</small>
+                                </h3>
+                                <p></p>
+                                <h5><a href="/content/{{ $article->id }}">代表作: << {{ $article->title }} >> </a></h5>
+                                <p>浏览({{ $article->view }})</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection

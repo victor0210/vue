@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="row">
-        <div class="page-header">
+        <div class="page-header text-center">
             <h1>
                 <small>Basic Info</small>
             </h1>

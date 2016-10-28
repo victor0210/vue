@@ -21,4 +21,23 @@ label {
   display: none;
   cursor: pointer; }
 
+.thumbnail {
+  color: #fff; }
+  .thumbnail img {
+    width: 30%;
+    margin: 20px auto 20px 35%;
+    border-radius: 50%; }
+  .thumbnail .caption {
+    color: #fff; }
+    .thumbnail .caption small {
+      color: #fafafa; }
+    .thumbnail .caption h5 a {
+      color: #fff !important; }
+
+@media screen and (min-width: 992px) {
+  .thumbnail img {
+    width: 90%;
+    margin: auto auto auto 5%;
+    border-radius: 50%; } }
+
 /*# sourceMappingURL=user-center.css.map */

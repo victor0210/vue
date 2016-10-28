@@ -11,6 +11,8 @@ namespace App\Http\Controllers\Web;
 use App\Models\Article;
 use App\Models\Collection;
 use App\Models\Comment;
+use App\Models\Records;
+use App\User;
 use DB;
 use App\Http\Controllers\Controller;
 use Mail;
@@ -38,5 +40,13 @@ class IndexController extends Controller
     {
         $collections = Collection::where('is_active',1)->get();
         return view('face-page', compact('collections'));
+    }
+
+    public function recommend(){
+        $articles=Article::orderBy('view','desc')->limit(9)->get();
+        foreach ($articles as $article){
+            $article->total_view=$article->where('user_id',$article->user_id)->sum('view');
+        }
+        return view('web.music',compact('articles'));
     }
 }
