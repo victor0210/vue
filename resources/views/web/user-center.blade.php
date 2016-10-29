@@ -35,6 +35,18 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @if($articles->previousPageUrl())
+                            <a href="{{ $articles->previousPageUrl() }}" class="btn btn-link pull-left">previous
+                                page</a>
+                        @endif
+                        @if($articles->nextPageUrl())
+                            <a href="{{ $articles->nextPageUrl() }}" class="btn btn-link pull-right">next
+                                page</a>
+                        @endif
+                    </div>
+                </div>
             </div>
             @if($records)
                 <div class="col-md-6 col-sm-6 col-xs-12">

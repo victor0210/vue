@@ -41,24 +41,30 @@ class ArticlesController extends Controller
 
     public function getArticleList(Request $request)
     {
-        switch ($request->status) {
-            case 'latest':
-                $articles = Article::orderBy('created_at', 'desc')->paginate(10);
-                foreach ($articles as $article) {
-                    preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
-                    $article->avatar = $result[1];
-                }
-                break;
-            case 'hottest':
-                $articles = Article::orderBy('view', 'desc')->paginate(10);
-                foreach ($articles as $article) {
-                    preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
-                    $article->avatar = $result[1];
-                }
-                break;
+        if ($request->status == 'latest' || $request->status == 'hottest') {
+            switch ($request->status) {
+                case 'latest':
+                    $articles = Article::orderBy('created_at', 'desc')->paginate(10);
+                    foreach ($articles as $article) {
+                        preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+                        $article->avatar = $result[1];
+                    }
+                    break;
+                case 'hottest':
+                    $articles = Article::orderBy('view', 'desc')->paginate(10);
+                    foreach ($articles as $article) {
+                        preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+                        $article->avatar = $result[1];
+                    }
+                    break;
+            }
+        } else {
+            $articles =Article::where('collection',$request->status)->orderBy('view', 'desc')->paginate(10);
+            foreach ($articles as $article) {
+                preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+                $article->avatar = $result[1];
+            }
         }
-
-
         foreach ($articles as $article) {
             $article->user = User::find($article->user_id);
             $article->comment_count = $article->comment->count();

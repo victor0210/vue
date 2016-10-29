@@ -11,11 +11,11 @@ $(function () {
         $(this).find('img').show();
         var status = $(this).data('status');
         switch (status) {
-            case 'latest':
-                var page = page_latest++;
-                break;
             case 'hottest':
                 var page = page_hottest++;
+                break;
+            default:
+                var page = page_latest++;
                 break;
         }
         $.ajax('/api/articles-list?page=' + page, {
@@ -26,7 +26,7 @@ $(function () {
             data: {status: status},
             success: function (data) {
                 if (data.next_page_url == null) {
-                        $('.show-more[data-status=' + status + ']').text('No More !').attr('disabled', 'disabled');
+                    $('.show-more[data-status=' + status + ']').text('No More !').css('backgroundColor','#5cb85c').attr('disabled', 'disabled');
                 }
                 if (data.data != '') {
                     var data = data.data;

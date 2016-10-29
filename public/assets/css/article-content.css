@@ -19,7 +19,8 @@
 
 @media (min-width: 768px) {
   #article-content img {
-    width: 20%;
+    width: auto;
+    max-width: 100%;
     border: 1px solid #eeeeee; } }
 
 .reply {

@@ -29,7 +29,7 @@ class UserController extends Controller
         $articles = $user
             ->article()
             ->where('user_id', Auth::user()->id)
-            ->get();
+            ->paginate(10);
         $records = Records::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();

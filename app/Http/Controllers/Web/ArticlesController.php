@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Article;
+use App\Models\Collection;
 use App\Models\Comment;
 use App\Models\Comment_Replies;
 use App\Models\Records;
@@ -90,7 +91,8 @@ class ArticlesController
 
     public function add()
     {
-        return view('web.edit');
+        $collections = Collection::get();
+        return view('web.edit', compact('collections'));
     }
 
     public function validateArticle(Request $request)
@@ -101,17 +103,22 @@ class ArticlesController
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->with($request->input());
         } else {
-            $request = $this->purifier->clean($request->all());
-            Article::insert(
+            if (Article::insert(
                 [
                     'user_id' => Auth::user()->id,
+                    'collection' => Collection::where('id', $request['collection'])->value('name'),
                     'title' => $request['title'],
                     'content' => $request['contents'],
                     'created_at' => gmdate('Y-m-d H:i:s'),
                     'updated_at' => gmdate('Y-m-d H:i:s')
-                ]
-            );
-            return redirect('/user');
+                ])
+            ) {
+                Article::all()->searchable();
+                return redirect('/user');
+            } else {
+               return response('error',500);
+            }
+
         }
     }
 

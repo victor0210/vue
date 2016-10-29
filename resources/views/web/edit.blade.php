@@ -8,8 +8,8 @@
 
 @section('content')
     <style>
-        .container * {
-            font-family: 'Monaco', 'Lucida Console', monospace;
+        label{
+            color: #999;
         }
     </style>
     @include('layouts.navbar')
@@ -20,7 +20,14 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="editor">
-                            <input type="text" name="title" placeholder="title" class="form-control"
+                            <label for="select">选择分类:</label>
+                            <select name="collection" class="form-control" id="select" required>
+                                @foreach($collections as $collection)
+                                    <option value="{{ $collection->id }}">{{ $collection->name }}</option>
+                                @endforeach
+                            </select>
+                            <label for="title">文章标题:</label>
+                            <input type="text" name="title" placeholder="title" class="form-control" id="title"
                                    value="{{ old('title') }}"
                                    required>
                             @if ($errors->has('title'))
@@ -28,6 +35,7 @@
                                         <strong class="text-danger">{{ $errors->first('title') }}</strong>
                                     </span>
                             @endif
+                            <label for="myEditor">文章正文:</label>
                             <textarea id='myEditor' name="contents" value="{{ old('contents') }}" required></textarea>
                             @if ($errors->has('contents'))
                                 <span class="help-block">
