@@ -15,7 +15,9 @@
     "predis/predis": "^1.1",
     "guzzlehttp/guzzle": "^6.2",
     "pusher/pusher-php-server": "^2.6",
-    "intervention/image": "2.3.8"
+    "intervention/image": "2.3.8",
+    "mmanos/laravel-search": "dev-master",
+    "laravel/scout": "^1.1"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

@@ -179,6 +179,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Chromabits\Purifier\PurifierServiceProvider',
         'YuanChao\Editor\EndaEditorServiceProvider',
+        'Mmanos\Search\SearchServiceProvider',
+        Laravel\Scout\ScoutServiceProvider::class,
     ],
 
     /*
@@ -227,5 +229,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'EndaEditor' => 'YuanChao\Editor\Facade\EndaEditorFacade',
+        'Search' => 'AlgoliaSearch\Client',
     ],
 ];

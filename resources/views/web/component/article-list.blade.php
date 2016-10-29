@@ -14,8 +14,10 @@
             </h6>
         </div>
         <div class="col-md-2 col-xs-4 col-sm-3">
-            <img src="{{ elixir('images/bg14.jpg') }}" alt="" style="
+            @if(!!$item->avatar)
+            <img src="{!! $item->avatar[0] !!}" alt="" style="
             border: 1px solid #eeeeee;height: 90px;width: 90px;padding: 2px;border-radius: 5px;">
+                @endif
         </div>
     </div>
 </li>

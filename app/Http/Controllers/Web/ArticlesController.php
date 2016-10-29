@@ -55,13 +55,14 @@ class ArticlesController
 
             $content = Article::where('id', $id)->first();
             $content->content = EndaEditor::MarkDecode($content->content);
+            preg_match_all('/<img.*?src="(.*?)".*?>/is',$content->content,$result);
             $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
             foreach ($comments as $comment) {
                 $comment->user_name = User::where('id', $comment->user_id)->value('name');
                 $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
             }
-            $records=Records::where(['article_id'=>$id])->limit(50)->get();
-            return view('web.component.article-content.article-content', compact('content', 'comments', 'status', 'user','records'));
+            $records = Records::where(['article_id' => $id])->limit(50)->get();
+            return view('web.component.article-content.article-content', compact('content', 'comments', 'status', 'user', 'records'));
         }
     }
 
@@ -95,7 +96,7 @@ class ArticlesController
     public function validateArticle(Request $request)
     {
         $rules = ['contents' => 'required', 'title' => 'required|max:15'];
-        $messages = ['contents.required' => '请填写内容', 'title.required' => '请填写标题','title.max'=>'标题最多15个字符'];
+        $messages = ['contents.required' => '请填写内容', 'title.required' => '请填写标题', 'title.max' => '标题最多15个字符'];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->with($request->input());

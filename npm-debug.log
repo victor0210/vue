@@ -1,0 +1,167 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'zendframework/zendsearch' ]
+2 info using npm@3.10.3
+3 info using node@v6.6.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData zendframework/zendsearch
+8 silly fetchOtherPackageData zendframework/zendsearch
+9 silly cache add args [ 'zendframework/zendsearch', null ]
+10 verbose cache add spec zendframework/zendsearch
+11 silly cache add parsed spec Result {
+11 silly cache add   raw: 'zendframework/zendsearch',
+11 silly cache add   scope: null,
+11 silly cache add   escapedName: null,
+11 silly cache add   name: null,
+11 silly cache add   rawSpec: 'zendframework/zendsearch',
+11 silly cache add   spec: 'github:zendframework/zendsearch',
+11 silly cache add   type: 'hosted',
+11 silly cache add   hosted:
+11 silly cache add    { type: 'github',
+11 silly cache add      ssh: 'git@github.com:zendframework/zendsearch.git',
+11 silly cache add      sshUrl: 'git+ssh://git@github.com/zendframework/zendsearch.git',
+11 silly cache add      httpsUrl: 'git+https://github.com/zendframework/zendsearch.git',
+11 silly cache add      gitUrl: 'git://github.com/zendframework/zendsearch.git',
+11 silly cache add      shortcut: 'github:zendframework/zendsearch',
+11 silly cache add      directUrl: 'https://raw.githubusercontent.com/zendframework/zendsearch/master/package.json' } }
+12 verbose addRemoteGit caching zendframework/zendsearch
+13 verbose addRemoteGit zendframework/zendsearch is a repository hosted by github
+14 silly tryGitProto attempting to clone git://github.com/zendframework/zendsearch.git
+15 silly tryClone cloning zendframework/zendsearch via git://github.com/zendframework/zendsearch.git
+16 verbose tryClone git-github-com-zendframework-zendsearch-git-9e4f0e5a not in flight; caching
+17 verbose correctMkdir /Users/humengtao/.npm/_git-remotes correctMkdir not in flight; initializing
+18 info git [ 'config', '--get', 'remote.origin.url' ]
+19 silly validateExistingRemote zendframework/zendsearch remote.origin.url: git://github.com/zendframework/zendsearch.git
+20 verbose validateExistingRemote zendframework/zendsearch is updating existing cached remote /Users/humengtao/.npm/_git-remotes/git-github-com-zendframework-zendsearch-git-9e4f0e5a
+21 info git [ 'fetch', '-a', 'origin' ]
+22 verbose updateRemote git fetch -a origin (git://github.com/zendframework/zendsearch.git)
+23 verbose correctMkdir /Users/humengtao/.npm/_git-remotes correctMkdir not in flight; initializing
+24 verbose setPermissions zendframework/zendsearch set permissions on /Users/humengtao/.npm/_git-remotes/git-github-com-zendframework-zendsearch-git-9e4f0e5a
+25 verbose resolveHead zendframework/zendsearch original treeish: master
+26 info git [ 'rev-list', '-n1', 'master' ]
+27 silly resolveHead zendframework/zendsearch resolved treeish: c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+28 verbose resolveHead zendframework/zendsearch resolved Git URL: git://github.com/zendframework/zendsearch.git#c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+29 silly resolveHead Git working directory: /var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-ea7ce2d8/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+30 info git [ 'clone',
+30 info git   '/Users/humengtao/.npm/_git-remotes/git-github-com-zendframework-zendsearch-git-9e4f0e5a',
+30 info git   '/var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-ea7ce2d8/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63' ]
+31 verbose cloneResolved zendframework/zendsearch clone Cloning into '/var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-ea7ce2d8/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63'...
+31 verbose cloneResolved done.
+32 info git [ 'checkout', 'c8de2508d3413bf9d701b40c1092c1ffbdd8fc63' ]
+33 verbose checkoutTreeish zendframework/zendsearch checkout Note: checking out 'c8de2508d3413bf9d701b40c1092c1ffbdd8fc63'.
+33 verbose checkoutTreeish
+33 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+33 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+33 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+33 verbose checkoutTreeish
+33 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+33 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+33 verbose checkoutTreeish
+33 verbose checkoutTreeish   git checkout -b new_branch_name
+33 verbose checkoutTreeish
+33 verbose checkoutTreeish HEAD is now at c8de250... Merge pull request #20 from butonic/add-gitattributes
+34 info git [ 'submodule', '-q', 'update', '--init', '--recursive' ]
+35 verbose updateSubmodules zendframework/zendsearch submodule update
+36 error addLocal Could not install /var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-ea7ce2d8/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+37 silly tryHTTPS attempting to clone git+https://github.com/zendframework/zendsearch.git
+38 silly tryClone cloning zendframework/zendsearch via git+https://github.com/zendframework/zendsearch.git
+39 verbose tryClone git-https-github-com-zendframework-zendsearch-git-5e1dd5f4 not in flight; caching
+40 verbose correctMkdir /Users/humengtao/.npm/_git-remotes correctMkdir not in flight; initializing
+41 info git [ 'config', '--get', 'remote.origin.url' ]
+42 silly validateExistingRemote zendframework/zendsearch remote.origin.url: https://github.com/zendframework/zendsearch.git
+43 verbose validateExistingRemote zendframework/zendsearch is updating existing cached remote /Users/humengtao/.npm/_git-remotes/git-https-github-com-zendframework-zendsearch-git-5e1dd5f4
+44 info git [ 'fetch', '-a', 'origin' ]
+45 verbose updateRemote git fetch -a origin (https://github.com/zendframework/zendsearch.git)
+46 verbose correctMkdir /Users/humengtao/.npm/_git-remotes correctMkdir not in flight; initializing
+47 verbose setPermissions zendframework/zendsearch set permissions on /Users/humengtao/.npm/_git-remotes/git-https-github-com-zendframework-zendsearch-git-5e1dd5f4
+48 verbose resolveHead zendframework/zendsearch original treeish: master
+49 info git [ 'rev-list', '-n1', 'master' ]
+50 silly resolveHead zendframework/zendsearch resolved treeish: c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+51 verbose resolveHead zendframework/zendsearch resolved Git URL: git+https://github.com/zendframework/zendsearch.git#c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+52 silly resolveHead Git working directory: /var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-b0996a75/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+53 info git [ 'clone',
+53 info git   '/Users/humengtao/.npm/_git-remotes/git-https-github-com-zendframework-zendsearch-git-5e1dd5f4',
+53 info git   '/var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-b0996a75/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63' ]
+54 verbose cloneResolved zendframework/zendsearch clone Cloning into '/var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-b0996a75/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63'...
+54 verbose cloneResolved done.
+55 info git [ 'checkout', 'c8de2508d3413bf9d701b40c1092c1ffbdd8fc63' ]
+56 verbose checkoutTreeish zendframework/zendsearch checkout Note: checking out 'c8de2508d3413bf9d701b40c1092c1ffbdd8fc63'.
+56 verbose checkoutTreeish
+56 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+56 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+56 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+56 verbose checkoutTreeish
+56 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+56 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+56 verbose checkoutTreeish
+56 verbose checkoutTreeish   git checkout -b new_branch_name
+56 verbose checkoutTreeish
+56 verbose checkoutTreeish HEAD is now at c8de250... Merge pull request #20 from butonic/add-gitattributes
+57 info git [ 'submodule', '-q', 'update', '--init', '--recursive' ]
+58 verbose updateSubmodules zendframework/zendsearch submodule update
+59 error addLocal Could not install /var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-b0996a75/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+60 silly trySSH attempting to clone git@github.com:zendframework/zendsearch.git
+61 silly tryClone cloning zendframework/zendsearch via git@github.com:zendframework/zendsearch.git
+62 verbose tryClone git-github-com-zendframework-zendsearch-git-037e66ad not in flight; caching
+63 verbose correctMkdir /Users/humengtao/.npm/_git-remotes correctMkdir not in flight; initializing
+64 info git [ 'config', '--get', 'remote.origin.url' ]
+65 silly validateExistingRemote zendframework/zendsearch remote.origin.url: git@github.com:zendframework/zendsearch.git
+66 verbose validateExistingRemote zendframework/zendsearch is updating existing cached remote /Users/humengtao/.npm/_git-remotes/git-github-com-zendframework-zendsearch-git-037e66ad
+67 info git [ 'fetch', '-a', 'origin' ]
+68 verbose updateRemote git fetch -a origin (git@github.com:zendframework/zendsearch.git)
+69 verbose correctMkdir /Users/humengtao/.npm/_git-remotes correctMkdir not in flight; initializing
+70 verbose setPermissions zendframework/zendsearch set permissions on /Users/humengtao/.npm/_git-remotes/git-github-com-zendframework-zendsearch-git-037e66ad
+71 verbose resolveHead zendframework/zendsearch original treeish: master
+72 info git [ 'rev-list', '-n1', 'master' ]
+73 silly resolveHead zendframework/zendsearch resolved treeish: c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+74 verbose resolveHead zendframework/zendsearch resolved Git URL: git+ssh://git@github.com/zendframework/zendsearch.git#c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+75 silly resolveHead Git working directory: /var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-67400b9a/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+76 info git [ 'clone',
+76 info git   '/Users/humengtao/.npm/_git-remotes/git-github-com-zendframework-zendsearch-git-037e66ad',
+76 info git   '/var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-67400b9a/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63' ]
+77 verbose cloneResolved zendframework/zendsearch clone Cloning into '/var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-67400b9a/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63'...
+77 verbose cloneResolved done.
+78 info git [ 'checkout', 'c8de2508d3413bf9d701b40c1092c1ffbdd8fc63' ]
+79 verbose checkoutTreeish zendframework/zendsearch checkout Note: checking out 'c8de2508d3413bf9d701b40c1092c1ffbdd8fc63'.
+79 verbose checkoutTreeish
+79 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+79 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+79 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+79 verbose checkoutTreeish
+79 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+79 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+79 verbose checkoutTreeish
+79 verbose checkoutTreeish   git checkout -b new_branch_name
+79 verbose checkoutTreeish
+79 verbose checkoutTreeish HEAD is now at c8de250... Merge pull request #20 from butonic/add-gitattributes
+80 info git [ 'submodule', '-q', 'update', '--init', '--recursive' ]
+81 verbose updateSubmodules zendframework/zendsearch submodule update
+82 error addLocal Could not install /var/folders/_j/tq70mnks2vz964fv5zy7m1400000gn/T/npm-2942-4aa09e53/git-cache-67400b9a/c8de2508d3413bf9d701b40c1092c1ffbdd8fc63
+83 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+83 silly fetchPackageMetaData     at Error (native)
+83 silly fetchPackageMetaData  error for zendframework/zendsearch { Error: EISDIR: illegal operation on a directory, read
+83 silly fetchPackageMetaData     at Error (native) errno: -21, code: 'EISDIR', syscall: 'read' }
+84 silly rollbackFailedOptional Starting
+85 silly rollbackFailedOptional Finishing
+86 silly runTopLevelLifecycles Starting
+87 silly runTopLevelLifecycles Finishing
+88 silly install printInstalled
+89 verbose stack Error: EISDIR: illegal operation on a directory, read
+89 verbose stack     at Error (native)
+90 verbose cwd /Users/humengtao/Desktop/vue-laravel1
+91 error Darwin 16.0.0
+92 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "zendframework/zendsearch"
+93 error node v6.6.0
+94 error npm  v3.10.3
+95 error code EISDIR
+96 error errno -21
+97 error syscall read
+98 error eisdir EISDIR: illegal operation on a directory, read
+99 error eisdir This is most likely not a problem with npm itself
+99 error eisdir and is related to npm not being able to find a package.json in
+99 error eisdir a package you are trying to install.
+100 verbose exit [ -21, true ]

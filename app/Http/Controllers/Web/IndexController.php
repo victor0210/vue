@@ -30,6 +30,9 @@ class IndexController extends Controller
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
             $article->content = EndaEditor::MarkDecode($article->content);
+            $content = Article::where('id', $article->id)->first();
+            preg_match_all('/<img.*?src="(.*?)".*?>/is',EndaEditor::MarkDecode($content->content),$result);
+            $article->avatar=$result[1];
         }
         $collections=Collection::all();
 
