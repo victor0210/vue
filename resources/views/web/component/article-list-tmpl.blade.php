@@ -16,8 +16,9 @@
         </h6>
         </div>
         <div class="col-md-2 col-xs-4 col-sm-3">
-            <img src="/images/bg14.jpg"
-            style="border: 1px solid #eeeeee;height: 90px;width: 90px;padding: 2px;border-radius: 5px;">
+        {% if(!!o.avatar[0]) { %}
+        <img src="{%=o.avatar[0]%}" alt="" style="border: 1px solid #eeeeee;height: 90px;width: 90px;padding: 2px;border-radius: 5px;">
+        {% } %}
         </div>
     </div>
 </li>

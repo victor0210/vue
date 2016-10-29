@@ -44,9 +44,17 @@ class ArticlesController extends Controller
         switch ($request->status) {
             case 'latest':
                 $articles = Article::orderBy('created_at', 'desc')->paginate(10);
+                foreach ($articles as $article) {
+                    preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+                    $article->avatar = $result[1];
+                }
                 break;
             case 'hottest':
                 $articles = Article::orderBy('view', 'desc')->paginate(10);
+                foreach ($articles as $article) {
+                    preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+                    $article->avatar = $result[1];
+                }
                 break;
         }
 

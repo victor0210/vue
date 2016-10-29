@@ -55,7 +55,7 @@ class ArticlesController
 
             $content = Article::where('id', $id)->first();
             $content->content = EndaEditor::MarkDecode($content->content);
-            preg_match_all('/<img.*?src="(.*?)".*?>/is',$content->content,$result);
+            preg_match_all('/<img.*?src="(.*?)".*?>/is', $content->content, $result);
             $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
             foreach ($comments as $comment) {
                 $comment->user_name = User::where('id', $comment->user_id)->value('name');
@@ -126,5 +126,16 @@ class ArticlesController
             'updated_at' => gmdate('Y-m-d H:i:s')
         ]);
         return Redirect::back();
+    }
+
+    public function search(Request $request)
+    {
+        $articles = Article::search($request->input('query'))->get();
+        foreach ($articles as $article) {
+            preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+            $article->avatar = $result[1];
+        }
+        $tag = $request->input('query');
+        return view('web.result', compact('articles', 'tag'));
     }
 }

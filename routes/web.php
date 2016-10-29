@@ -30,6 +30,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('about', 'StaticPageController@index');
     Route::get('user/{id}', 'OtherUserController@index');
     Route::get('user/{id}/article', 'OtherUserController@article');
+    Route::get('/search', 'ArticlesController@search');
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {

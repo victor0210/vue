@@ -2,10 +2,6 @@
 
 @section('title', 'Other User')
 
-@section('extra-css-js')
-
-@endsection
-
 @section('content')
     <div class="row">
         <div class="col-md-10">

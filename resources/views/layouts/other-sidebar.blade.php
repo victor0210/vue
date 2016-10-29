@@ -9,6 +9,6 @@
         <h4 style="font-family: 'Playfair Display', serif">
             {{ $user->description }}
         </h4>
-        <a href="/add-article" class="btn btn-lg btn-success">Get To Write</a>
+        <a href="/add-article" class="btn btn-lg btn-success">写点东西 <span class="glyphicon glyphicon-pencil"></span></a>
     </div>
 </div>

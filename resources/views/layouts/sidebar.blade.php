@@ -15,10 +15,10 @@
                 {{ Auth::user()->description }}
             </h4>
         @else
-            <h1>Light Blog</h1>
-            <h3>Share · Progress </h3>
-            <h4>A place for Web-Engineer</h4>
+            <h1>论塘</h1>
+            <h3>交流·分享·进步</h3>
+            <h4>一个可以让你畅所欲言的地方</h4>
         @endif
-        <a href="/add-article" class="btn btn-lg btn-success">Get To Write <span class="fa fa-pencil"></span></a>
+        <a href="/add-article" class="btn btn-lg btn-success">写点东西 <span class="glyphicon glyphicon-pencil"></span></a>
     </div>
 </div>
