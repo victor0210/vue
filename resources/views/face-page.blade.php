@@ -21,9 +21,9 @@
     <div class="row" id="categories">
         <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
             <div class="page-header text-center">
-                <h2>
-                    Categories
-                </h2>
+                <h1>
+                    <small>推荐分类</small>
+                </h1>
             </div>
         </div>
         <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">

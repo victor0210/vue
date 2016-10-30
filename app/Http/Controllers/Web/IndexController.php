@@ -49,7 +49,7 @@ class IndexController extends Controller
 
     public function recommend()
     {
-        $articles = Article::orderBy('view', 'desc')->limit(9)->get();
+        $articles = Article::orderBy('view', 'desc')->groupBy('user_id')->limit(9)->get();
         foreach ($articles as $article) {
             $article->total_view = $article->where('user_id', $article->user_id)->sum('view');
         }
