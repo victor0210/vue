@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('user/{id}', 'OtherUserController@index');
     Route::get('user/{id}/article', 'OtherUserController@article');
     Route::get('/search', 'ArticlesController@search');
+    Route::get('/faqs', 'StaticPageController@faq');
 });
 
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {

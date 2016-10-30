@@ -17,4 +17,8 @@ class StaticPageController extends Controller
     {
         return view('web.about');
     }
+
+    function faq(){
+        return view('web.faq');
+    }
 }

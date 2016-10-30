@@ -61,10 +61,19 @@
         width: 240px;
         margin-left: -200px;
     }
+    #faqs{
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        background: indianred;
+        color: white;
+        text-align: center;
+    }
 </style>
 
 <div id="back-container">
-    <span id="back-top" class="fa fa-angle-double-up"></span>
+    <span id="back-top" class="glyphicon glyphicon-chevron-up"></span>
+    <a href="/faqs"><span id="faqs" class="glyphicon glyphicon-question-sign"></span></a>
     <div class="search-group">
         <form action="/search">
             <input type="text" name="query" class="close" placeholder="输入完成点击回车!">

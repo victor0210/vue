@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('tab',6)
+
 @section('title', 'Notifications')
 
 @section('content')
