@@ -33,6 +33,7 @@
     </div>
 </div>
 @include('web.component.back-top')
+@include('web.component.notify')
 
 </body>
 </html>

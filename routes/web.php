@@ -41,7 +41,7 @@ Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::post('/collection-status', ['as' => 'collectionStatus', 'uses' => 'AdminController@collectionStatus']);
     Route::post('/delete-record', 'UserController@deleteRecords');
     Route::post('/delete-article', 'UserController@deleteArticles');
-    Route::post('/thumbs','ArticlesController@thumb')->middleware('auth');
+    Route::post('/thumbs', 'ArticlesController@thumb')->middleware('auth');
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
@@ -49,12 +49,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
     Route::get('user', 'UserController@index');
     Route::get('add-article', 'ArticlesController@add');
     Route::post('post-article', 'ArticlesController@validateArticle');
-    Route::get('mail', 'MailController@ship');
     Route::post('user/uploadAvatar', 'UserController@updateAvatar');
     Route::post('user/uploadBackground', 'UserController@updateBackground');
     Route::post('reply-comment', 'ArticlesController@reply');
-    Route::get('/setting','UserController@setting');
-    Route::post('/setting','UserController@setInfo');
+    Route::get('/setting', 'UserController@setting');
+    Route::post('/setting', 'UserController@setInfo');
+    Route::get('/notification', 'NotificationsController@index');
+    Route::post('/notification', 'NotificationsController@delete');
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {

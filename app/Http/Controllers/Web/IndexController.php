@@ -11,12 +11,12 @@ namespace App\Http\Controllers\Web;
 use App\Models\Article;
 use App\Models\Collection;
 use App\Models\Comment;
-use App\Models\Records;
-use App\User;
 use DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Mail;
 use YuanChao\Editor\EndaEditor;
+use App\Notifications\Notify;
 
 class IndexController extends Controller
 {
@@ -38,7 +38,7 @@ class IndexController extends Controller
         }
         $collections = Collection::all();
 
-        return view('web.component.articles.articles', compact('articles', 'collections','page'));
+        return view('web.component.articles.articles', compact('articles', 'collections', 'page', 'notifications'));
     }
 
     public function collection()

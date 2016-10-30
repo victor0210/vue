@@ -172,6 +172,7 @@ return [
         /*
          * Application Service Providers...
          */
+        Laravel\Scout\ScoutServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
@@ -180,7 +181,6 @@ return [
         'Chromabits\Purifier\PurifierServiceProvider',
         'YuanChao\Editor\EndaEditorServiceProvider',
         'Mmanos\Search\SearchServiceProvider',
-        Laravel\Scout\ScoutServiceProvider::class,
     ],
 
     /*

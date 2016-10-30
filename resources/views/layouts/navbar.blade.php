@@ -11,6 +11,11 @@
                 @if(Auth::check())
                     <li name="tab4"><a href="/user"><span class="glyphicon glyphicon-user"> 个人中心</span></a></li>
                     <li name="tab5"><a href="/setting"><span class="glyphicon glyphicon-cog"> 个性设置</span></a></li>
+                    <li name="tab6"><a href="/notification"><span class="glyphicon glyphicon-bullhorn"> 通知中心
+                            @if(Auth::user()->unreadNotifications->count()>0)
+                                <span class="badge">{{ Auth::user()->unreadNotifications->count() }}</span>
+                                @endif
+                            </span></a></li>
                     @if(Auth::user()->is_admin)
                         <li><a href="/admin"><span class="glyphicon glyphicon-flash"> 管理大大</span></a></li>
                     @endif
