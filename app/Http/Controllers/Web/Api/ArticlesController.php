@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Web\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Thumbs;
+use App\Notifications\Thumb;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -85,6 +86,7 @@ class ArticlesController extends Controller
                 'updated_at' => gmdate('Y-m-d H:i:s')
             ]);
             Article::find($request->article_id)->increment('thumb_up');
+            User::find($request->user_id)->notify(new Thumb(Auth::user(),Article::find($request->article_id)));
             return response('Success', 200);
         }
     }

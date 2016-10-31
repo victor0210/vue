@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="row" id="article-main-content" data-article-id="{{ $content->id }}">
+    <div class="row" id="article-main-content" data-article-id="{{ $content->id }}" data-user-id="{{ $content->user_id }}">
         <div class="col-md-10 col-sm-10">
             <div class="page-header">
                 <img src="{{ $content->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
@@ -165,7 +165,10 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     type: 'post',
-                    data: {'article_id': $('#article-main-content').data('article-id')},
+                    data: {
+                        'article_id': $('#article-main-content').data('article-id'),
+                        'user_id': $('#article-main-content').data('user-id')
+                    },
                     success: function (data) {
                         $('#thumb-up').html('已赞 <span class="fa fa-thumbs-up"></span>').attr('disabled', 'disabled');
                     }
