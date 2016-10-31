@@ -20,9 +20,9 @@ class ArticlesController extends Controller
 {
     public function index(Request $request)
     {
-        $articles = Article::where($request->key, $request->val)->get();
+        $articles = Article::search($request->val)->get();
         if ($articles->count() == 0) {
-            $articles = Article::limit(10)->get();
+            $articles = Article::get();
         }
         return $articles;
     }

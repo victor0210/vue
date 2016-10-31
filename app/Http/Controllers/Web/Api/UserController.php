@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Records;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,5 +49,26 @@ class UserController extends Controller
         } else {
             return response('Failed', 500);
         }
+    }
+
+    function getUser(Request $request)
+    {
+        $users = User::search($request->val)->get();
+        if ($users->count() == 0) {
+            $users = User::get();
+        }
+        foreach ($users as $user){
+            $user->created_at->timezone('Asia/Chongqing');
+        }
+        return $users;
+    }
+
+    public function getUserPage()
+    {
+        $users = User::paginate(10);
+        foreach ($users as $user){
+            $user->created_at->timezone('Asia/Chongqing');
+        }
+        return $users;
     }
 }

@@ -2,20 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: humengtao
- * Date: 2016/10/21
- * Time: 10:26
+ * Date: 2016/10/31
+ * Time: 10:08
  */
 
 namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
 
-class ArticleController extends Controller
+class UsersController extends Controller
 {
     public function index()
     {
-        return view('admin.web.article.article');
+        return view('admin.web.user.user');
     }
 }

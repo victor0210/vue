@@ -37,6 +37,8 @@ Route::group(['namespace' => 'Web'], function () {
 Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::get('/articles', 'ArticlesController@index');
     Route::get('/articles-page', 'ArticlesController@getArticlePage');
+    Route::get('/users', 'UserController@getUser');
+    Route::get('/user-page', 'UserController@getUserPage');
     Route::get('/articles-list', 'ArticlesController@getArticleList');
     Route::post('/uploadImg', 'ArticlesController@uploadImg');
     Route::post('/collection-status', ['as' => 'collectionStatus', 'uses' => 'AdminController@collectionStatus']);
@@ -67,4 +69,5 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
     Route::get('categories/edit/{id}', 'AdminController@categoryEdit');
     Route::post('categories/edit', 'AdminController@categoryUploadImage');
     Route::get('/articles', 'ArticleController@index');
+    Route::get('/users', 'UsersController@index');
 });

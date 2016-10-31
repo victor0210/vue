@@ -10,9 +10,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="{{ Auth::user()->avatar_url }}" alt="user-head"
-                     style="width: 50px;height:50px;float: left;border-radius: 50%;margin-left: 10px">
-                <a class="navbar-brand" href="{{ url ('/admin') }}">Welcome to Admin Center</a>
+                <span class="text-warning glyphicon glyphicon-flash" style="line-height: 50px;text-align:center;padding-left:10px;float: left"></span> <a class="navbar-brand" href="{{ url ('/admin') }}">Welcome
+                    to Admin Center</a>
+
             </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
@@ -225,41 +225,24 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
                         <li {{ (Request::is('/admin/') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('/admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ url ('/admin') }}"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
                         </li>
                         <li {{ (Request::is('/admin/categories') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('/admin/categories') }}"><i class="fa fa-th-list fa-fw"></i> Categories</a>
+                            <a href="{{ url ('/admin/categories') }}"><i class="glyphicon glyphicon-th-list"></i>
+                                Categories</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li {{ (Request::is('/admin/articles') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('/admin/articles') }}"><i class="fa fa-pencil fa-fw"></i> Articles</a>
+                            <a href="{{ url ('/admin/articles') }}"><i class="glyphicon glyphicon-pencil"></i> Articles</a>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li {{ (Request::is('/admin/charts') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('/admin/charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
+                        <li {{ (Request::is('/admin/users') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('/admin/users') }}"><i class="glyphicon glyphicon-user"></i> Users</a>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li {{ (Request::is('admin/tables') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('admin/tables') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li {{ (Request::is('admin/forms') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('admin/forms') }}"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-
                         <li>
-                            <a href="/user"><i class="fa fa-user-md fa-fw"></i> User Center</a>
+                            <a href="/user"><i class="glyphicon glyphicon-arrow-right"></i> User Center</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

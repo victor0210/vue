@@ -1,33 +1,45 @@
 @extends('admin.layout.dashboard')
-@section('page_heading','Articles')
+@section('page_heading','Users')
 @section('section')
-    <div class="col-md-12" id="list-article">
+    <style>
+        .avatar{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+    </style>
+    <div class="col-md-12" id="list-user">
         <table class="table table-hover table-striped">
             <tr>
                 <th>ID</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Collection</th>
-                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Avatar</th>
+                <th>Register_date</th>
                 <th></th>
             </tr>
             <tr>
                 <th colspan="5">
                     <div class="row">
                         <div class="col-lg-12">
-                                <input type="text" class="form-control search-input" aria-label="..."
-                                       placeholder="Search for ...">
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control search-input"
+                                       aria-label="..."
+                                       placeholder="Search for ..."
+                                >
+                            </div>
                         </div>
                     </div>
                 </th>
                 <th></th>
             </tr>
-            <tr v-for="article in articles">
-                <td>@{{ article.id }}</td>
-                <td><a href="/content/@{{ article.id }}" target="_blank">@{{ article.title }}</a></td>
-                <td>@{{ article.user_id}}</td>
-                <td>@{{ article.collection ? article.collection : 'None' }}</td>
-                <td>@{{ article.created_at }}</td>
+            <tr v-for="user in users">
+                <td>@{{ user.id }}</td>
+                <td><a href="/user/@{{ user.id }}" target="_blank">@{{ user.name }}</a></td>
+                <td>@{{ user.email }}</td>
+                <td><img src="@{{ user.avatar_url }}" alt="ava" class="avatar"></td>
+                <td>@{{ user.created_at }}</td>
                 <td>
                     <button class="btn btn-danger btn-remove"><span
                                 class="glyphicon glyphicon-remove"></span></button>
@@ -57,23 +69,22 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
     <script>
-        var articleArr = [];
+        var userArr = [];
 
         var current = 1;
         var total;
 
-        var articleList = new Vue({
-            el: '#list-article',
+        var userList = new Vue({
+            el: '#list-user',
             data: {
-                articles: '',
+                users: '',
                 next: '',
                 previous: ''
             },
             methods: {
                 setData: function (data) {
-                    this.articles = data;
+                    this.users = data;
                 },
                 setUrl: function (data) {
                     this.next = data.next_page_url;
@@ -88,14 +99,14 @@
 
         $('.search-input').keyup(function () {
             var val = $(this).val();
-            getArticle('/api/articles', val);
+            getUser('/api/users', val);
 
         });
 
         $('.api-btn').click(function () {
-            getArticlePage($(this)[0].title)
+            getUserPage($(this)[0].title)
         });
-        var getArticle = function (url, val) {
+        var getUser= function (url, val) {
             $.ajax(url, {
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -106,14 +117,14 @@
                 },
                 success: function (data) {
                     console.log(data);
-                    articleList.setData(data);
+                    userList.setData(data);
                 },
             });
         };
-        var getArticlePage = function (url) {
-            if (!!articleArr[url.split('=')[1] - 1]) {
-                articleList.setData(articleArr[url.split('=')[1] - 1].data);
-                articleList.setUrl(articleArr[url.split('=')[1] - 1]);
+        var getUserPage = function (url) {
+            if (!!userArr[url.split('=')[1] - 1]) {
+                userList.setData(userArr[url.split('=')[1] - 1].data);
+                userList.setUrl(userArr[url.split('=')[1] - 1]);
             } else {
                 if (!!url.split('=')[1]) {
                     $.ajax(url, {
@@ -122,9 +133,9 @@
                         },
                         type: 'get',
                         success: function (data) {
-                            articleList.setData(data.data);
-                            articleList.setUrl(data);
-                            articleArr[data.current_page - 1] = data;
+                            userList.setData(data.data);
+                            userList.setUrl(data);
+                            userArr[data.current_page - 1] = data;
                             total = data.last_page;
                             current = data.current_page;
                         }
@@ -136,6 +147,6 @@
             }
         };
 
-        getArticlePage('/api/articles-page?page=1')
+        getUserPage('/api/user-page?page=1')
     </script>
 @endsection

@@ -95,6 +95,7 @@ class RegisterController extends Controller
 //            }
             $this->create($request->input());
             Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+            User::all()->searchable();
             return redirect('/');
         }
     }
