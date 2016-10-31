@@ -3,6 +3,6 @@ $(function () {
         $('input[type=checkbox]').attr('checked', true);
     });
     $('.choose-none').click(function () {
-        $('input[type=checkbox]').prop('checked',false);
+        $('input[type=checkbox]').attr('checked',false);
     });
 })
