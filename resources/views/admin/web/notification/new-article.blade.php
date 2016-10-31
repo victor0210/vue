@@ -22,17 +22,10 @@
                         @endforeach
                         <input type="submit" value="删除选中" class="btn btn-danger" style="margin-top: 20px">
                         <input type="button" value="全选" class="btn btn-warning choose-all" style="margin-top: 20px">
+                        <input type="button" value="全不选" class="btn btn-primary choose-none" style="margin-top: 20px">
                     </form>
                 </ul>
             @endif
         </div>
     </div>
-
-    <script>
-        $(function () {
-            $('.choose-all').click(function () {
-                $('input[type=checkbox]').attr('checked', true);
-            });
-        })
-    </script>
 @endsection

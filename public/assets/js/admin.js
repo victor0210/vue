@@ -11553,6 +11553,15 @@ $(function () {
     }
 });
 
+//notifications
+$(function () {
+    $('.choose-all').click(function () {
+        $('input[type=checkbox]').attr('checked', true);
+    });
+    $('.choose-none').click(function () {
+        $('input[type=checkbox]').prop('checked',false);
+    });
+})
 /*
  * metismenu - v1.1.3
  * Easy menu jQuery plugin for Twitter Bootstrap 3
