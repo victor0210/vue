@@ -1,5 +1,5 @@
 @extends('admin.layout.dashboard')
-@section('page_heading','Collections')
+@section('page_heading','Collection Amount : '.App\Models\Collection::count())
 @section('section')
     <div class="col-md-12">
         <table class="table table-hover table-striped">

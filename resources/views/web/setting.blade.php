@@ -12,7 +12,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-10 col-sm-10">
-            <div class="page-header text-center">
+            <div class="page-header">
                 <h1>
                     基本信息
                 </h1>

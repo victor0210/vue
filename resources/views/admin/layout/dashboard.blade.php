@@ -10,7 +10,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span class="text-warning glyphicon glyphicon-flash" style="line-height: 50px;text-align:center;padding-left:10px;float: left"></span> <a class="navbar-brand" href="{{ url ('/admin') }}">Welcome
+                <span class="text-warning glyphicon glyphicon-flash"
+                      style="line-height: 50px;text-align:center;padding-left:10px;float: left"></span> <a
+                        class="navbar-brand" href="{{ url ('/admin') }}">Welcome
                     to Admin Center</a>
 
             </div>
@@ -230,15 +232,17 @@
                         </li>
                         <li {{ (Request::is('/admin/categories') ? 'class="active"' : '') }}>
                             <a href="{{ url ('/admin/categories') }}"><i class="glyphicon glyphicon-th-list"></i>
-                                Categories</a>
+                                Categories <span class="badge pull-right">{{ App\Models\Collection::count() }}</span></a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li {{ (Request::is('/admin/articles') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('/admin/articles') }}"><i class="glyphicon glyphicon-pencil"></i> Articles</a>
+                            <a href="{{ url ('/admin/articles') }}"><i class="glyphicon glyphicon-pencil"></i> Articles
+                                <span class="badge pull-right">{{ App\Models\Article::count() }}</span></a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li {{ (Request::is('/admin/users') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('/admin/users') }}"><i class="glyphicon glyphicon-user"></i> Users</a>
+                            <a href="{{ url ('/admin/users') }}"><i class="glyphicon glyphicon-user"></i> Users <span
+                                        class="badge pull-right">{{ App\User::count() }}</span></a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>

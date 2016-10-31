@@ -36,9 +36,11 @@ class StaticPageController extends Controller
     function postFeedBack(Request $request)
     {
         $content = '亲爱的 ' . Auth::user()->name . ',我们已经收到您的反馈,如果是重要问题我们一定会在第一时间进行处理,谢谢!';
-        $user=$request->user();
-        $admin=User::find(51);
-        $admin->notify(new Feedback($request->input('feedback'),Auth::user()->name,Auth::user()->id));
+        $user = $request->user();
+        $admins = User::admin();
+        foreach ($admins as $admin) {
+            $admin->notify(new Feedback($request->input('feedback'), Auth::user()->name, Auth::user()->id));
+        }
         $user->notify(new Notify($content));
         return redirect('/feedback');
     }

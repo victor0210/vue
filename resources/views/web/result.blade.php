@@ -12,13 +12,14 @@
     <div class="row" data-tag="{{ $tag }}" id="result-container">
         <div class="col-md-10 col-sm-10">
             <div class="page-header">
-                <h2>
-                    <small>Results</small>
-                </h2>
+                <h1>
+                    搜索结果
+                </h1>
             </div>
             @if($articles->count()==0)
                 <h3>
-                    厉害了我的哥,这里貌似什么都没有!<small><a href="/article/all">让我们去博客公园看看...</a></small>
+                    厉害了我的哥,这里貌似什么都没有!
+                    <small><a href="/article/all">让我们去博客公园看看...</a></small>
                 </h3>
             @endif
 
@@ -33,9 +34,9 @@
 
     <script>
         $(function () {
-            var tag=$('#result-container').data('tag');
-            var rep=new RegExp(tag,'g');
-            $('#result-container').html($('#result-container').html().replace(rep,'<span class="text-danger bg-danger">' + $('#result-container').data('tag') + '</span>'));
+            var tag = $('#result-container').data('tag');
+            var rep = new RegExp(tag, 'g');
+            $('#result-container').html($('#result-container').html().replace(rep, '<span class="text-danger bg-danger">' + $('#result-container').data('tag') + '</span>'));
         })
     </script>
 @endsection

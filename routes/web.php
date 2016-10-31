@@ -72,4 +72,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
     Route::post('categories/edit', 'AdminController@categoryUploadImage');
     Route::get('/articles', 'ArticleController@index');
     Route::get('/users', 'UsersController@index');
+
+    Route::get('/new-members', 'NotificationController@newMembers');
+    Route::get('/new-articles', 'NotificationController@newArticles');
+    Route::get('/new-feedback', 'NotificationController@newFeedback');
 });

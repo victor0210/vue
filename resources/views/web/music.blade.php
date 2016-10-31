@@ -10,8 +10,11 @@
 
 @section('content')
     <div class="row">
-        @foreach($articles->sortByDesc('total_view') as $article)
-            <div class="col-sm-10  col-md-10 col-xs-12">
+        <div class="col-sm-10  col-md-10 col-xs-12">
+            <h1 class="page-header">
+                风云人物
+            </h1>
+            @foreach($articles->sortByDesc('total_view') as $article)
                 <div class="thumbnail" style="background: url('{{ $article->user->background_url }}') center no-repeat">
                     <div class="row">
                         <div class="col-md-2">
@@ -30,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 @endsection

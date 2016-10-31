@@ -8,9 +8,7 @@
     <div class="row">
         <div class="col-md-10 col-sm-10">
             <h1 class="page-header">
-                <small>
                     意见建议
-                </small>
             </h1>
             <div class="form-group">
                 <form action="/feedback" method="post">

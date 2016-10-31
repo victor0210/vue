@@ -21,6 +21,7 @@ use Validator;
 use Auth;
 use EndaEditor;
 use Chromabits\Purifier\Contracts\Purifier;
+use App\Notifications\Articles;
 
 class ArticlesController
 {
@@ -97,6 +98,7 @@ class ArticlesController
 
     public function validateArticle(Request $request)
     {
+        $admins = User::where('is_admin', '1')->get();
         $rules = ['contents' => 'required', 'title' => 'required|max:15'];
         $messages = ['contents.required' => '请填写内容', 'title.required' => '请填写标题', 'title.max' => '标题最多15个字符'];
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -114,9 +116,12 @@ class ArticlesController
                 ])
             ) {
                 Article::all()->searchable();
+                foreach ($admins as $admin) {
+                    $admin->notify(new Articles(Article::where('user_id',Auth::user()->id)->orderBy('id','desc')->first()));
+                }
                 return redirect('/user');
             } else {
-               return response('error',500);
+                return response('error', 500);
             }
 
         }

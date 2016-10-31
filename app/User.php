@@ -37,6 +37,10 @@ class User extends Authenticatable
         return $this->is_admin;
     }
 
+    public static function Admin(){
+        return User::where('is_admin',1)->get();
+    }
+
     public function comment()
     {
         return $this->hasMany('App\Models\Comment', 'user_id');

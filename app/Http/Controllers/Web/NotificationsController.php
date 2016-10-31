@@ -12,12 +12,13 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class NotificationsController extends Controller
 {
     public function index()
     {
-        Auth::user()->notifications->markAsRead();
+        Auth::user()->notifications->where('type','App\Notifications\Notify')->markAsRead();
         return view('web.notification',compact('notifications'));
     }
 
@@ -25,6 +26,6 @@ class NotificationsController extends Controller
         foreach ($request->all() as $id){
             Auth::user()->notifications()->find($id)->delete();
         }
-        return redirect('/notification');
+        return Redirect::back();
     }
 }

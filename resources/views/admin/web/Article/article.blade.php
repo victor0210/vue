@@ -1,5 +1,5 @@
 @extends('admin.layout.dashboard')
-@section('page_heading','Articles')
+@section('page_heading','Article Amount : '. App\Models\Article::count())
 @section('section')
     <div class="col-md-12" id="list-article">
         <table class="table table-hover table-striped">

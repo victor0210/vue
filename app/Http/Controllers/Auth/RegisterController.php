@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\Member;
 use App\Notifications\Notify;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -85,6 +86,7 @@ class RegisterController extends Controller
 
     protected function store(Request $request)
     {
+        $admins = User::where('is_admin', '1')->get();
         $validate = $this->validator($request->all());
         if ($validate->fails()) {
             return Redirect::back()
@@ -95,7 +97,9 @@ class RegisterController extends Controller
             Auth::attempt(['email' => $request->email, 'password' => $request->password]);
             Auth::user()->searchable();
             Auth::user()->notify(new Notify('欢迎来到论塘,如果有什么疑问请点击屏幕右下方的问好按钮,祝您在这里玩的愉快!'));
-
+            foreach ($admins as $admin) {
+                $admin->notify(new Member(Auth::user()));
+            }
             return redirect('/');
         }
     }

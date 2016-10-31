@@ -1,5 +1,5 @@
 @extends('admin.layout.dashboard')
-@section('page_heading','Users')
+@section('page_heading','User Amount : '.App\User::count().' ')
 @section('section')
     <style>
         .avatar{
