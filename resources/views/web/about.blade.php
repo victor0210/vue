@@ -15,13 +15,13 @@
 @section('content')
     <div class="row connection">
         <div class="col-md-10 col-sm-10">
-            <h1 class="text-center text-gray page-header">About Us !</h1>
-            <p class="text-center" style="color: #999">
+            <h1 class="text-left text-gray page-header">About Us !</h1>
+            <p class="text-left" style="color: #999">
                 这里是一个看起来像博客的交流平台,大家可以在这里留下自己喜欢的文章,发表自己独到的见解。到了这里,可以瞬间拥有一个简易博客,尽情享受吧!</p>
-            <p class="text-center" style="color: #999">意见建议请联系:</p>
-            <p class="text-center"><span class="fa fa-qq" data-type="qq">QQ:305945915</span></p>
-            <p class="text-center"><span class="fa fa-weixin" data-type="weixin">微信:HMT19940210</span></p>
-            <p class="text-center"><span class="fa fa-weibo" data-type="weibo">官方微博:河同学姓胡</span></p>
+            <p class="text-left" style="color: #999">意见建议请联系:</p>
+            <p class="text-left"><span class="fa fa-qq" data-type="qq"> QQ : 305945915</span></p>
+            <p class="text-left"><span class="fa fa-weixin" data-type="weixin"> 微信 : HMT19940210</span></p>
+            <p class="text-left"><span class="fa fa-weibo" data-type="weibo"> 官方微博 : 河同学姓胡</span></p>
         </div>
     </div>
 

@@ -10,6 +10,11 @@ namespace App\Http\Controllers\Web;
 
 
 use App\Http\Controllers\Controller;
+use App\Notifications\Feedback;
+use App\Notifications\Notify;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StaticPageController extends Controller
 {
@@ -18,7 +23,23 @@ class StaticPageController extends Controller
         return view('web.about');
     }
 
-    function faq(){
+    function faq()
+    {
         return view('web.faq');
+    }
+
+    function feedback()
+    {
+        return view('web.feedback');
+    }
+
+    function postFeedBack(Request $request)
+    {
+        $content = '亲爱的 ' . Auth::user()->name . ',我们已经收到您的反馈,如果是重要问题我们一定会在第一时间进行处理,谢谢!';
+        $user=$request->user();
+        $admin=User::find(51);
+        $admin->notify(new Feedback($request->input('feedback'),Auth::user()->name,Auth::user()->id));
+        $user->notify(new Notify($content));
+        return redirect('/feedback');
     }
 }

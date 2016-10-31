@@ -59,6 +59,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {
     Route::post('/setting', 'UserController@setInfo');
     Route::get('/notification', 'NotificationsController@index');
     Route::post('/notification', 'NotificationsController@delete');
+    Route::get('/feedback', 'StaticPageController@feedback');
+    Route::post('/feedback', 'StaticPageController@postFeedback');
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {

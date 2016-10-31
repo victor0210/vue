@@ -5,7 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 
-class Notify extends Notification
+class Feedback extends Notification
 {
     use Queueable;
 
@@ -14,15 +14,17 @@ class Notify extends Notification
      *
      * @return void
      */
-    public function __construct($msg)
+    public function __construct($feedback,$user_name,$user_id)
     {
-        $this->msg=$msg;
+        $this->feedback = $feedback;
+        $this->user_name=$user_name;
+        $this->user_id=$user_id;
     }
 
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -30,18 +32,18 @@ class Notify extends Notification
         return ['database'];
     }
 
-
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)
     {
         return [
-            'sender_name'=>'系统通知',
-             'content'=>$this->msg
+            'sender_id' => $this->user_id,
+            'sender_name' => $this->user_name,
+            'content' => $this->feedback
         ];
     }
 }

@@ -22,6 +22,7 @@
                     <li><a href="/logout"><span class="glyphicon glyphicon-log-out"> 注销登录</span></a></li>
                 @endif
                 <li name="tab3"><a href="/about"><span class="glyphicon glyphicon-qrcode"> 关于我们</span></a></li>
+                <li name="tab7"><a href="/feedback"><span class="glyphicon glyphicon-send"> 意见建议</span></a></li>
             </ul>
         </div>
     </nav>

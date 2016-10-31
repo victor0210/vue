@@ -14,14 +14,14 @@
         <div class="col-md-10 col-sm-10">
             <div class="page-header text-center">
                 <h1>
-                    Basic Info
+                    基本信息
                 </h1>
             </div>
             <div class="col-md-12">
-                <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#editModal">Avatar<span
+                <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#editModal">头像<span
                             class="glyphicon glyphicon-cog"></span>
                 </button>
-                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">Background<span
+                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">背景<span
                             class="glyphicon glyphicon-cog"></span>
                 </button>
             </div>
@@ -34,7 +34,7 @@
                                    placeholder="Description (30 characters)">
                         </div>
                         <div class="col-md-12 col-sm-10">
-                            <input type="button" id="basic-submit" class="btn btn-success form-control" value="Submit">
+                            <input type="button" id="basic-submit" class="btn btn-success form-control" value="提交">
                         </div>
                     </div>
                 </form>

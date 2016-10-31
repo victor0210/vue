@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Mail\OrderShipped;
+use App\Notifications\Notify;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -91,11 +91,11 @@ class RegisterController extends Controller
                 ->withErrors($validate)
                 ->withInput($request->input());
         } else {
-//            if ($this->mail($request)) {
-//            }
             $this->create($request->input());
             Auth::attempt(['email' => $request->email, 'password' => $request->password]);
-            User::all()->searchable();
+            Auth::user()->searchable();
+            Auth::user()->notify(new Notify('欢迎来到论塘,如果有什么疑问请点击屏幕右下方的问好按钮,祝您在这里玩的愉快!'));
+
             return redirect('/');
         }
     }

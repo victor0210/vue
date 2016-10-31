@@ -8,7 +8,7 @@
             <h1 class="text-center text-gray page-header">
                 <small>{{ $user->name }}</small>
             </h1>
-            <div class="row">
+            <div class="row" style="margin-bottom: 100px">
                 <div class="col-md-12">
                     @if($articles->count()>0)
                         <h3>
@@ -17,7 +17,7 @@
                         @foreach($articles as $item)
                             @include('web.component.article-list')
                         @endforeach
-                        @if($articles->lastPage()==$articles->currentPage())
+                        @if($articles->lastPage()>$articles->currentPage())
                             <hr>
                             <span><a href="/user/{{$user->id}}/article">查看他的全部文章...</a></span>
                         @endif

@@ -14,24 +14,42 @@
                 <ul class="list-group list-unstyled">
                     <form action="/notification" method="post">
                         @foreach(Auth::user()->notifications as $notification)
-                            @foreach($notification->data as $data)
-                                <li class="list-group-item"><input type="checkbox" name="{{ $notification->id }}"
-                                                                   value="{{ $notification->id }}">
+                            <li class="list-group-item">
+                                <p><input type="checkbox" name="{{ $notification->id }}"
+                                          value="{{ $notification->id }}">
                                     <label for="{{ $notification->id }}" style="display: initial;">
-                                        [系统通知] {{ $data }} <span
-                                                class="badge pull-right">{{ $notification->created_at->timezone('Asia/Chongqing') }}</span>
-                                    </label>
-                                </li>
-                            @endforeach
+                                        @if($notification->type=='App\Notifications\Notify')
+                                            [系统通知] :{{ $notification->data['content'] }}
+                                        @elseif($notification->type='App\Notifications\Feedback')
+                                            [{{ $notification->data['sender_name'] }} (
+                                            id:{{ $notification->data['sender_id'] }} )]
+                                            :{{ $notification->data['content'] }}
+                                        @endif
+                                    </label></p>
+                                <p>
+                                    <span class="badge">{{ $notification->created_at->timezone('Asia/Chongqing') }}</span>
+                                </p>
+                            </li>
                         @endforeach
-                        <input type="submit" value="Delete" class="btn btn-danger" style="margin-top: 20px">
+                        <input type="submit" value="删除选中" class="btn btn-danger" style="margin-top: 20px">
+                        <input type="button" value="全选" class="btn btn-warning choose-all" style="margin-top: 20px">
+                        <input type="button" value="全不选" class="btn btn-primary choose-none" style="margin-top: 20px">
                     </form>
                 </ul>
             @else
                 <h4>
-                    没有新通知 <small><a href="/article/all">返回博客公园</a></small>
+                    没有新通知
+                    <small><a href="/article/all">返回博客公园</a></small>
                 </h4>
             @endif
         </div>
     </div>
+
+    <script>
+        $(function () {
+            $('.choose-all').click(function () {
+                $('input[type=checkbox]').attr('checked', true);
+            });
+        })
+    </script>
 @endsection
