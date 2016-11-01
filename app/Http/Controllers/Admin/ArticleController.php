@@ -18,4 +18,10 @@ class ArticleController extends Controller
     {
         return view('admin.web.article.article');
     }
+
+    public function audit()
+    {
+        $articles=Article::where('isValidated',false)->paginate(10);
+        return view('admin.web.article.audit',compact('articles'));
+    }
 }

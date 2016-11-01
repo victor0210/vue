@@ -28,7 +28,7 @@ class UserController extends Controller
         $username = $user->name;
         $articles = $user
             ->article()
-            ->where('user_id', Auth::user()->id)
+            ->where(['user_id'=>Auth::user()->id,'isValidated'=>true])
             ->get();
         $records = Records::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
         foreach ($articles as $article) {

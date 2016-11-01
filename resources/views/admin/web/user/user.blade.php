@@ -16,19 +16,16 @@
                 <th>Email</th>
                 <th>Avatar</th>
                 <th>Register_date</th>
-                <th></th>
             </tr>
             <tr>
-                <th colspan="5">
+                <th colspan="4">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="input-group">
                                 <input type="text"
                                        class="form-control search-input"
                                        aria-label="..."
                                        placeholder="Search for ..."
                                 >
-                            </div>
                         </div>
                     </div>
                 </th>
@@ -40,10 +37,6 @@
                 <td>@{{ user.email }}</td>
                 <td><img src="@{{ user.avatar_url }}" alt="ava" class="avatar"></td>
                 <td>@{{ user.created_at }}</td>
-                <td>
-                    <button class="btn btn-danger btn-remove"><span
-                                class="glyphicon glyphicon-remove"></span></button>
-                </td>
             </tr>
         </table>
         <nav aria-label="...">

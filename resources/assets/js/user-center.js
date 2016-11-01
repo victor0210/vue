@@ -50,7 +50,8 @@ $(function () {
                     id: id
                 },
                 success: function () {
-                    _this.parent('li').fadeOut(200);
+                    console.log(_this);
+                    _this.parent('p').parent('li').fadeOut(200);
                     modalSuccess();
                 },
                 error: function () {
@@ -77,7 +78,7 @@ $(function () {
                     id: id
                 },
                 success: function () {
-                    _this.parent('li').fadeOut(200);
+                    _this.parent('p').parent('li').fadeOut(200);
                     $('div[title="' + id + '"]').fadeOut(200);
                     modalSuccess();
                 },

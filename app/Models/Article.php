@@ -28,4 +28,8 @@ class Article extends Model
     {
         return $this->hasMany('App\Models\Thumbs');
     }
+
+    public function isValidated(){
+        return $this->isValidated;
+    }
 }

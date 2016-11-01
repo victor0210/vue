@@ -8,15 +8,16 @@
                 <th>Title</th>
                 <th>Author</th>
                 <th>Collection</th>
+                <th>is_active</th>
                 <th>Date</th>
-                <th></th>
+                <th>Remove</th>
             </tr>
             <tr>
-                <th colspan="5">
+                <th colspan="6">
                     <div class="row">
                         <div class="col-lg-12">
-                                <input type="text" class="form-control search-input" aria-label="..."
-                                       placeholder="Search for ...">
+                            <input type="text" class="form-control search-input" aria-label="..."
+                                   placeholder="Search for ...">
                         </div>
                     </div>
                 </th>
@@ -27,10 +28,10 @@
                 <td><a href="/content/@{{ article.id }}" target="_blank">@{{ article.title }}</a></td>
                 <td>@{{ article.user_id}}</td>
                 <td>@{{ article.collection ? article.collection : 'None' }}</td>
+                <td>@{{ article.isValidated }}</td>
                 <td>@{{ article.created_at }}</td>
                 <td>
-                    <button class="btn btn-danger btn-remove"><span
-                                class="glyphicon glyphicon-remove"></span></button>
+                    <button class="btn btn-sm btn-danger" onclick="remove(@{{ article.id }})">x</button>
                 </td>
             </tr>
         </table>
@@ -82,7 +83,7 @@
                 },
                 getCurrentPage: function () {
                     return this.current;
-                }
+                },
             }
         });
 
@@ -91,6 +92,7 @@
             getArticle('/api/articles', val);
 
         });
+
 
         $('.api-btn').click(function () {
             getArticlePage($(this)[0].title)
@@ -137,5 +139,22 @@
         };
 
         getArticlePage('/api/articles-page?page=1')
+
+        function remove(id) {
+            $.ajax('/api/delete-article', {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                }
+            });
+        }
     </script>
 @endsection

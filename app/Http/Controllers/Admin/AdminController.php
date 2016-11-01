@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -20,7 +21,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $Audits=Article::where('isValidated',false)->count();
+        return view('admin.index',compact('Audits'));
     }
 
     protected function validator(array $data, $rules, $messages)

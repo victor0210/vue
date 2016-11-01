@@ -42,6 +42,7 @@ Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::get('/articles-list', 'ArticlesController@getArticleList');
     Route::post('/uploadImg', 'ArticlesController@uploadImg');
     Route::post('/collection-status', ['as' => 'collectionStatus', 'uses' => 'AdminController@collectionStatus']);
+    Route::post('/article-status', ['as' => 'articleStatus', 'uses' => 'AdminController@articleStatus']);
     Route::post('/delete-record', 'UserController@deleteRecords');
     Route::post('/delete-article', 'UserController@deleteArticles');
     Route::post('/thumbs', 'ArticlesController@thumb')->middleware('auth');
@@ -76,4 +77,5 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
     Route::get('/new-members', 'NotificationController@newMembers');
     Route::get('/new-articles', 'NotificationController@newArticles');
     Route::get('/new-feedback', 'NotificationController@newFeedback');
+    Route::get('/audit', 'ArticleController@audit');
 });

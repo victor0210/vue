@@ -16,17 +16,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Mail;
 use YuanChao\Editor\EndaEditor;
-use App\Notifications\Notify;
 
 class IndexController extends Controller
 {
     public function index($collection)
     {
         if ($collection != 'all') {
-            $articles = Article::where(['collection' => $collection])->orderBy('created_at', 'desc')->paginate(20);
+            $articles = Article::where(['collection' => $collection,'isValidated'=>true])->orderBy('created_at', 'desc')->paginate(20);
             $page = $collection;
         } else {
-            $articles = Article::orderBy('created_at', 'desc')->paginate(20);
+            $articles = Article::orderBy('created_at', 'desc')->where(['isValidated'=>true])->paginate(20);
             $page = 'all';
         }
 
@@ -49,7 +48,7 @@ class IndexController extends Controller
 
     public function recommend()
     {
-        $articles = Article::orderBy('view', 'desc')->groupBy('user_id')->limit(9)->get();
+        $articles = Article::orderBy('view', 'desc')->groupBy('user_id')->where('isValidated',true)->limit(9)->get();
         foreach ($articles as $article) {
             $article->total_view = $article->where('user_id', $article->user_id)->sum('view');
         }

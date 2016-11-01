@@ -36,7 +36,7 @@ class ArticlesController extends Controller
 
     public function getArticlePage()
     {
-        $articles = Article::paginate(10);
+        $articles = Article::where('isValidated',true)->paginate(10);
         return $articles;
     }
 
@@ -45,14 +45,14 @@ class ArticlesController extends Controller
         if ($request->status == 'latest' || $request->status == 'hottest') {
             switch ($request->status) {
                 case 'latest':
-                    $articles = Article::orderBy('created_at', 'desc')->paginate(10);
+                    $articles = Article::where('isValidated',true)->orderBy('created_at', 'desc')->paginate(10);
                     foreach ($articles as $article) {
                         preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
                         $article->avatar = $result[1];
                     }
                     break;
                 case 'hottest':
-                    $articles = Article::orderBy('view', 'desc')->paginate(10);
+                    $articles = Article::where('isValidated',true)->orderBy('view', 'desc')->paginate(10);
                     foreach ($articles as $article) {
                         preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
                         $article->avatar = $result[1];
@@ -60,7 +60,7 @@ class ArticlesController extends Controller
                     break;
             }
         } else {
-            $articles =Article::where('collection',$request->status)->orderBy('view', 'desc')->paginate(10);
+            $articles =Article::where(['collection'=>$request->status,'isValidated'=>true])->orderBy('view', 'desc')->paginate(10);
             foreach ($articles as $article) {
                 preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
                 $article->avatar = $result[1];

@@ -37,7 +37,7 @@ class UserController extends Controller
 
     public function deleteArticles(Request $request)
     {
-        if (Auth::user()->id == Article::find($request->id)->user->id) {
+        if (Auth::user()->id == Article::find($request->id)->user->id || Auth::user()->isAdmin()) {
             $comments = Article::find($request->id)->comment()->get();
             foreach ($comments as $comment) {
                 Comment::find($comment->id)->comment_replies()->delete();
@@ -57,7 +57,7 @@ class UserController extends Controller
         if ($users->count() == 0) {
             $users = User::get();
         }
-        foreach ($users as $user){
+        foreach ($users as $user) {
             $user->created_at->timezone('Asia/Chongqing');
         }
         return $users;
@@ -66,7 +66,7 @@ class UserController extends Controller
     public function getUserPage()
     {
         $users = User::paginate(10);
-        foreach ($users as $user){
+        foreach ($users as $user) {
             $user->created_at->timezone('Asia/Chongqing');
         }
         return $users;

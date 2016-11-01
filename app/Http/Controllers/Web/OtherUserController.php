@@ -21,7 +21,7 @@ class OtherUserController extends Controller
     {
         User::find($id)->increment('browse');
         $user = User::find($id);
-        $articles = Article::where(['user_id' => $id])->paginate(3);
+        $articles = Article::where(['user_id' => $id,'isValidated'=>true])->paginate(3);
         foreach ($articles as $article) {
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
             $article->avatar = $result[1];
@@ -31,7 +31,7 @@ class OtherUserController extends Controller
     }
 
     public function article($id){
-        $articles = Article::where(['user_id' => $id])->paginate(50);
+        $articles = Article::where(['user_id' => $id,'isValidated'=>true])->paginate(50);
         foreach ($articles as $article) {
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
             $article->avatar = $result[1];

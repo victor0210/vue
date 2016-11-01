@@ -37,8 +37,8 @@ class ArticlesController
         $user = Article::find($id)->user;
         Article::find($id)->increment('view');
         $status = false;
-        if (Article::where('id', $id)->get()->isEmpty()) {
-            return Redirect::back();
+        if (Article::where(['id'=>$id,'isValidated'=>true])->get()->isEmpty()) {
+            return view('errors.404');
         } else {
             if (Auth::check()) {
                 if (Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->get()->isEmpty()) {

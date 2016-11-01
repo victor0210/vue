@@ -37,4 +37,4 @@ $(function () {
     $('.choose-none').click(function () {
         $('input[type=checkbox]').attr('checked',false);
     });
-})
+});

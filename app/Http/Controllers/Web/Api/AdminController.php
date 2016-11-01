@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Web\Api;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\Collection;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,15 @@ class AdminController extends Controller
     {
         Collection::where(['id' => $request->id])->update(['is_active' => $request->status]);
         if (Collection::where(['id' => $request->id])->value('is_active') == $request->status)
+            return response('Success', 200);
+        else
+            return response('Failed', 500);
+    }
+
+    public function articleStatus(Request $request)
+    {
+        Article::where(['id' => $request->id])->update(['isValidated' => $request->status]);
+        if (Article::where(['id' => $request->id])->value('isValidated') == $request->status)
             return response('Success', 200);
         else
             return response('Failed', 500);
