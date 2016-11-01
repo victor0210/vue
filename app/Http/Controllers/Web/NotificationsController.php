@@ -19,6 +19,8 @@ class NotificationsController extends Controller
     public function index()
     {
         Auth::user()->notifications->where('type','App\Notifications\Notify')->markAsRead();
+        Auth::user()->notifications->where('type','App\Notifications\Thumb')->markAsRead();
+        Auth::user()->notifications->where('type','App\Notifications\Comments')->markAsRead();
         return view('web.notification',compact('notifications'));
     }
 

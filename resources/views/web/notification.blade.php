@@ -10,7 +10,7 @@
             <h1 class="page-header">
                 Notifications
             </h1>
-            @if(Auth::user()->notifications->where('type','App\Notifications\Notify')->count()>0||Auth::user()->notifications->where('type','App\Notifications\Thumb')->count()>0)
+            @if(Auth::user()->notifications->where('type','App\Notifications\Notify')->count()>0||Auth::user()->notifications->where('type','App\Notifications\Thumb')->count()>0||Auth::user()->notifications->where('type','App\Notifications\Comments')->count()>0)
                 <ul class="list-group list-unstyled">
                     <form action="/notification" method="post">
                         @foreach(Auth::user()->notifications as $notification)
@@ -26,7 +26,7 @@
                                         <span class="badge">{{ $notification->created_at->timezone('Asia/Chongqing') }}</span>
                                     </p>
                                 </li>
-                            @elseif($notification->type=='App\Notifications\Thumb')
+                            @elseif($notification->type=='App\Notifications\Thumb' || $notification->type=='App\Notifications\Comments')
                                 <li class="list-group-item">
                                     <p><input type="checkbox" name="{{ $notification->id }}"
                                               value="{{ $notification->id }}">

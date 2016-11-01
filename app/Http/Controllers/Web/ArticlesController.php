@@ -14,6 +14,7 @@ use App\Models\Comment;
 use App\Models\Comment_Replies;
 use App\Models\Records;
 use App\Models\Thumbs;
+use App\Notifications\Comments;
 use App\Notifications\Notify;
 use App\User;
 use Carbon\Carbon;
@@ -98,6 +99,7 @@ class ArticlesController
                     'created_at' => gmdate('Y-m-d H:i:s'),
                     'updated_at' => gmdate('Y-m-d H:i:s')
                 ]);
+            User::find(Article::find($id)->user_id)->notify(new Comments($request->user()->name.' 评论了您的文章 : '.$request->comment));
             return redirect('/content/' . $id);
         }
     }
