@@ -4820,7 +4820,7 @@ a.label:focus {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #777;
+  background-color: #f0ab4e;
   border-radius: 10px;
 }
 .badge:empty {

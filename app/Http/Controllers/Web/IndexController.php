@@ -13,7 +13,6 @@ use App\Models\Collection;
 use App\Models\Comment;
 use DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Mail;
 use YuanChao\Editor\EndaEditor;
 
@@ -21,12 +20,15 @@ class IndexController extends Controller
 {
     public function index($collection)
     {
-        if ($collection != 'all') {
-            $articles = Article::where(['collection' => $collection,'isValidated'=>true])->orderBy('created_at', 'desc')->paginate(20);
+        $arr = Collection::all()->pluck('name');
+        if (!!($arr->search($collection)) || ($arr->search($collection) === 0)) {
+            $articles = Article::where(['collection' => $collection, 'isValidated' => true])->orderBy('created_at', 'desc')->paginate(20);
             $page = $collection;
-        } else {
-            $articles = Article::orderBy('created_at', 'desc')->where(['isValidated'=>true])->paginate(20);
+        } elseif ($collection == 'all') {
+            $articles = Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate(20);
             $page = 'all';
+        } else {
+            return view('errors.404');
         }
 
         foreach ($articles as $article) {
@@ -48,7 +50,7 @@ class IndexController extends Controller
 
     public function recommend()
     {
-        $articles = Article::orderBy('view', 'desc')->groupBy('user_id')->where('isValidated',true)->limit(9)->get();
+        $articles = Article::orderBy('view', 'desc')->groupBy('user_id')->where('isValidated', true)->limit(9)->get();
         foreach ($articles as $article) {
             $article->total_view = $article->where('user_id', $article->user_id)->sum('view');
         }

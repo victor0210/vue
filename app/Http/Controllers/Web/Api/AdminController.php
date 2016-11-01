@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Web\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Collection;
+use App\Notifications\Notify;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -33,8 +35,10 @@ class AdminController extends Controller
     public function articleStatus(Request $request)
     {
         Article::where(['id' => $request->id])->update(['isValidated' => $request->status]);
-        if (Article::where(['id' => $request->id])->value('isValidated') == $request->status)
+        if (Article::where(['id' => $request->id])->value('isValidated') == $request->status){
+            User::find(Article::where(['id' => $request->id])->value('user_id'))->notify(new Notify('您的文章 << '.Article::where(['id' => $request->id])->value('title').' >> 已通过审核' ));
             return response('Success', 200);
+        }
         else
             return response('Failed', 500);
     }

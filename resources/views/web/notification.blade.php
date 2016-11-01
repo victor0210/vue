@@ -10,7 +10,7 @@
             <h1 class="page-header">
                 Notifications
             </h1>
-            @if(Auth::user()->notifications->where('type','App\Notifications\Notify')->count()>0||Auth::user()->notifications->where(['type','App\Notifications\Thumb'])->count()>0)
+            @if(Auth::user()->notifications->where('type','App\Notifications\Notify')->count()>0||Auth::user()->notifications->where('type','App\Notifications\Thumb')->count()>0)
                 <ul class="list-group list-unstyled">
                     <form action="/notification" method="post">
                         @foreach(Auth::user()->notifications as $notification)

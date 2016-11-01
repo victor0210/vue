@@ -56,8 +56,7 @@
                         id: id
                     },
                     success: function () {
-                        $('#change-status-require').text('Change Success !').css('color', 'green');
-                        $('.modal').modal('show')
+                        location.reload();
                     },
                     error: function () {
                         $('#change-status-require').text('Change Failed !').css('color', 'red');

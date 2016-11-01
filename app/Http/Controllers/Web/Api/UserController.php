@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Records;
+use App\Notifications\Notify;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,12 +38,15 @@ class UserController extends Controller
 
     public function deleteArticles(Request $request)
     {
-        if (Auth::user()->id == Article::find($request->id)->user->id || Auth::user()->isAdmin()) {
+        if (Auth::user()->id == Article::find($request->id)->user->id || Auth::user()->is_admin==1) {
             $comments = Article::find($request->id)->comment()->get();
             foreach ($comments as $comment) {
                 Comment::find($comment->id)->comment_replies()->delete();
             }
             Article::find($request->id)->comment()->delete();
+            if (Auth::user()->is_admin==1){
+                User::find(Article::where(['id' => $request->id])->value('user_id'))->notify(new Notify('非常抱歉! 您的文章 << '.Article::where(['id' => $request->id])->value('title').' >> 未通过审核 , 请不要在文章加入任何不良信息 , 谢谢您的合作 !' ));
+            }
             Article::find($request->id)->delete();
             Records::where('article_id', $request->id)->delete();
             return response('Succeed', 200);
