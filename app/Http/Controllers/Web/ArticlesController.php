@@ -23,18 +23,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Validator;
 use Auth;
 use EndaEditor;
-use Chromabits\Purifier\Contracts\Purifier;
 use App\Notifications\Articles;
 
 class ArticlesController
 {
-    protected $purifier;
-
-    public function __construct(Purifier $purifier)
-    {
-        $this->purifier = $purifier;
-    }
-
     function index($id)
     {
         if (!!Article::find($id)) {

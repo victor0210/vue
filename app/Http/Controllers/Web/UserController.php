@@ -16,9 +16,7 @@ use App\User;
 use Auth;
 use App\Models\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -28,7 +26,7 @@ class UserController extends Controller
         $username = $user->name;
         $articles = $user
             ->article()
-            ->where(['user_id'=>Auth::user()->id,'isValidated'=>true])
+            ->where('user_id', Auth::user()->id)
             ->get();
         $records = Records::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
         foreach ($articles as $article) {
@@ -43,10 +41,9 @@ class UserController extends Controller
     public function updateAvatar(Request $request)
     {
         $filename = $request->user()->email . '.png';
-        $img = Image::make(file_get_contents(Input::file('avatar')))->resize(200, 200);
-        $img->save(storage_path('app/public/avatar/' . $filename));
+        Storage::disk('avatar')->put($filename, file_get_contents($request->file('avatar')->getRealPath()));
         if (Storage::disk('avatar')->exists($filename)) {
-            $url = asset(Storage::url("public/avatar/" . $filename));
+            $url = asset(Storage::url("public/avatar/" . $request->user()->email . '.png'));
             User::where('id', $request->user()->id)->update(['avatar_url' => $url]);
             return redirect('/setting');
         } else {
@@ -57,11 +54,9 @@ class UserController extends Controller
     public function updateBackground(Request $request)
     {
         $filename = $request->user()->email . '.png';
-        $img = Image::make(file_get_contents(Input::file('background')));;
-        $img->save(storage_path('app/public/background/' . $filename));
         Storage::disk('background')->put($filename, file_get_contents($request->file('background')->getRealPath()));
         if (Storage::disk('background')->exists($filename)) {
-            $url = asset(Storage::url("public/background/" . $filename));
+            $url = asset(Storage::url("public/background/" . $request->user()->email . '.png'));
             User::where('id', $request->user()->id)->update(['background_url' => $url]);
             return redirect('/setting');
         } else {
