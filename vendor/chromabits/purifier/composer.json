@@ -1,0 +1,33 @@
+{
+    "name": "chromabits/purifier",
+    "description": "HTMLPurifier package for Laravel 5",
+    "keywords": ["L5", "Laravel 5", "Laravel", "HTMLPurifier", "Purifier"],
+    "homepage": "http://github.com/etcinit/purifier",
+    "license": "LGPL",
+    "authors": [
+        {
+            "name": "Eduardo Trujillo",
+            "email": "ed@chromabits.com"
+        },
+        {
+            "name": "Muharrem ERIN",
+            "email": "me@mewebstudio.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/framework": "~5.0",
+        "ezyang/htmlpurifier": "4.6.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master",
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chromabits\\Purifier\\": "src/Chromabits/Purifier/",
+            "Chromabits\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
