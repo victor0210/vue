@@ -1,10 +1,5 @@
 <?php
-if (!defined('RDS_HOSTNAME')) {
-    define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
-    define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
-    define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
-    define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
-}
+
 return [
 
     /*
@@ -57,32 +52,32 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => RDS_HOSTNAME,
-            'database'  => RDS_DB_NAME,
-            'username'  => RDS_USERNAME,
-            'password'  => RDS_PASSWORD,
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
-            'engine'    => null,
-        ],
-//
 //        'mysql' => [
-//            'driver' => 'mysql',
-//            'host' => env('DB_HOST', 'localhost'),
-//            'port' => env('DB_PORT', '3306'),
-//            'database' => env('DB_DATABASE', 'personalBlog'),
-//            'username' => env('DB_USERNAME', 'root'),
-//            'password' => env('DB_PASSWORD', ''),
-//            'charset' => 'utf8',
+//            'driver'    => 'mysql',
+//            'host'      => RDS_HOSTNAME,
+//            'database'  => RDS_DB_NAME,
+//            'username'  => RDS_USERNAME,
+//            'password'  => RDS_PASSWORD,
+//            'charset'   => 'utf8',
 //            'collation' => 'utf8_unicode_ci',
-//            'prefix' => '',
-//            'strict' => false,
-//            'engine' => null,
+//            'prefix'    => '',
+//            'strict'    => false,
+//            'engine'    => null,
 //        ],
+
+        'mysql' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'personalBlog'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
