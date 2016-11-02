@@ -7,7 +7,7 @@ Homestead.json
 composer.lock
 .idea
 /_ide_helper.php
-/bootstrap/cache
+#/bootstrap/cache
 /storage/debugbar
 /public/uploads
 /app/Http/Controllers/Web/TestController.php
