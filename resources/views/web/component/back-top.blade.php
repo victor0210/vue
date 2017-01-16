@@ -21,6 +21,7 @@
         right: 2%;
         bottom: 2%;
         width: 40px;
+        z-index: 9999;
     }
 
     #back-top {
