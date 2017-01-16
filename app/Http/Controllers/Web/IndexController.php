@@ -18,15 +18,28 @@ use YuanChao\Editor\EndaEditor;
 
 class IndexController extends Controller
 {
+    public function all()
+    {
+        $articles = Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate(20);
+
+        foreach ($articles as $article) {
+            $article->comment_count = Comment::where('article_id', $article->id)->count();
+            $article->content = EndaEditor::MarkDecode($article->content);
+            preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+            $article->avatar = $result[1];
+        }
+        $collections = Collection::all();
+        $page = 'all';
+        return view('web.component.articles.articles', compact('articles', 'collections', 'page', 'notifications'));
+
+    }
+
     public function index($collection)
     {
         $arr = Collection::all()->pluck('name');
         if (!!($arr->search($collection)) || ($arr->search($collection) === 0)) {
             $articles = Article::where(['collection' => $collection, 'isValidated' => true])->orderBy('created_at', 'desc')->paginate(20);
             $page = $collection;
-        } elseif ($collection == 'all') {
-            $articles = Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate(20);
-            $page = 'all';
         } else {
             return view('errors.404');
         }

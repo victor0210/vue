@@ -24,8 +24,9 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('content/{id}', 'ArticlesController@index');
+    Route::get('/','IndexController@all');
     Route::get('/article/{collection?}', ['as' => 'article', 'uses' => 'IndexController@index']);
-    Route::get('/', ['as' => 'collection', 'uses' => 'IndexController@collection']);
+    Route::get('/collection', ['as' => 'collection', 'uses' => 'IndexController@collection']);
     Route::get('/recommend', 'IndexController@recommend');
     Route::get('about', 'StaticPageController@index');
     Route::get('user/{id}', 'OtherUserController@index');
