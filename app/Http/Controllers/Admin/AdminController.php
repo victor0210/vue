@@ -44,7 +44,6 @@ class AdminController extends Controller
         ];
         $validate = $this->validator($request->all(), $rules, $messages);
         if ($validate->fails()) {
-            dd($validate);
             return Redirect::back()
                 ->withErrors($validate)
                 ->withInput($request->input());

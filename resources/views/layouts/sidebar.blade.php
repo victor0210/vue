@@ -2,7 +2,7 @@
      @if(Auth::check())
      data-src="{{ Auth::user()->background_url }}"
      @else
-     data-src="{{ elixir('images/bg15.jpg') }}"
+     data-src="{{ elixir('images/bg12.jpg') }}"
         @endif
 >
     <div class="floating" style="position: absolute;width: 100%;height: 100%;background-color: rgba(0,0,0,0.1)"></div>

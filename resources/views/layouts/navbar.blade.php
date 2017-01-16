@@ -4,7 +4,6 @@
             <ul class="nav navbar-nav navbar-menu" data-tab="@yield('tab')">
                 <li name="tab0"><a href="/"><span class="glyphicon glyphicon-home"> 推荐分类</span></a></li>
                 <li name="tab1"><a href="/article/all"><span class="glyphicon glyphicon-list-alt"> 博客公园</span></a></li>
-                <li name="tab2"><a href="/recommend"><span class="glyphicon glyphicon-headphones"> 风云人物</span></a></li>
                 @if(!Auth::check())
                     <li><a href="/login"><span class="glyphicon glyphicon-log-in"> 登录</span></a></li>
                 @endif

@@ -17,7 +17,6 @@ use App\Models\Thumbs;
 use App\Notifications\Comments;
 use App\Notifications\Notify;
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Request;
 use Validator;
@@ -38,8 +37,8 @@ class ArticlesController
                 return view('admin.web.article.content', compact('article'));
             } elseif (Article::where(['id' => $id, 'isValidated' => false])->get()->isEmpty()) {
                 Article::find($id)->increment('view');
+                $user = Article::find($id)->user;
                 if (Auth::check()) {
-                    $user = Article::find($id)->user;
                     if (Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->get()->isEmpty()) {
                         Records::insert([
                             'user_id' => Auth::user()->id,
@@ -65,7 +64,7 @@ class ArticlesController
                 $records = Records::where(['article_id' => $id])->limit(50)->get();
                 return view('web.component.article-content.article-content', compact('content', 'comments', 'status', 'user', 'records'));
             } else {
-                return view('errors.404');
+                return view('errors.validating');
             }
         } else {
             return view('errors.404');
@@ -91,7 +90,7 @@ class ArticlesController
                     'created_at' => gmdate('Y-m-d H:i:s'),
                     'updated_at' => gmdate('Y-m-d H:i:s')
                 ]);
-            User::find(Article::find($id)->user_id)->notify(new Comments($request->user()->name.' 评论了您的文章 : '.$request->comment));
+            User::find(Article::find($id)->user_id)->notify(new Comments($request->user()->name . ' 评论了您的文章 : ' . $request->comment));
             return redirect('/content/' . $id);
         }
     }
@@ -104,16 +103,12 @@ class ArticlesController
 
     public function validateArticle(Request $request)
     {
-        $timediff = Carbon::now()->diff(Article::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first()->created_at);
         $admins = User::where('is_admin', '1')->get();
-        $rules = ['contents' => 'required', 'title' => 'required|max:15'];
-        $messages = ['contents.required' => '请填写内容', 'title.required' => '请填写标题', 'title.max' => '标题最多15个字符'];
+        $rules = ['contents' => 'required', 'title' => 'required|max:30'];
+        $messages = ['contents.required' => '请填写内容', 'title.required' => '请填写标题', 'title.max' => '标题最多30个字符'];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput($request->input());
-        } elseif (!$this->ifFiveMinites($timediff)) {
-            $errors = ['fiveMin' => '这位朋友,您可能才发表了一篇文章,请勿在五分钟之内发表多篇文章 !! 谢谢合作 ^_^ !!'];
-            return Redirect::back()->withInput($request->input())->withErrors($errors);
         } else {
             if (Article::insert(
                 [
@@ -166,3 +161,4 @@ class ArticlesController
         return ($timediff->i + ($timediff->h * 60) + ($timediff->d * 1440) + ($timediff->m * 4320) > 5);
     }
 }
+
