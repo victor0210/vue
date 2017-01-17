@@ -19,7 +19,7 @@
             @if($articles->count()==0)
                 <h3>
                     厉害了我的哥,这里貌似什么都没有!
-                    <small><a href="/article/all">让我们去博客公园看看...</a></small>
+                    <small><a href="/">让我们去博客公园看看...</a></small>
                 </h3>
             @endif
 

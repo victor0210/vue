@@ -48,7 +48,7 @@
             @else
                 <h4>
                     没有新通知
-                    <small><a href="/article/all">返回博客公园</a></small>
+                    <small><a href="/">返回博客公园</a></small>
                 </h4>
             @endif
         </div>
