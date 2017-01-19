@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="initial-scale=1">
-    <meta name="git-hooks-test">
+    <meta name="git-hooks-test-test">
     <link rel="stylesheet" href="{{ elixir('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/zoom.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/navbar.css') }}">
