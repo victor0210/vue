@@ -20,6 +20,7 @@
 </head>
 
 <body>
+Hello
 <div class="container-fluid unToggled">
     @include('layouts.navbar')
     <div class="row">
