@@ -81,6 +81,7 @@ class AdminController extends Controller
 
     public function categoryUploadImage(Request $request)
     {
+//        dd($request);
         $rules = ['image' => 'required'];
         $messages = ['images.required' => 'Image must be required'];
         $validate = Validator::make($request->all(), $rules, $messages);
