@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="{{ elixir('assets/css/zoom.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/sidenav.css') }}">
-    <script src="{{ elixir('js/jquery.js') }}" async></script>
-    <script src="{{ elixir('js/bootstrap.js') }}" async></script>
-    <script src="{{ elixir('assets/js/vue.min.js') }}" async></script>
-    <script src="{{ elixir('js/zoom.min.js') }}" async></script>
-    <script src="{{ elixir('assets/js/common.js')}}" async></script>
-    <script src="{{ elixir('js/tmpl.min.js') }}" async></script>
+    <script src="{{ elixir('js/jquery.js') }}"></script>
+    <script src="{{ elixir('js/bootstrap.js') }}"></script>
+    <script src="{{ elixir('assets/js/vue.min.js') }}"></script>
+    <script src="{{ elixir('js/zoom.min.js') }}"></script>
+    <script src="{{ elixir('assets/js/common.js')}}"></script>
+    <script src="{{ elixir('js/tmpl.min.js') }}"></script>
     @yield('extra-css-js')
 </head>
 
