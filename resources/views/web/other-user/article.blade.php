@@ -1,6 +1,6 @@
 @extends('web.other-user.app')
 
-@section('title', 'Other User')
+@section('title', $user->name.'的个人中心')
 
 @section('extra-css-js')
 

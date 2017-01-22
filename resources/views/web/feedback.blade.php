@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'FAQ')
+@section('title', '反馈意见')
 
 @section('tab',7)
 

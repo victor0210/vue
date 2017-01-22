@@ -2,7 +2,7 @@
 
 @section('tab',6)
 
-@section('title', 'Notifications')
+@section('title', '通知')
 
 @section('content')
     <div class="row">

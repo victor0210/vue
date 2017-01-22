@@ -1,6 +1,6 @@
 @extends('layouts.app-without-animation')
 
-@section('title', 'Edit Article')
+@section('title', '文章添加')
 
 @section('extra-css-js')
     @include('editor::head')

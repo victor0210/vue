@@ -1,5 +1,7 @@
 @extends('auth.layouts.app-auth-layout')
 
+@section('title','用户注册')
+
 @section('content')
     <div class="container">
         <div class="row">

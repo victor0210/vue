@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'User Center')
+@section('title', '个人中心')
 
 @section('tab','4')
 

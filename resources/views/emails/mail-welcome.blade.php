@@ -1,3 +1,3 @@
-<h1>Hello ! I'm Dandy</h1>
-<p>Welcome to my blog ! you can find your password back by email when you forget it !</p>
-<p>hope you are happy here !</p>
+<h1>您好,我是站长dandy</h1>
+<p>欢迎来到论塘!</p>
+<p>希望您能在这里享受到一份美好的时光!</p>

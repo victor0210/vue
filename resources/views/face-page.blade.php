@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','推荐分类')
+
 @section('tab','0')
 
 @section('content')

@@ -1,5 +1,6 @@
 @extends('auth.layouts.app-auth-layout')
 
+@section('title','发送密码重置邮件')
 <!-- Main Content -->
 @section('content')
 <div class="container">
