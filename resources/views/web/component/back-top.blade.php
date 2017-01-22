@@ -82,7 +82,7 @@
             <input type="submit" style="display: none">
         </form>
     </div>
-    <a href="/add-article">
+    <a href="/add-article" target="_blank">
         <span id="edit" class="glyphicon glyphicon-pencil"></span>
     </a>
 </div>

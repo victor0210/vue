@@ -19,6 +19,6 @@
             <h3>交流·分享·进步</h3>
             <h4>一个可以让你畅所欲言的地方</h4>
         @endif
-        <a href="/add-article" class="btn btn-lg btn-success">写点东西 <span class="glyphicon glyphicon-pencil"></span></a>
+        <a href="/add-article" class="btn btn-lg btn-success" target="_blank">写点东西 <span class="glyphicon glyphicon-pencil"></span></a>
     </div>
 </div>
