@@ -31,7 +31,7 @@
                         <label for="inputDescription" class="col-sm-2 control-label"></label>
                         <div class="col-md-12 col-sm-10">
                             <input type="text" class="form-control" id="inputDescription" name="description"
-                                   placeholder="Description (30 characters)">
+                                   placeholder="设置个性签名">
                         </div>
                         <div class="col-md-12 col-sm-10">
                             <input type="button" id="basic-submit" class="btn btn-success form-control" value="提交">
