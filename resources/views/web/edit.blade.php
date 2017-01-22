@@ -25,8 +25,13 @@
                         <div class="editor">
                             <label for="select">选择分类:</label>
                             <select name="collection" class="form-control" id="select" required>
+                                <option></option>
                                 @foreach($collections as $collection)
-                                    <option value="{{ $collection->id }}">{{ $collection->name }}</option>
+                                    @if(old('collection')==$collection->id)
+                                        <option value="{{ $collection->id }}" selected>{{ $collection->name }}</option>
+                                    @else
+                                        <option value="{{ $collection->id }}">{{ $collection->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             <label for="title">文章标题:</label>

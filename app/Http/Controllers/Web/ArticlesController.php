@@ -97,7 +97,7 @@ class ArticlesController
 
     public function add()
     {
-        $collections = Collection::get();
+        $collections = Collection::orderBy('id','asc')->get();
         return view('web.edit', compact('collections'));
     }
 
