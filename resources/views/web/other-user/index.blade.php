@@ -34,14 +34,14 @@
                         </h3>
                     @else
                         <h3>
-                            <small>最近访客:</small>
+                            <small>文章浏览记录:</small>
                         </h3>
                         @foreach($records as $item)
                             <a href="/user/{{ $item->user->id }}"><img
                                         style="width: 25px;height: 25px;margin:2px;border-radius: 50%"
                                         src="{{ $item->user->avatar_url }}" data-toggle="tooltip"
                                         data-placement="bottom"
-                                        title="{{ $item->user->name }} 在 {{ $item->created_at }}看了
+                                        title="{{ $item->user->name }} 在 {{ $item->updated_at }}看了
                                     <<{{ $item->article->title }}>>"></a>
                         @endforeach
                     @endif

@@ -26,7 +26,7 @@ class OtherUserController extends Controller
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
             $article->avatar = $result[1];
         }
-        $records = Records::where('belong',$id)->limit(50)->get();
+        $records = Records::orderBy('updated_at','desc')->where('belong',$id)->limit(50)->get();
         return view('web.other-user.index', compact('user', 'articles','records'));
     }
 
