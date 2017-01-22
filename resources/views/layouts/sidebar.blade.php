@@ -9,7 +9,7 @@
     <span class="btn btn-link btn-lg glyphicon glyphicon-menu-hamburger toggle"></span>
     <div class="sidenav-info text-center">
         @if(Auth::check())
-            <a href="/user"><img src="{{ Auth::user()->avatar_url }}"></a>
+            <a href="/setting"><img src="{{ Auth::user()->avatar_url }}"></a>
             <h1>{{ Auth::user()->name }}</h1>
             <h4 style="font-family: 'Playfair Display', serif">
                 {{ Auth::user()->description }}
