@@ -4,7 +4,6 @@
 <head>
     <title>@yield('title')</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="initial-scale=1">
     <meta property="wb:webmaster" content="326936c60ab050d6" />
