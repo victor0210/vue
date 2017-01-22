@@ -57,7 +57,7 @@ class IndexController extends Controller
 
     public function collection()
     {
-        $collections = Collection::where('is_active', 1)->get();
+        $collections = Collection::where('is_active', 1)->orderBy('id','asc')->get();
         return view('face-page', compact('collections'));
     }
 
