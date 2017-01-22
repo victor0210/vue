@@ -28,7 +28,7 @@ class IndexController extends Controller
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
             $article->avatar = $result[1];
         }
-        $collections = Collection::all();
+        $collections = Collection::orderBy('id','asc')->get();
         $page = 'all';
         return view('web.component.articles.articles', compact('articles', 'collections', 'page', 'notifications'));
 
@@ -36,7 +36,7 @@ class IndexController extends Controller
 
     public function index($collection)
     {
-        $arr = Collection::all()->pluck('name');
+        $arr = Collection::orderBy('id','asc')->get()->pluck('name');
         if (!!($arr->search($collection)) || ($arr->search($collection) === 0)) {
             $articles = Article::where(['collection' => $collection, 'isValidated' => true])->orderBy('created_at', 'desc')->paginate(20);
             $page = $collection;
