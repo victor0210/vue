@@ -69,7 +69,7 @@ class AdminController extends Controller
 
     public function category()
     {
-        $collections = Collection::get();
+        $collections = Collection::orderBy('id','asc')->get();
         return view('admin.web.category.category', compact('collections'));
     }
 
