@@ -72,7 +72,7 @@
     <a href="/faqs"><span id="faqs" class="glyphicon glyphicon-question-sign"></span></a>
     <div class="search-group">
         <form action="/search">
-            <input type="text" name="query" class="close" placeholder="输入完成点击回车!">
+            <input type="text" name="query" class="close" placeholder="输入完成点击回车!" id="search-block">
             <span id="search" class="glyphicon glyphicon-search close-search"></span>
             <input type="submit" style="display: none">
         </form>
@@ -97,9 +97,9 @@
         });
 
         $('.close-search').click(function () {
-            $('input[type=text]').css('width', '200px').addClass('open').focus();
+            $('#search-block').css('width', '200px').addClass('open').focus();
         });
-        $('input[type=text]').blur(function () {
+        $('#search-block').blur(function () {
             $(this).removeClass('open').width(0);
         })
     });
