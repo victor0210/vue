@@ -11,11 +11,6 @@
         transition: 0.7s;
     }
 
-    input.open {
-        border: 1px dashed #2c2c2c;
-        border-left-width: 0;
-    }
-
     #back-container {
         position: fixed;
         right: 2%;
