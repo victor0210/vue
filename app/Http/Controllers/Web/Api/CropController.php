@@ -25,13 +25,11 @@ class CropController extends Controller
     {
         $this->deleteTempFile($request);
         $filename = md5($request->user()->email) . random_int(0, 999999999999999) . '.png';
-        $path = public_path($filename);
+        $path = storage_path('app/public/temp/'.$filename);
         $this->img = Image::make(file_get_contents($request->file('img')->getRealPath()));
         $this->resize()->save($path);
         $request->session()->put('avatar_temp', $filename);
-        return asset($filename);
-
-//----------------------------------------------------
+        return asset(Storage::url("public/temp/" . $filename));
     }
 
     protected function resize()
@@ -52,7 +50,7 @@ class CropController extends Controller
         if ($request->x != '') {
             $filename = $request->user()->email . random_int(0, 999999999999999) . '.png';
             $path = storage_path('app/public/avatar/') . $filename;
-            $this->img = Image::make(file_get_contents($request->session()->get('avatar_temp')));
+            $this->img = Image::make(file_get_contents(storage_path('app/public/temp/'.$request->session()->get('avatar_temp'))));
             $this->deleteOldAvatar();
             $this->img->crop($request->w, $request->h, $request->x, $request->y)->save($path);
             $url = asset(Storage::url("public/avatar/" . $filename));
@@ -72,7 +70,7 @@ class CropController extends Controller
     public function deleteTempFile($request)
     {
         if ($request->session()->has('avatar_temp')) {
-            File::delete($request->session()->get('avatar_temp'));
+            Storage::disk('temp')->delete($request->session()->get('avatar_temp'));
         }
     }
 }
