@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('description')->default('Go to setting page to custom description !');
             $table->string('email')->unique();
             $table->boolean('is_admin')->default(false);
-            $table->string('avatar_url')->default('https://www.humengtao.xyz/storage/avatar/default_avatar.png');
+            $table->string('avatar_url')->default('https://www.humengtao.xyz/images/default_avatar.png');
             $table->string('background_url')->default('https://www.humengtao.xyz/images/bg12.jpg');
             $table->string('password');
             $table->rememberToken();

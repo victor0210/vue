@@ -61,7 +61,7 @@ class CropController extends Controller
 
     protected function deleteOldAvatar()
     {
-        $filename = explode('/', Auth::user()->avatar_url)[5];
+        $filename = explode('/', Auth::user()->avatar_url)[count(explode('/', Auth::user()->avatar_url))-1];
         if (Storage::disk('avatar')->exists($filename))
             Storage::disk('avatar')->delete($filename);
     }
