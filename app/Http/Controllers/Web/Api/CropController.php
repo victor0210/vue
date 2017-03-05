@@ -25,11 +25,11 @@ class CropController extends Controller
     {
         $this->deleteTempFile($request);
         $filename = md5($request->user()->email) . random_int(0, 999999999999999) . '.png';
-        $path = public_path('temp/avatar/' . $filename);
+        $path = public_path($filename);
         $this->img = Image::make(file_get_contents($request->file('img')->getRealPath()));
         $this->resize()->save($path);
         $request->session()->put('avatar_temp', $filename);
-        return asset('temp/avatar/' . $filename);
+        return asset($filename);
 
 //----------------------------------------------------
     }
@@ -52,7 +52,7 @@ class CropController extends Controller
         if ($request->x != '') {
             $filename = $request->user()->email . random_int(0, 999999999999999) . '.png';
             $path = storage_path('app/public/avatar/') . $filename;
-            $this->img = Image::make(file_get_contents('temp/avatar/' . $request->session()->get('avatar_temp')));
+            $this->img = Image::make(file_get_contents($request->session()->get('avatar_temp')));
             $this->deleteOldAvatar();
             $this->img->crop($request->w, $request->h, $request->x, $request->y)->save($path);
             $url = asset(Storage::url("public/avatar/" . $filename));
@@ -72,7 +72,7 @@ class CropController extends Controller
     public function deleteTempFile($request)
     {
         if ($request->session()->has('avatar_temp')) {
-            File::delete('temp/avatar/' . $request->session()->get('avatar_temp'));
+            File::delete($request->session()->get('avatar_temp'));
         }
     }
 }
