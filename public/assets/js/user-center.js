@@ -109,35 +109,14 @@ $(function () {
 
 
     // ajax for updata avatar
-    // var listenCropSubmit = function () {
-        // $('#cropForm').submit(function (e) {
-        //     e.preventDefault();
-        //     var formdata={
-        //         x:$('#x').val(),
-        //         y:$('#y').val(),
-        //         w:$('#w').val(),
-        //         h:$('#h').val()
-        //     };
-        //     console.log(formdata);
-        //     $.ajax({
-        //         headers: {
-        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //         },
-        //         url: '/api/crop-size',
-        //         type: 'POST',
-        //         data: formdata,
-        //         success: function (data) {
-        //             console.log(data);
-        //             $('.sidenav-info img').attr('src', data);
-        //         },
-        //         cache: false,
-        //         contentType: false,
-        //         processData: false
-        //     });
-        //
-        //     return false;
-        // });
-    // };
+    var listenCropSubmit = function () {
+        $('#cropForm input[type=submit]').click(function (e) {
+            e.preventDefault();
+
+            if($('#x').val()!='')
+                $('#cropForm').submit();
+        });
+    };
 
     var listenImgChange = function () {
         $('#img').change(function () {
@@ -180,7 +159,7 @@ $(function () {
 
     deleteArticles();
     deleteRecords();
-    // listenCropSubmit();
+    listenCropSubmit();
     listenImgChange();
     listenImgUpload();
     validateForm();
