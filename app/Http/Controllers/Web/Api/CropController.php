@@ -37,9 +37,9 @@ class CropController extends Controller
         $w = $this->img->width();
         $h = $this->img->height();
         if ($w >= $h) {
-            $this->img->resize(400, $h * 400 / $w);
+            $this->img->resize(300, $h * 300 / $w);
         } else {
-            $this->img->resize($w * 400 / $h, 400);
+            $this->img->resize($w * 300 / $h, 300);
         }
         return $this->img;
     }
