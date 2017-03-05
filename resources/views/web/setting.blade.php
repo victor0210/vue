@@ -26,8 +26,8 @@
                                     class="glyphicon glyphicon-user"></span></buttton></label>
                     <input type="file" id="img" name="img">
                 </form>
-                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">编辑背景<span
-                            class="glyphicon glyphicon-cog"></span>
+                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal" disabled>编辑背景正在紧张开发中<span
+                            class="glyphicon glyphicon-cog" ></span>
                 </button>
             </div>
             <div class="col-md-4">
