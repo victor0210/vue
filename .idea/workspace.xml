@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc8b8209-7af6-431f-8c96-1ed8f987d017" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/TestCropper.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/web/test.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/web/setting.blade.php" afterPath="$PROJECT_DIR$/resources/views/web/setting.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/user-center.js" afterPath="$PROJECT_DIR$/public/assets/js/user-center.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/user-center.js.map" afterPath="$PROJECT_DIR$/public/assets/js/user-center.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/user-center.js" afterPath="$PROJECT_DIR$/resources/assets/js/user-center.js" />
     </list>
     <ignored path="vue-laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +38,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setting.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="setting.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/web/setting.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -49,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-center.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user-center.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/assets/js/user-center.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1740">
-              <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+            <state relative-caret-position="420">
+              <caret line="149" column="54" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -163,11 +162,11 @@
         <option value="$PROJECT_DIR$/config/session.php" />
         <option value="$PROJECT_DIR$/public/css/jquery.Jcrop.min.css" />
         <option value="$PROJECT_DIR$/resources/assets/sass/user-center.scss" />
-        <option value="$PROJECT_DIR$/resources/assets/js/user-center.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php" />
         <option value="$PROJECT_DIR$/resources/views/web/setting.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/js/user-center.js" />
       </list>
     </option>
   </component>
@@ -657,12 +656,12 @@
       <workItem from="1484801975459" duration="2448000" />
       <workItem from="1485073650194" duration="10499000" />
       <workItem from="1488611308588" duration="2502000" />
-      <workItem from="1488686884709" duration="26195000" />
+      <workItem from="1488686884709" duration="26492000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="551818000" />
+    <option name="totallyTimeSpent" value="552115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -880,7 +879,7 @@
         <state relative-caret-position="890">
           <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
-            <marker date="1488721482000" expanded="true" signature="14:170" ph="{...}" />
+            <marker date="1488725871000" expanded="true" signature="14:170" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1090,10 +1089,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/user-center.js">
+    <entry file="file://$PROJECT_DIR$/resources/views/web/setting.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+        <state relative-caret-position="225">
+          <caret line="28" column="125" selection-start-line="28" selection-start-column="125" selection-end-line="28" selection-end-column="125" />
           <folding />
         </state>
       </provider>
@@ -1108,10 +1107,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/web/setting.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/user-center.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="125" selection-start-line="28" selection-start-column="125" selection-end-line="28" selection-end-column="125" />
+        <state relative-caret-position="420">
+          <caret line="149" column="54" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
           <folding />
         </state>
       </provider>

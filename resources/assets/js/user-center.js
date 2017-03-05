@@ -138,12 +138,16 @@ $(function () {
                 data: formData,
                 success: function (data) {
                     console.log(data);
+                    var jcrop_api;
                     $('#editModal .preview img').attr('src', data);
                     $('#editModal').modal();
 
                     $('#cropbox').Jcrop({
                         aspectRatio: 1,
                         onSelect: updateCoords,
+                    },function () {
+                        jcrop_api = this;
+                        jcrop_api.animateTo([0,0,100,100]);
                     });
 
                     $('#img').val('');
