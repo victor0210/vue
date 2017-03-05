@@ -4,9 +4,6 @@
 
 @section('tab','2')
 
-@section('extra-css-js')
-@endsection
-
 @section('content')
 
     <div class="row" data-tag="{{ $tag }}" id="result-container">

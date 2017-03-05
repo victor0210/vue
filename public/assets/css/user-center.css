@@ -5,10 +5,9 @@
 label {
   margin-bottom: 0;
   cursor: pointer;
-  margin-left: 25%;
   width: 50%; }
 
-#upload-head, #upload-background {
+#upload-head, #upload-background, #img {
   display: none; }
 
 .user-center * {
@@ -20,5 +19,12 @@ label {
 #records-board .glyphicon-remove, #articles-board .glyphicon-remove {
   display: none;
   cursor: pointer; }
+
+#target {
+  background-color: #ccc;
+  width: 500px;
+  height: 330px;
+  font-size: 24px;
+  display: block; }
 
 /*# sourceMappingURL=user-center.css.map */

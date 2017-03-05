@@ -366,6 +366,7 @@ class ComposerStaticInit6bbb467355ed6f68512e233db2d1674f
         'AddThumbUpToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_033921_add_thumb_up_to_users_table.php',
         'AddViewToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_27_030301_add_view_to_users_table.php',
         'ArticleTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ArticleTableSeeder.php',
+        'ChangeAvatarFromUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_04_070536_change_avatar_from_users_table.php',
         'CommentsSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentsSeeder.php',
         'CreateArticleTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_094616_create_article_table.php',
         'CreateCollectionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_20_125516_create_collections_table.php',

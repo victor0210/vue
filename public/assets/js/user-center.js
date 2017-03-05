@@ -4,34 +4,33 @@ $(function () {
         $('#reply-info').text(content).css('color', color);
     }
 
-    var listenFileUpload = function () {
-
-        $("#upload-head").change(function () {
-            var filepath = $(this).val();
-            var extStart = filepath.lastIndexOf(".");
-            var ext = filepath.substring(extStart, filepath.length).toUpperCase();
-            if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
-                $('.alert-danger').fadeIn(500, function () {
-                    $('.alert-danger').fadeOut(5000);
-                });
-            } else {
-                $('#form-avater').submit();
-            }
-        });
-
-        $("#upload-background").change(function () {
-            var filepath = $(this).val();
-            var extStart = filepath.lastIndexOf(".");
-            var ext = filepath.substring(extStart, filepath.length).toUpperCase();
-            if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
-                $('.alert-danger').fadeIn(500, function () {
-                    $('.alert-danger').fadeOut(5000);
-                });
-            } else {
-                $('#form-background').submit();
-            }
-        });
-    };
+    // var listenFileUpload = function () {
+    //     $("#upload-head").change(function () {
+    //         var filepath = $(this).val();
+    //         var extStart = filepath.lastIndexOf(".");
+    //         var ext = filepath.substring(extStart, filepath.length).toUpperCase();
+    //         if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
+    //             $('.alert-danger').fadeIn(500, function () {
+    //                 $('.alert-danger').fadeOut(5000);
+    //             });
+    //         } else {
+    //             $('#form-avater').submit();
+    //         }
+    //     });
+    //
+    //     $("#upload-background").change(function () {
+    //         var filepath = $(this).val();
+    //         var extStart = filepath.lastIndexOf(".");
+    //         var ext = filepath.substring(extStart, filepath.length).toUpperCase();
+    //         if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
+    //             $('.alert-danger').fadeIn(500, function () {
+    //                 $('.alert-danger').fadeOut(5000);
+    //             });
+    //         } else {
+    //             $('#form-background').submit();
+    //         }
+    //     });
+    // };
 
     var deleteRecords = function () {
         $('.records-edit').click(function () {
@@ -108,10 +107,98 @@ $(function () {
         });
     };
 
+
+    // ajax for updata avatar
+    // var listenCropSubmit = function () {
+        // $('#cropForm').submit(function (e) {
+        //     e.preventDefault();
+        //     var formdata={
+        //         x:$('#x').val(),
+        //         y:$('#y').val(),
+        //         w:$('#w').val(),
+        //         h:$('#h').val()
+        //     };
+        //     console.log(formdata);
+        //     $.ajax({
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         },
+        //         url: '/api/crop-size',
+        //         type: 'POST',
+        //         data: formdata,
+        //         success: function (data) {
+        //             console.log(data);
+        //             $('.sidenav-info img').attr('src', data);
+        //         },
+        //         cache: false,
+        //         contentType: false,
+        //         processData: false
+        //     });
+        //
+        //     return false;
+        // });
+    // };
+
+    var listenImgChange = function () {
+        $('#img').change(function () {
+            console.log(1);
+            $('#uploader').submit();
+        });
+    };
+
+    var listenImgUpload = function () {
+        $('#uploader').submit(function () {
+            console.log(2);
+            var formData = new FormData($(this)[0]);
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/api/crop',
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    console.log(data);
+                    $('#editModal .preview img').attr('src', data);
+                    $('#editModal').modal();
+
+                    $('#cropbox').Jcrop({
+                        aspectRatio: 1,
+                        onSelect: updateCoords,
+                    });
+
+                    $('#img').val('');
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+
+            return false;
+        });
+    };
+
     deleteArticles();
     deleteRecords();
-    listenFileUpload();
+    // listenCropSubmit();
+    listenImgChange();
+    listenImgUpload();
     validateForm();
+
+
+// image crop---------------------------------------------------------
+    function updateCoords(c) {
+        $('#x').val(c.x);
+        $('#y').val(c.y);
+        $('#w').val(c.w);
+        $('#h').val(c.h);
+    }
+
+
+// image crop---------------------------------------------------------
+
 });
+
+
 
 //# sourceMappingURL=user-center.js.map

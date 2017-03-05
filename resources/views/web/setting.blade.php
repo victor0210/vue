@@ -5,7 +5,10 @@
 @section('tab','5')
 
 @section('extra-css-js')
+    <link rel="stylesheet" href="/css/demos.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/jquery.Jcrop.min.css" type="text/css"/>
     <link rel="stylesheet" href="{{ elixir('assets/css/user-center.css') }}">
+    <script src="/js/jquery.Jcrop.min.js"></script>
     <script src="{{ elixir('assets/js/user-center.js') }}"></script>
 @endsection
 
@@ -18,10 +21,12 @@
                 </h1>
             </div>
             <div class="col-md-12">
-                <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#editModal">头像<span
-                            class="glyphicon glyphicon-cog"></span>
-                </button>
-                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">背景<span
+                <form action="/crop" method="post" enctype="multipart/form-data" id="uploader">
+                    <label for="img"><buttton class="btn btn-primary btn-lg">编辑头像<span
+                                    class="glyphicon glyphicon-user"></span></buttton></label>
+                    <input type="file" id="img" name="img">
+                </form>
+                <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#backgroundModal">编辑背景<span
                             class="glyphicon glyphicon-cog"></span>
                 </button>
             </div>
@@ -51,17 +56,14 @@
                     <h4 class="modal-title" id="myModalLabel">Upload Avatar</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <form action="/user/uploadAvatar" method="POST" enctype="multipart/form-data" id="form-avater">
-                            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-                                <a href="javascript:void(0);" class="thumbnail">
-                                    {!! csrf_field() !!}
-                                    <label for="upload-head">
-                                        <img src="{{ Auth::user()->avatar_url }}" id="user-head">
-                                    </label>
-                                    <input type="file" name="avatar" id="upload-head" accept="image/*">
-                                </a>
-                            </div>
+                    <div class="row preview">
+                        <img src="" id="cropbox"/>
+                        <form action="/api/crop-size" method="post" enctype="multipart/form-data" id="cropForm">
+                            <input type="hidden" id="x" name="x"/>
+                            <input type="hidden" id="y" name="y"/>
+                            <input type="hidden" id="w" name="w"/>
+                            <input type="hidden" id="h" name="h"/>
+                            <input type="submit" value="保存" class="btn btn-large btn-inverse btn-primary"/>
                         </form>
                     </div>
                     <div class="row">
@@ -116,4 +118,11 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+
+    {{--//---------------------------------------------------------}}
+
+
+
+
 @endsection

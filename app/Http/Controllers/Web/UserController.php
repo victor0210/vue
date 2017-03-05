@@ -16,7 +16,6 @@ use App\User;
 use Auth;
 use App\Models\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -38,31 +37,31 @@ class UserController extends Controller
         return view('web.user-center', compact('username', 'articles', 'records'));
     }
 
-    public function updateAvatar(Request $request)
-    {
-        $filename = $request->user()->email . '.png';
-        Storage::disk('avatar')->put($filename, file_get_contents($request->file('avatar')->getRealPath()));
-        if (Storage::disk('avatar')->exists($filename)) {
-            $url = asset(Storage::url("public/avatar/" . $request->user()->email . '.png'));
-            User::where('id', $request->user()->id)->update(['avatar_url' => $url]);
-            return redirect('/setting');
-        } else {
-            return 'upload failed';
-        }
-    }
-
-    public function updateBackground(Request $request)
-    {
-        $filename = $request->user()->email . '.png';
-        Storage::disk('background')->put($filename, file_get_contents($request->file('background')->getRealPath()));
-        if (Storage::disk('background')->exists($filename)) {
-            $url = asset(Storage::url("public/background/" . $request->user()->email . '.png'));
-            User::where('id', $request->user()->id)->update(['background_url' => $url]);
-            return redirect('/setting');
-        } else {
-            return 'upload failed';
-        }
-    }
+//    public function updateAvatar(Request $request)
+//    {
+//        $filename = $request->user()->email . '.png';
+//        Storage::disk('avatar')->put($filename, file_get_contents($request->file('avatar')->getRealPath()));
+//        if (Storage::disk('avatar')->exists($filename)) {
+//            $url = asset(Storage::url("public/avatar/" . $request->user()->email . '.png'));
+//            User::where('id', $request->user()->id)->update(['avatar_url' => $url]);
+//            return redirect('/setting');
+//        } else {
+//            return 'upload failed';
+//        }
+//    }
+//
+//    public function updateBackground(Request $request)
+//    {
+//        $filename = $request->user()->email . '.png';
+//        Storage::disk('background')->put($filename, file_get_contents($request->file('background')->getRealPath()));
+//        if (Storage::disk('background')->exists($filename)) {
+//            $url = asset(Storage::url("public/background/" . $request->user()->email . '.png'));
+//            User::where('id', $request->user()->id)->update(['background_url' => $url]);
+//            return redirect('/setting');
+//        } else {
+//            return 'upload failed';
+//        }
+//    }
 
     public function setting()
     {

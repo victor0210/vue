@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('content/{id}', 'ArticlesController@index');
-    Route::get('/','IndexController@all');
+    Route::get('/', 'IndexController@all');
     Route::get('/article/{collection?}', ['as' => 'article', 'uses' => 'IndexController@index']);
     Route::get('/collection', ['as' => 'collection', 'uses' => 'IndexController@collection']);
     Route::get('/recommend', 'IndexController@recommend');
@@ -47,6 +47,8 @@ Route::group(['namespace' => 'Web\Api', 'prefix' => 'api'], function () {
     Route::post('/delete-record', 'UserController@deleteRecords');
     Route::post('/delete-article', 'UserController@deleteArticles');
     Route::post('/thumbs', 'ArticlesController@thumb')->middleware('auth');
+    Route::post('/crop', 'CropController@upload');
+    Route::post('/crop-size', 'CropController@size');
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Web'], function () {

@@ -25,11 +25,6 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
-    {
-
-    }
-
     public function deleteRecords(Request $request)
     {
         Records::find($request->id)->delete();

@@ -54,18 +54,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:users',
+            'name' => 'required|max:10|unique:users',
+            'email' => 'required|email|max:30|unique:users',
             'password' => 'required|min:6|confirmed',
         ], [
-            'name.required' => 'name is required',
-            'name.max' => 'name is not validate',
-            'name.unique' => 'name has been registed',
-            'email.required' => 'email is required',
+            'name.required' => '用户名为必填项',
+            'name.max' => '用户名最多为10位',
+            'name.unique' => '该用户名已被注册',
+            'email.required' => '邮箱为必填项',
             'email.email' => '邮箱无效',
-            'email.unique' => 'email has been registed',
-            'password.reqire' => 'password is required and must over 6th',
-            'password.confirmed' => 'passwords are diff in twice input',
+            'email.unique' => '邮箱已被注册',
+            'password.required' => '密码为必填项',
+            'password.min' => '密码至少为6位',
+            'password.confirmed' => '两次输入的密码不相同',
         ]);
     }
 

@@ -6,11 +6,11 @@
 label {
   margin-bottom: 0;
   cursor: pointer;
-  margin-left: 25%;
+  //margin-left: 25%;
   width: 50%;
 }
 
-#upload-head,#upload-background {
+#upload-head,#upload-background,#img {
   display: none;
 }
 
@@ -27,4 +27,12 @@ label {
     display: none;
     cursor: pointer;
   }
+}
+
+#target {
+  background-color: #ccc;
+  width: 500px;
+  height: 330px;
+  font-size: 24px;
+  display: block;
 }

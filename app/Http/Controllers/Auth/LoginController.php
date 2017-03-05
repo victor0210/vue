@@ -51,11 +51,11 @@ class LoginController extends Controller
     {
         $rules=['email'=>'required|email|exists:users','password'=>'required|min:6'];
         $message=[
-            'email.required'=>'email must be required',
-            'email.email'=>'email is unvalidate',
-            'email.exists'=>'email is not exist',
-            'password.required'=>'password must be required',
-            'password.min'=>'password must be at least six characters',
+            'email.required'=>'请填写邮箱',
+            'email.email'=>'邮箱格式不正确',
+            'email.exists'=>'邮箱未注册',
+            'password.required'=>'请填写密码',
+            'password.min'=>'民吗至少为6位',
         ];
         $validator=Validator::make($request->input(),$rules,$message);
         if($validator->fails()){

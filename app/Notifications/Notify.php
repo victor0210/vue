@@ -9,6 +9,7 @@ class Notify extends Notification
 {
     use Queueable;
 
+    private $msg;
     /**
      * Create a new notification instance.
      *
