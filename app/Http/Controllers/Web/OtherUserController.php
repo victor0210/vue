@@ -13,8 +13,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Records;
 use App\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use YuanChao\Editor\EndaEditor;
 
@@ -22,7 +20,7 @@ class OtherUserController extends Controller
 {
     public function index($id)
     {
-        if(!!User::find($id))
+        if(!User::find($id))
             return view('errors.404');
         User::find($id)->increment('browse');
         $user = User::find($id);
