@@ -3,13 +3,18 @@
 @section('title', $content->title)
 
 @section('tab','1')
-
+@section('meta')
+    <meta name="description" content="{{ $content->title }}"/>
+@endsection
 @section('extra-css-js')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"/>
     <link rel="stylesheet" href="{{ elixir('assets/css/article-content.css') }}" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/jquery.share.min.js"></script>
 @endsection
 
 @section('content')
-    <div class="row" id="article-main-content" data-article-id="{{ $content->id }}" data-user-id="{{ $content->user_id }}">
+    <div class="row" id="article-main-content" data-article-id="{{ $content->id }}"
+         data-user-id="{{ $content->user_id }}">
         <div class="col-md-10 col-sm-10">
             <div class="page-header">
                 <img src="{{ $content->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
@@ -28,14 +33,16 @@
             <div id="article-content">
                 {!!  $content->content !!}
             </div>
-            <p style="color:#999">最近访问 :
-                @foreach($records as $item)
-                    <a href="/user/{{ $item->user->id }}" style="display: inline-block"><img
-                                style="width: 25px;height: 25px;margin-top:5px;margin-right:-15px;border-radius: 50%"
-                                src="{{ $item->user->avatar_url }}" data-toggle="tooltip"
-                                data-placement="bottom" title="{{ $item->user->name }}"></a>
-                @endforeach
-            </p>
+            {{--<p style="color:#999">最近访问 :--}}
+            {{--@foreach($records as $item)--}}
+            {{--<a href="/user/{{ $item->user->id }}" style="display: inline-block"><img--}}
+            {{--style="width: 25px;height: 25px;margin-top:5px;margin-right:-15px;border-radius: 50%"--}}
+            {{--src="{{ $item->user->avatar_url }}" data-toggle="tooltip"--}}
+            {{--data-placement="bottom" title="{{ $item->user->name }}"></a>--}}
+            {{--@endforeach--}}
+            {{--</p>--}}
+
+            <div class="social-share"></div>
             @foreach($comments as $item)
                 <div class="col-md-12">
                     <div class="page-header">
