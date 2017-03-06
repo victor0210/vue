@@ -55,7 +55,7 @@ class LoginController extends Controller
             'email.email'=>'邮箱格式不正确',
             'email.exists'=>'邮箱未注册',
             'password.required'=>'请填写密码',
-            'password.min'=>'民吗至少为6位',
+            'password.min'=>'密码至少为6位',
         ];
         $validator=Validator::make($request->input(),$rules,$message);
         if($validator->fails()){

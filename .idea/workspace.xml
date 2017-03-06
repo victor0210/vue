@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc8b8209-7af6-431f-8c96-1ed8f987d017" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" />
     </list>
     <ignored path="vue-laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CropController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CropController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="389">
@@ -42,6 +44,16 @@
               <folding>
                 <element signature="e#133#169#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="face-page.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/face-page.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,10 +81,17 @@
       <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/web/other-user/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+            <state relative-caret-position="150">
+              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="favicon.ico" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/favicon.ico">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -86,23 +105,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/UserController.php">
+      <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="43" column="55" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="55" />
-              <folding>
-                <element signature="e#128#151#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="467">
+              <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="session.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/session.php">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-315">
-              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="11" />
+            <state relative-caret-position="439">
+              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -136,7 +153,6 @@
         <option value="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/web/category/category-edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
-        <option value="$PROJECT_DIR$/resources/views/face-page.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app-without-animation.blade.php" />
@@ -154,8 +170,6 @@
         <option value="$PROJECT_DIR$/resources/views/web/component/back-top.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_03_04_070536_change_avatar_from_users_table.php" />
         <option value="$PROJECT_DIR$/app/Notifications/Notify.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/resources/views/web/result.blade.php" />
@@ -170,11 +184,14 @@
         <option value="$PROJECT_DIR$/public/css/jquery.Jcrop.min.css" />
         <option value="$PROJECT_DIR$/resources/assets/sass/user-center.scss" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/UserController.php" />
-        <option value="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/web/setting.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/user-center.js" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php" />
+        <option value="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/resources/views/face-page.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
       </list>
     </option>
   </component>
@@ -325,119 +342,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -456,7 +361,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="app&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/app.blade.php&#10;user&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/user-center.js&#10;s&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;web&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;de&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;user-cen&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;demo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;main&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/main.css&#10;Test&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/TestCropper.php&#10;UserController&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/UserController.php&#10;sett&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/setting.blade.php&#10;register&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/auth/register.blade.php&#10;compo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/composer.json&#10;backtop&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;user-center.js&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/js/user-center.js&#10;setting&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/setting.blade.php&#10;data&#9;FILE&#9;file:///Users/humengtao/Desktop/online/config/database.php&#10;side&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/sidebar.blade.php&#10;user-center.scss&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/sass/user-center.scss&#10;backt&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;edit&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/edit.blade.php&#10;ArticlesCon&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/ArticlesController.php&#10;navbar&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/navbar.blade.php&#10;ArticleCon&#9;null&#9;null&#10;post&#9;null&#9;null&#10;FileView&#9;FILE&#9;file:///Users/humengtao/Desktop/online/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php&#10;Other&#9;null&#9;null&#10;app.bla&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/app.blade.php&#10;Inde&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;admin&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Admin/AdminController.php&#10;IndexCOn&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;AppSer&#9;null&#9;null&#10;AdminController&#9;null&#9;null&#10;app.&#9;FILE&#9;file:///Users/humengtao/Desktop/online/config/app.php&#10;login&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/auth/login.blade.php&#10;collecion&#9;null&#9;null&#10;Index&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;nav&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/navbar.blade.php&#10;UserCon&#9;null&#9;null&#10;notifi&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/web/notification.blade.php&#10;noti&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/app/Http/Controllers/Web/NotificationsController.php&#10;Notifi&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/app/Http/Controllers/Web/NotificationsController.php&#10;logout&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/vendor/laravel/framework/src/Illuminate/Auth/Events/Logout.php&#10;content&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/web/component/article-content/article-content.blade.php&#10;conten&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/admin/web/Article/content.blade.php&#10;articl&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/admin/web/Article/article.blade.php&#10;admin.css&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/public/assets/css/admin.css&#10;a&#9;ACTION&#9;null&#10;regi&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/auth/register.blade.php&#10;Article&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/app/Http/Controllers/Web/ArticlesController.php" />
+    <property name="SearchEverywhereHistoryKey" value="app&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/app.blade.php&#10;face&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/face-page.blade.php&#10;user&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/user-center.js&#10;s&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;web&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;de&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;user-cen&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;demo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;main&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/main.css&#10;Test&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/TestCropper.php&#10;UserController&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/UserController.php&#10;sett&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/setting.blade.php&#10;register&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/auth/register.blade.php&#10;compo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/composer.json&#10;backtop&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;user-center.js&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/js/user-center.js&#10;setting&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/setting.blade.php&#10;data&#9;FILE&#9;file:///Users/humengtao/Desktop/online/config/database.php&#10;side&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/sidebar.blade.php&#10;user-center.scss&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/sass/user-center.scss&#10;backt&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;edit&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/edit.blade.php&#10;ArticlesCon&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/ArticlesController.php&#10;navbar&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/navbar.blade.php&#10;ArticleCon&#9;null&#9;null&#10;post&#9;null&#9;null&#10;FileView&#9;FILE&#9;file:///Users/humengtao/Desktop/online/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php&#10;Other&#9;null&#9;null&#10;app.bla&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/app.blade.php&#10;Inde&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;admin&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Admin/AdminController.php&#10;IndexCOn&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;AppSer&#9;null&#9;null&#10;AdminController&#9;null&#9;null&#10;app.&#9;FILE&#9;file:///Users/humengtao/Desktop/online/config/app.php&#10;login&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/auth/login.blade.php&#10;collecion&#9;null&#9;null&#10;Index&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;nav&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/navbar.blade.php&#10;UserCon&#9;null&#9;null&#10;notifi&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/web/notification.blade.php&#10;noti&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/app/Http/Controllers/Web/NotificationsController.php&#10;Notifi&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/app/Http/Controllers/Web/NotificationsController.php&#10;logout&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/vendor/laravel/framework/src/Illuminate/Auth/Events/Logout.php&#10;content&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/web/component/article-content/article-content.blade.php&#10;conten&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/admin/web/Article/content.blade.php&#10;articl&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/admin/web/Article/article.blade.php&#10;admin.css&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/public/assets/css/admin.css&#10;a&#9;ACTION&#9;null&#10;regi&#9;FILE&#9;file:///Users/humengtao/Desktop/vue-laravel1/resources/views/auth/register.blade.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
@@ -471,11 +376,11 @@
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/assets/images" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/public/js" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/resources/assets/js/admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -638,26 +543,26 @@
       <workItem from="1484801975459" duration="2448000" />
       <workItem from="1485073650194" duration="10499000" />
       <workItem from="1488611308588" duration="2502000" />
-      <workItem from="1488686884709" duration="27407000" />
+      <workItem from="1488686884709" duration="29115000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="553030000" />
+    <option name="totallyTimeSpent" value="554738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2912088" sideWeight="0.49261746" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19795918" sideWeight="0.519536" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40918368" sideWeight="0.54151404" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19795918" sideWeight="0.48046398" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40970653" sideWeight="0.46336997" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19795918" sideWeight="0.47802198" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40918368" sideWeight="0.45848596" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21632653" sideWeight="0.47069597" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21632653" sideWeight="0.46825397" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18315019" sideWeight="0.5073826" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -729,24 +634,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#74#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Notifications/Notify.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/Jcrop.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -803,14 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Storage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -853,7 +732,7 @@
         <state relative-caret-position="890">
           <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
-            <marker date="1488726525000" expanded="true" signature="14:170" ph="{...}" />
+            <marker date="1488728737000" expanded="true" signature="14:170" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -933,14 +812,6 @@
     <entry file="file://$PROJECT_DIR$/public/temp/avatar/0a1afd19583e3cad3d01c517654bafe9222924.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="77" column="11" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="11" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Container/Container.php">
@@ -1055,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/web/other-user/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/web/setting.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1094,6 +957,43 @@
           <folding>
             <element signature="e#133#169#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/web/other-user/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/face-page.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
