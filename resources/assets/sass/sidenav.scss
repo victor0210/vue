@@ -10,14 +10,21 @@
   .sidenav-info {
     position: relative;
     img {
-      width: 140px;
-      height: 140px;
+      width: 70px;
+      height: 70px;
       border: 3px solid #fff;
       border-radius: 50%;
+    }
+    h1{
+      font-size: 20px;
     }
     h4 {
       width: 80%;
       margin-left: 10%;
+      font-size: 15px;
+    }
+    a.btn{
+      visibility: hidden;
     }
   }
   #dropdownMenu1 {
@@ -39,6 +46,26 @@
     .toggle {
       left:0;
       visibility: visible;
+    }
+    .sidenav-info {
+      position: relative;
+      img {
+        width: 140px;
+        height: 140px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+      }
+      h1{
+        font-size: 32px;
+      }
+      h4 {
+        width: 80%;
+        margin-left: 10%;
+        font-size: 20px;
+      }
+      a.btn{
+        visibility: visible;
+      }
     }
   }
 }

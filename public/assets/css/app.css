@@ -5894,14 +5894,13 @@ button.close {
   transition: 0.5s;
   width: 215px;
   left: -215px;
-  opacity: 0.9; }
+  opacity: 1; }
   .navbar li {
     width: 100%; }
 
 @media screen and (min-width: 768px) {
   .navbar {
-    padding: 10px;
-    opacity: 1; } }
+    padding: 6px; } }
 
 .container-fluid {
   -webkit-transition: 0.5s;

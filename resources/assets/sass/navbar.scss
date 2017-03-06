@@ -21,6 +21,7 @@ nav {
     }
     li.active, li:hover {
       background-color: #5cb85c;
+      border-radius: 3px;
       .glyphicon {
         color: #fff;
       }

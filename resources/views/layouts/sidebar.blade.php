@@ -15,8 +15,8 @@
                 {{ Auth::user()->description }}
             </h4>
         @else
-            <h1>论塘</h1>
-            <h3>交流·分享·进步</h3>
+            <h2>论塘</h2>
+            <h4>交流·分享·进步</h4>
             <h4>一个可以让你畅所欲言的地方</h4>
         @endif
         <a href="/add-article" class="btn btn-lg btn-success" target="_blank">写点东西 <span class="glyphicon glyphicon-pencil"></span></a>

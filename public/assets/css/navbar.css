@@ -15,7 +15,8 @@ nav {
     font-weight: 500; }
 
 .navbar .nav li.active, .navbar .nav li:hover {
-  background-color: #5cb85c; }
+  background-color: #5cb85c;
+  border-radius: 3px; }
   .navbar .nav li.active .glyphicon, .navbar .nav li:hover .glyphicon {
     color: #fff; }
 

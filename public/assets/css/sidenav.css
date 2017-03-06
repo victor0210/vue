@@ -7,13 +7,18 @@
   .sidenav-container .sidenav-info {
     position: relative; }
     .sidenav-container .sidenav-info img {
-      width: 140px;
-      height: 140px;
+      width: 70px;
+      height: 70px;
       border: 3px solid #fff;
       border-radius: 50%; }
+    .sidenav-container .sidenav-info h1 {
+      font-size: 20px; }
     .sidenav-container .sidenav-info h4 {
       width: 80%;
-      margin-left: 10%; }
+      margin-left: 10%;
+      font-size: 15px; }
+    .sidenav-container .sidenav-info a.btn {
+      visibility: hidden; }
   .sidenav-container #dropdownMenu1 {
     position: relative;
     left: 20px;
@@ -31,6 +36,21 @@
   @media screen and (min-width: 768px) {
     .sidenav-container .toggle {
       left: 0;
-      visibility: visible; } }
+      visibility: visible; }
+    .sidenav-container .sidenav-info {
+      position: relative; }
+      .sidenav-container .sidenav-info img {
+        width: 140px;
+        height: 140px;
+        border: 3px solid #fff;
+        border-radius: 50%; }
+      .sidenav-container .sidenav-info h1 {
+        font-size: 32px; }
+      .sidenav-container .sidenav-info h4 {
+        width: 80%;
+        margin-left: 10%;
+        font-size: 20px; }
+      .sidenav-container .sidenav-info a.btn {
+        visibility: visible; } }
 
 /*# sourceMappingURL=sidenav.css.map */

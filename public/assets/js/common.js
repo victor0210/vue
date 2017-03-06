@@ -1,6 +1,6 @@
 $(function () {
     var ml = 0;
-
+    var moblie_sidenav_eight=250;
     var initAnimation = function () {
         if ($(window).width() < 768) {
             $('body').css('overflowX', 'hidden');
@@ -17,11 +17,8 @@ $(function () {
                 'background-repeat': 'no-repeat',
                 'background-position': 'center'
             });
-            $('.sidenav-info').css({
-                'top': 50
-            });
-            $('.sidenav-container').width($(window).width()).height(450);
-            $('.floating').width($(window).width()).height(450);
+            $('.sidenav-container').width($(window).width()).height(moblie_sidenav_eight);
+            $('.floating').width($(window).width()).height(moblie_sidenav_eight);
         }
         else {
             $('.sidenav-info').css({
@@ -61,11 +58,11 @@ $(function () {
 
         if ($(window).width() < 768) {
             $('#user-sidenav').css({'position': 'relative'});
-            $('.sidenav-info').css({'top': 50});
-            $('.sidenav-container').width($(window).width()).height(450);
-            $('#user-sidenav').width($(window).width()).height(450);
-            $('.floating').width($(window).width()).height(450);
+            $('.sidenav-container').width($(window).width()).height(moblie_sidenav_eight);
+            $('#user-sidenav').width($(window).width()).height(moblie_sidenav_eight);
+            $('.floating').width($(window).width()).height(moblie_sidenav_eight);
             $('.container-fluid').css('marginLeft', 0);
+            $('.sidenav-info').css({'top': '0%'});
         }
         else {
             $('.container-fluid').css('marginLeft', ml + 'px');
