@@ -3,13 +3,16 @@
 @section('title', $content->title)
 
 @section('tab','1')
+
 @section('meta')
     <meta name="description" content="{{ $content->title }}"/>
 @endsection
+
 @section('extra-css-js')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"/>
     <link rel="stylesheet" href="{{ elixir('assets/css/article-content.css') }}" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/jquery.share.min.js"></script>
+    <script src="{{elixir('assets/js/article-content.js')}}"></script>
 @endsection
 
 @section('content')
@@ -154,34 +157,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(function () {
-            $('#reply-submit').click(function () {
-                $('#reply-form').submit();
-            });
-
-            $('.reply').click(function () {
-                $('input[name=receiver]').val($(this).data('receiver'));
-                $('input[name=comment]').val($(this).data('comment'));
-            });
-            $('#thumb-up').click(function () {
-                var url = '/api/thumbs';
-                $.ajax(url, {
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    type: 'post',
-                    data: {
-                        'article_id': $('#article-main-content').data('article-id'),
-                        'user_id': $('#article-main-content').data('user-id')
-                    },
-                    success: function (data) {
-                        $('#thumb-up').html('已赞 <span class="fa fa-thumbs-up"></span>').attr('disabled', 'disabled');
-                    }
-                });
-            });
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
 @endsection
