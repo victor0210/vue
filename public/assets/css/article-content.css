@@ -21,7 +21,7 @@
   #article-content img {
     width: auto;
     max-width: 100%;
-    border: 1px solid #eeeeee; } }
+    botder: 3px dashed #eeeeee; } }
 
 .reply {
   padding: 0 10px;
