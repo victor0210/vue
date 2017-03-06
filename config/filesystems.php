@@ -75,6 +75,11 @@ return [
             'root' => storage_path('app/public/temp'),
             'visibility' => 'public',
         ],
+        'article' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/article'),
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

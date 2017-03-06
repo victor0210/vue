@@ -18,6 +18,7 @@ use App\Notifications\Comments;
 use App\Notifications\Notify;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Request;
 use Validator;
 use Auth;
@@ -33,7 +34,7 @@ class ArticlesController
             if (Article::where(['id' => $id, 'isValidated' => true])->get()->isEmpty() && Auth::user()->isAdmin()) {
                 Article::find($id)->increment('view');
                 $article = Article::find($id);
-                $article->content = EndaEditor::MarkDecode($article->content);
+                $article->content = EndaEditor::MarkDecode(Storage::disk('article')->get($article->content));
                 return view('admin.web.article.content', compact('article'));
             } elseif (Article::where(['id' => $id, 'isValidated' => false])->get()->isEmpty()) {
                 Article::find($id)->increment('view');
@@ -54,7 +55,8 @@ class ArticlesController
                 }
 
                 $content = Article::where('id', $id)->first();
-                $content->content = EndaEditor::MarkDecode($content->content);
+                $content->content = EndaEditor::MarkDecode(Storage::disk('article')->get($content->content));
+
                 preg_match_all('/<img.*?src="(.*?)".*?>/is', $content->content, $result);
                 $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
                 foreach ($comments as $comment) {
@@ -110,12 +112,15 @@ class ArticlesController
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput($request->input());
         } else {
+            $filename='article'.md5(random_int(0,9999999999999)).'.md';
+            Storage::disk('article')->put($filename, $request->contents);
+
             if (Article::insert(
                 [
                     'user_id' => Auth::user()->id,
                     'collection' => Collection::where('id', $request['collection'])->value('name'),
                     'title' => $request['title'],
-                    'content' => $request['contents'],
+                    'content' => $filename,
                     'created_at' => gmdate('Y-m-d H:i:s'),
                     'updated_at' => gmdate('Y-m-d H:i:s')
                 ])
