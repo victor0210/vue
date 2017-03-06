@@ -94,7 +94,6 @@
                     @endif
                 </div>
             </div>
-            @include('layouts.footer')
         </div>
     </div>
     @include('web.component.article-list-tmpl')

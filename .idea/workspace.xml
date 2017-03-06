@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc8b8209-7af6-431f-8c96-1ed8f987d017" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/app.css" afterPath="$PROJECT_DIR$/public/assets/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/app.css.map" afterPath="$PROJECT_DIR$/public/assets/css/app.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/navbar.css" afterPath="$PROJECT_DIR$/public/assets/css/navbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/navbar.css.map" afterPath="$PROJECT_DIR$/public/assets/css/navbar.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/sidenav.css" afterPath="$PROJECT_DIR$/public/assets/css/sidenav.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/sidenav.css.map" afterPath="$PROJECT_DIR$/public/assets/css/sidenav.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js.map" afterPath="$PROJECT_DIR$/public/assets/js/common.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/common.js" afterPath="$PROJECT_DIR$/resources/assets/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/app.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/navbar.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/navbar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/sidenav.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/sidenav.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/face-page.blade.php" afterPath="$PROJECT_DIR$/resources/views/face-page.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/web/component/articles/articles.blade.php" afterPath="$PROJECT_DIR$/resources/views/web/component/articles/articles.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" />
     </list>
     <ignored path="vue-laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +30,28 @@
       <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+            <state relative-caret-position="495">
+              <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/footer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="79" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="articles.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/web/component/articles/articles.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,12 +60,32 @@
       <file leaf-file-name="article-content.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/web/component/article-content/article-content.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1485">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            <state relative-caret-position="0">
+              <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
               <folding>
                 <marker date="1488790823000" expanded="false" signature="1970:1991" ph="..." />
                 <marker date="1488790823000" expanded="false" signature="2025:2102" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/web/other-user/app.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="face-page.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/face-page.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,53 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="90" column="50" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="article-content.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/article-content.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#44#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gulpfile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArticlesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/Api/ArticlesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="78" column="65" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -157,8 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/web/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/web/component/back-top.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_03_04_070536_change_avatar_from_users_table.php" />
         <option value="$PROJECT_DIR$/app/Notifications/Notify.php" />
@@ -178,9 +165,7 @@
         <option value="$PROJECT_DIR$/resources/assets/js/user-center.js" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/Api/CropController.php" />
-        <option value="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/resources/views/face-page.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/app/Facades/Test.php" />
         <option value="$PROJECT_DIR$/app/Facades/TestClass.php" />
@@ -190,7 +175,6 @@
         <option value="$PROJECT_DIR$/app/Providers/TestServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/TestController.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" />
@@ -208,6 +192,11 @@
         <option value="$PROJECT_DIR$/resources/assets/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/sidenav.scss" />
         <option value="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/web/component/articles/articles.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/web/other-user/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/face-page.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" />
       </list>
     </option>
   </component>
@@ -315,22 +304,8 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,14 +320,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -481,7 +448,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="side&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/layouts/sidebar.blade.php&#10;app&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/app.scss&#10;common.js&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/common.js&#10;nav&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/navbar.scss&#10;app.sc&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/app.scss&#10;Article&#9;null&#9;null&#10;web&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;article-content&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/article-content.scss&#10;Index&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/IndexController.php&#10;Other&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/OtherUserController.php&#10;index.&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/index.blade.php&#10;ArticleController&#9;null&#9;null&#10;Articles&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/ArticlesController.php&#10;article&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/article-content/article-content.blade.php&#10;app.php&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/config/app.php&#10;TestServiceProvider&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Providers/TestServiceProvider.php&#10;face&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/face-page.blade.php&#10;user&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/user-center.js&#10;s&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;de&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;user-cen&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;demo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;main&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/main.css&#10;Test&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/TestCropper.php&#10;UserController&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/UserController.php&#10;sett&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/setting.blade.php&#10;register&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/auth/register.blade.php&#10;compo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/composer.json&#10;backtop&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;user-center.js&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/js/user-center.js&#10;setting&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/setting.blade.php&#10;data&#9;FILE&#9;file:///Users/humengtao/Desktop/online/config/database.php&#10;user-center.scss&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/sass/user-center.scss&#10;backt&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;edit&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/edit.blade.php&#10;ArticlesCon&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/ArticlesController.php&#10;navbar&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/navbar.blade.php&#10;ArticleCon&#9;null&#9;null&#10;post&#9;null&#9;null&#10;FileView&#9;FILE&#9;file:///Users/humengtao/Desktop/online/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php&#10;app.bla&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/app.blade.php&#10;Inde&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;admin&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Admin/AdminController.php&#10;IndexCOn&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;AppSer&#9;null&#9;null&#10;AdminController&#9;null&#9;null&#10;app.&#9;FILE&#9;file:///Users/humengtao/Desktop/online/config/app.php&#10;login&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/auth/login.blade.php&#10;collecion&#9;null&#9;null&#10;UserCon&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="footer&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/layouts/footer.blade.php&#10;artic&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/article-content/article-content.blade.php&#10;articles&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/articles/articles.blade.php&#10;app.blade.php&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/layouts/app.blade.php&#10;app&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/emails/layout/app.blade.php&#10;side&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/layouts/sidebar.blade.php&#10;common.js&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/common.js&#10;nav&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/navbar.scss&#10;app.sc&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/app.scss&#10;Article&#9;null&#9;null&#10;web&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;article-content&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/article-content.scss&#10;Index&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/IndexController.php&#10;Other&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/OtherUserController.php&#10;index.&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/index.blade.php&#10;ArticleController&#9;null&#9;null&#10;Articles&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/ArticlesController.php&#10;article&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/article-content/article-content.blade.php&#10;app.php&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/config/app.php&#10;TestServiceProvider&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Providers/TestServiceProvider.php&#10;face&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/face-page.blade.php&#10;user&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/user-center.js&#10;s&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;de&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;user-cen&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/sass/user-center.scss&#10;demo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/demos.css&#10;main&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/public/css/main.css&#10;Test&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/TestCropper.php&#10;UserController&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/UserController.php&#10;sett&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/setting.blade.php&#10;register&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/auth/register.blade.php&#10;compo&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/composer.json&#10;backtop&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;user-center.js&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/js/user-center.js&#10;setting&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/setting.blade.php&#10;data&#9;FILE&#9;file:///Users/humengtao/Desktop/online/config/database.php&#10;user-center.scss&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/assets/sass/user-center.scss&#10;backt&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/component/back-top.blade.php&#10;edit&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/web/edit.blade.php&#10;ArticlesCon&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/ArticlesController.php&#10;navbar&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/navbar.blade.php&#10;ArticleCon&#9;null&#9;null&#10;post&#9;null&#9;null&#10;FileView&#9;FILE&#9;file:///Users/humengtao/Desktop/online/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php&#10;app.bla&#9;FILE&#9;file:///Users/humengtao/Desktop/online/resources/views/layouts/app.blade.php&#10;Inde&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;admin&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Admin/AdminController.php&#10;IndexCOn&#9;FILE&#9;file:///Users/humengtao/Desktop/online/app/Http/Controllers/Web/IndexController.php&#10;AppSer&#9;null&#9;null&#10;AdminController&#9;null&#9;null" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
@@ -663,12 +630,12 @@
       <workItem from="1484801975459" duration="2448000" />
       <workItem from="1485073650194" duration="10499000" />
       <workItem from="1488611308588" duration="2502000" />
-      <workItem from="1488686884709" duration="40725000" />
+      <workItem from="1488686884709" duration="41618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="566348000" />
+    <option name="totallyTimeSpent" value="567241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -754,46 +721,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-129">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Facades/TestClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Facades/Test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1098,37 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/web/component/article-content/article-content.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1485">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <marker date="1488790823000" expanded="false" signature="1970:1991" ph="..." />
-            <marker date="1488790823000" expanded="false" signature="2025:2102" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="90" column="50" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1153,6 +1053,73 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/layout/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/web/component/articles/articles.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/web/other-user/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/web/component/article-content/article-content.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <folding>
+            <marker date="1488790823000" expanded="false" signature="1970:1991" ph="..." />
+            <marker date="1488790823000" expanded="false" signature="2025:2102" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/face-page.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="79" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
           <folding />
         </state>
       </provider>

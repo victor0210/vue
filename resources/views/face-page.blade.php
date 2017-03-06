@@ -21,14 +21,14 @@
         $('.thumbnail img').height($('.thumbnail img').width());
     </script>
     <div class="row" id="categories">
-        <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+        <div class="col-md-10  col-sm-10 ">
             <div class="page-header text-center">
                 <h1>
                     <small>推荐分类</small>
                 </h1>
             </div>
         </div>
-        <div class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+        <div class="col-md-10 col-sm-10">
             @foreach($collections as $collection)
                 <div class="col-md-4">
                     <div class="thumbnail">
