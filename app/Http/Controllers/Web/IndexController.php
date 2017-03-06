@@ -13,6 +13,7 @@ use App\Models\Collection;
 use App\Models\Comment;
 use DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Mail;
 use YuanChao\Editor\EndaEditor;
 
@@ -24,7 +25,7 @@ class IndexController extends Controller
 
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
-            $article->content = EndaEditor::MarkDecode($article->content);
+            $article->content = EndaEditor::MarkDecode(Storage::disk('article')->get($article->content));
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
             $article->avatar = $result[1];
         }
@@ -46,7 +47,7 @@ class IndexController extends Controller
 
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
-            $article->content = EndaEditor::MarkDecode($article->content);
+            $article->content = EndaEditor::MarkDecode(Storage::disk('article')->get($article->content));
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
             $article->avatar = $result[1];
         }
