@@ -25,15 +25,6 @@
                     @include('web.component.article-list')
                 @endforeach
             </ul>
-            @include('layouts.footer')
         </div>
     </div>
-
-    <script>
-        $(function () {
-            var tag = $('#result-container').data('tag');
-            var rep = new RegExp(tag, 'g');
-            $('#result-container').html($('#result-container').html().replace(rep, '<span class="text-danger bg-danger">' + $('#result-container').data('tag') + '</span>'));
-        })
-    </script>
 @endsection

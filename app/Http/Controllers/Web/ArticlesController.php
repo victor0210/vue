@@ -8,63 +8,102 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Helper\ArticleHelper;
+use App\Helper\NotifyHelper;
+use App\Helper\ValidateHelper;
 use App\Models\Article;
-use App\Models\Collection;
-use App\Models\Comment;
-use App\Models\Comment_Replies;
-use App\Models\Records;
-use App\Models\Thumbs;
-use App\Notifications\Comments;
-use App\Notifications\Notify;
-use App\User;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Request;
-use Validator;
 use Auth;
 use EndaEditor;
-use App\Notifications\Articles;
+use App\Repositories\CollectionRepository;
+use App\Repositories\ArticleRepository;
+use App\Repositories\UserRepository;
+use App\Repositories\RecordRepository;
+use App\Repositories\ThumbsRepository;
+use App\Repositories\CommentRepository;
 
 class ArticlesController
 {
-    function index($id)
+    private $ArticleRepository;
+
+    private $UserRepository;
+
+    private $RecordRepository;
+
+    private $ThumbsRepository;
+
+    private $CommentRepository;
+
+    private $CollectionRepository;
+
+    public function __construct(
+        ArticleRepository $ArticleRepository,
+        UserRepository $UserRepository,
+        RecordRepository $RecordRepository,
+        ThumbsRepository $ThumbsRepository,
+        CommentRepository $CommentRepository,
+        CollectionRepository $CollectionRepository
+    )
     {
-        if (!!Article::find($id)) {
+        $this->ArticleRepository = $ArticleRepository;
+        $this->UserRepository = $UserRepository;
+        $this->RecordRepository= $RecordRepository;
+        $this->CommentRepository= $CommentRepository;
+        $this->ThumbsRepository= $ThumbsRepository;
+        $this->CollectionRepository= $CollectionRepository;
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index($id)
+    {
+        if ($this->ArticleRepository->exist($id)) {
+
             $status = false;
-            if (Article::where(['id' => $id, 'isValidated' => true])->get()->isEmpty() && Auth::user()->isAdmin()) {
-                Article::find($id)->increment('view');
-                $article = Article::find($id);
-                $article->content = EndaEditor::MarkDecode(Storage::disk('article')->get($article->content));
+
+            if ($this->ArticleRepository->existWithValidate($id) && $this->UserRepository->isAdmin()) {
+
+                $this->ArticleRepository->incrementView($id);
+
+                $article = $this->ArticleRepository->getArticle($id);
+
+                $article->content = ArticleHelper::format($article->content);
+
                 return view('admin.web.article.content', compact('article'));
-            } elseif (Article::where(['id' => $id, 'isValidated' => false])->get()->isEmpty()) {
-                Article::find($id)->increment('view');
-                $user = Article::find($id)->user;
+
+            } elseif (!$this->ArticleRepository->existWithValidate($id)) {
+
+                $this->ArticleRepository->incrementView($id);
+
+                $user = $this->ArticleRepository->getUserByArticle($id);
+
                 if (Auth::check()) {
-                    if (Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->get()->isEmpty()) {
-                        Records::insert([
-                            'user_id' => Auth::user()->id,
-                            'article_id' => $id,
-                            'belong' => Article::find($id)->user->id,
-                            'created_at' => gmdate('Y-m-d H:i:s'),
-                            'updated_at' => gmdate('Y-m-d H:i:s')
-                        ]);
+
+                    if ($this->RecordRepository->isEmptyWithArticle($id)) {
+
+                        $this->RecordRepository->addRecord($id);
+
                     } else {
-                        Records::where(['article_id' => $id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
+
+                        $this->RecordRepository->updateRecordWithArticle($id);
+
                     }
-                    $status = !!Thumbs::where(['article_id' => $id, 'user_id' => Auth::user()->id])->first();
+                    $status = $this->ThumbsRepository->isThumb($id);
                 }
 
-                $content = Article::where('id', $id)->first();
-                $content->content = EndaEditor::MarkDecode(Storage::disk('article')->get($content->content));
+                $article = $this->ArticleRepository->getArticle($id);
 
-                preg_match_all('/<img.*?src="(.*?)".*?>/is', $content->content, $result);
-                $comments = Comment::where('article_id', $id)->orderBy('created_at', 'desc')->get();
-                foreach ($comments as $comment) {
-                    $comment->user_name = User::where('id', $comment->user_id)->value('name');
-                    $comment->reply = Comment_Replies::where('comment_id', $comment->id)->get();
-                }
-                $records = Records::where(['article_id' => $id])->limit(50)->get();
-                return view('web.component.article-content.article-content', compact('content', 'comments', 'status', 'user', 'records'));
+                $article->content = ArticleHelper::format($article->content);
+
+                ArticleHelper::getImg($article->content);
+
+                $comments = $this->CommentRepository->getCommentsWithFormat($id);
+
+                return view('web.article-content', compact('article', 'comments', 'status', 'user'));
             } else {
                 return view('errors.validating');
             }
@@ -74,62 +113,56 @@ class ArticlesController
         }
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return Redirect
+     */
     public function postComment(Request $request, $id)
     {
-        $rules = ['comment' => 'required|max:100'];
-        $messages = ['comment.max' => 'you can most input 100 characters', 'comment.required' => 'comment must be required'];
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator=ValidateHelper::customValidate($request->all(),'Comment');
         if ($validator->fails()) {
-            return Redirect::back()
-                ->withErrors($validator)
-                ->with($request->input());
+            return $this->redirectBack($validator,$request->all());
         } else {
-            Comment::insert(
-                [
-                    'content' => $request->comment,
-                    'user_id' => Auth::user()->id,
-                    'article_id' => $id,
-                    'created_at' => gmdate('Y-m-d H:i:s'),
-                    'updated_at' => gmdate('Y-m-d H:i:s')
-                ]);
-            User::find(Article::find($id)->user_id)->notify(new Comments($request->user()->name . ' 评论了您的文章 : ' . $request->comment));
+            $this->CommentRepository->insertComment($request->comment,$id);
+
+            $notify_user_id=$this->ArticleRepository->getUserId($id);
+            $notify_content=$request->user()->name . ' 评论了您的文章 : ' . $request->comment;
+
+            NotifyHelper::notify($notify_user_id,$notify_content,'Comment');
             return redirect('/content/' . $id);
         }
     }
 
     public function add()
     {
-        $collections = Collection::orderBy('id','asc')->get();
+        $collections = $this->CollectionRepository->getByAsc();
         return view('web.edit', compact('collections'));
     }
 
     public function validateArticle(Request $request)
     {
-        $admins = User::where('is_admin', '1')->get();
-        $rules = ['contents' => 'required', 'title' => 'required|max:30'];
-        $messages = ['contents.required' => '请填写内容', 'title.required' => '请填写标题', 'title.max' => '标题最多30个字符'];
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $admins = $this->UserRepository->admins();
+
+        $validator = ValidateHelper::customValidate($request->all(),'Article');
         if ($validator->fails()) {
-            return Redirect::back()->withErrors($validator)->withInput($request->input());
+            return $this->redirectBack($validator,$request->input());
         } else {
-            $filename='article'.md5(random_int(0,9999999999999)).'.md';
+            $filename = ArticleHelper::generateFileNmae();
             Storage::disk('article')->put($filename, $request->contents);
 
-            if (Article::insert(
-                [
-                    'user_id' => Auth::user()->id,
-                    'collection' => Collection::where('id', $request['collection'])->value('name'),
-                    'title' => $request['title'],
-                    'content' => $filename,
-                    'created_at' => gmdate('Y-m-d H:i:s'),
-                    'updated_at' => gmdate('Y-m-d H:i:s')
-                ])
-            ) {
-                Article::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first()->searchable();
+            if ($this->ArticleRepository->addArticle($request['title'],$this->CollectionRepository->getName($request['collection']),$filename)) {
+                $this->ArticleRepository->addSearchIndex();
                 foreach ($admins as $admin) {
-                    $admin->notify(new Articles(Article::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first()));
+                    $notify_id=$admin->id;
+                    $notify_content=Article::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+                    NotifyHelper::notify($notify_id,$notify_content,'Article');
                 }
-                Auth::user()->notify(new Notify('您的文章将' . $request['title'] . '会在第一时间进行审核并给您回复,请耐心等待!'));
+
+                $notify_id=Auth::user()->id;
+                $notify_content='您的文章将' . $request['title'] . '会在第一时间进行审核并给您回复,请耐心等待!';
+                NotifyHelper::notify($notify_id,$notify_content,'Notify');
+
                 return redirect('/user');
             } else {
                 return view('errors.404');
@@ -139,14 +172,7 @@ class ArticlesController
 
     public function reply(Request $request)
     {
-        Comment_Replies::insert([
-            'comment_id' => $request->comment,
-            'sender_id' => Auth::user()->id,
-            'receiver_id' => $request->receiver,
-            'content' => $request['content'],
-            'created_at' => gmdate('Y-m-d H:i:s'),
-            'updated_at' => gmdate('Y-m-d H:i:s')
-        ]);
+        $this->CommentRepository->insertReply($request['comment'],$request['receiver'],$request['content']);
         return Redirect::back();
     }
 
@@ -154,8 +180,7 @@ class ArticlesController
     {
         $articles = Article::search($request->input('query'))->get();
         foreach ($articles as $article) {
-            preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
-            $article->avatar = $result[1];
+            $article->avatar=ArticleHelper::getImg($article->content);
         }
         $tag = $request->input('query');
         return view('web.result', compact('articles', 'tag'));
@@ -164,6 +189,12 @@ class ArticlesController
     public function ifFiveMinites($timediff)
     {
         return ($timediff->i + ($timediff->h * 60) + ($timediff->d * 1440) + ($timediff->m * 4320) > 5);
+    }
+
+    protected function redirectBack($validator,$input){
+        return Redirect::back()
+            ->withErrors($validator)
+            ->with($input);
     }
 }
 

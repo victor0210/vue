@@ -81,26 +81,3 @@
         <span id="edit" class="glyphicon glyphicon-pencil"></span>
     </a>
 </div>
-
-<script>
-    $(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 200) {
-                $('#back-top').fadeIn(200).css('display','block');
-            } else {
-                $('#back-top').fadeOut(200);
-            }
-        });
-
-        $('#back-top').click(function () {
-            $('html,body').animate({scrollTop: 0}, 300);
-        });
-
-        $('.close-search').click(function () {
-            $('#search-block').css('width', '200px').addClass('open').focus();
-        });
-        $('#search-block').blur(function () {
-            $(this).removeClass('open').width(0);
-        })
-    });
-</script>

@@ -1,6 +1,6 @@
 $(function () {
     var ml = 0;
-    var moblie_sidenav_eight=250;
+    var moblie_sidenav_eight = 250;
     var initAnimation = function () {
         if ($(window).width() < 768) {
             $('body').css('overflowX', 'hidden');
@@ -129,6 +129,28 @@ $(function () {
         $('.navbar').fadeIn(100).css('left', '0px');
     };
 
+    var backTop = function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 200) {
+                $('#back-top').fadeIn(200).css('display', 'block');
+            } else {
+                $('#back-top').fadeOut(200);
+            }
+        });
+
+        $('#back-top').click(function () {
+            $('html,body').animate({scrollTop: 0}, 300);
+        });
+
+        $('.close-search').click(function () {
+            $('#search-block').css('width', '200px').addClass('open').focus();
+        });
+        $('#search-block').blur(function () {
+            $(this).removeClass('open').width(0);
+        })
+    }
+
+    backTop();
     initAnimation();
     toggledMenu();
     swipeMenu();

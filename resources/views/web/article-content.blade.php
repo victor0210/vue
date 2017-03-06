@@ -1,11 +1,11 @@
 @extends('web.other-user.app')
 
-@section('title', $content->title)
+@section('title', $article->title)
 
 @section('tab','1')
 
 @section('meta')
-    <meta name="description" content="{{ $content->title }}"/>
+    <meta name="description" content="{{ $article->title }}"/>
 @endsection
 
 @section('extra-css-js')
@@ -16,13 +16,13 @@
 @endsection
 
 @section('content')
-    <div class="row" id="article-main-content" data-article-id="{{ $content->id }}"
-         data-user-id="{{ $content->user_id }}">
+    <div class="row" id="article-main-content" data-article-id="{{ $article->id }}"
+         data-user-id="{{ $article->user_id }}">
         <div class="col-md-10 col-sm-10">
             <div class="page-header">
-                <img src="{{ $content->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
-                <a href="/user/{{ $content->user->id }}">{{ $content->user->name }}</a> · <span
-                        style="color:#b4b4b4">{{ $content->created_at->format('M·d·Y')}}</span>
+                <img src="{{ $article->user->avatar_url }}" alt="" style="width: 40px;height: 40px;border-radius: 50%">
+                <a href="/user/{{ $article->user->id }}">{{ $article->user->name }}</a> · <span
+                        style="color:#b4b4b4">{{ $article->created_at->format('M·d·Y')}}</span>
                 @if(Auth::check())
                     @if($status==true)
                         <button class="btn btn-success" disabled>已赞 <span class="fa fa-thumbs-up"></span></button>
@@ -34,17 +34,8 @@
                 @endif
             </div>
             <div id="article-content">
-                {!!  $content->content !!}
+                {!!  $article->content !!}
             </div>
-            {{--<p style="color:#999">最近访问 :--}}
-            {{--@foreach($records as $item)--}}
-            {{--<a href="/user/{{ $item->user->id }}" style="display: inline-block"><img--}}
-            {{--style="width: 25px;height: 25px;margin-top:5px;margin-right:-15px;border-radius: 50%"--}}
-            {{--src="{{ $item->user->avatar_url }}" data-toggle="tooltip"--}}
-            {{--data-placement="bottom" title="{{ $item->user->name }}"></a>--}}
-            {{--@endforeach--}}
-            {{--</p>--}}
-
             <div class="social-share"></div>
             @foreach($comments as $item)
                 <div class="col-md-12">
@@ -113,7 +104,7 @@
             @endforeach
         </div>
         <div class="comment-area col-md-10 col-sm-10 ">
-            <form action="/send-comment/{{ $content->id }}" method="post">
+            <form action="/send-comment/{{ $article->id }}" method="post">
                 {!! csrf_field() !!}
                 <div class="form-group">
                     <lable for="commentsinput">
