@@ -35,14 +35,4 @@ class ValidateHelper
         }
         return Validator::make($content, $rules, $messages);
     }
-//    public static function commentValidate($content){
-//        $rules = Rule::Validate_Comment_Rule;
-//        $messages = Message::Validate_Comment_Message;
-//    }
-//
-//    public static function articleValidate($content){
-//        $rules = Rule::Validate_Article_Rule;
-//        $messages = Message::Validate_Article_Message;
-//        return Validator::make($content, $rules, $messages);
-//    }
 }
