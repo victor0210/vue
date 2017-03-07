@@ -33,7 +33,7 @@ class IndexController extends Controller
 
     public function all()
     {
-        $articles = $this->articleRepository->getArticleFormatPage(Page::Face_Page_Num);
+        $articles = $this->articleRepository->getArticleWithPage(Page::Face_Page_Num);
         $collections = Collection::orderBy('id', 'asc')->get();
         $page = 'all';
 
@@ -44,7 +44,7 @@ class IndexController extends Controller
     public function index($collection)
     {
         if ($this->collectionRepository->getAllNames()->search($collection)>=0) {
-            $articles = $this->articleRepository->getArticleCollectionPage($collection, Page::Face_Page_Num);
+            $articles = $this->articleRepository->getArticleWithCollectionPage($collection, Page::Face_Page_Num);
             $page = $collection;
             $collections = Collection::all();
             return view('web.component.articles.articles', compact('articles', 'collections', 'page', 'notifications'));

@@ -8,11 +8,19 @@ namespace App\Repositories;
  */
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Input;
 
 class UserRepository
 {
+    private $user;
+
+    public function __construct()
+    {
+        $this->user=Auth::user();
+    }
+
     public function isAdmin(){
-        return Auth::user()->isAdmin();
+        return $this->user->isAdmin();
     }
 
     public function incrementBrowse($id){
@@ -22,5 +30,9 @@ class UserRepository
 
     public function admins(){
         return User::where('is_admin', '1')->get();
+    }
+
+    public function updateDescription(){
+        User::find($this->user->id)->update(['description' => Input::get('description')]);
     }
 }

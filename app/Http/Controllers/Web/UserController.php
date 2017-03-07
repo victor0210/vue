@@ -12,6 +12,9 @@ namespace App\Http\Controllers\Web;
 use App\Models\Article;
 use App\Http\Controllers\Controller;
 use App\Models\Records;
+use App\Repositories\ArticleRepository;
+use App\Repositories\RecordRepository;
+use App\Repositories\UserRepository;
 use App\User;
 use Auth;
 use App\Models\Comment;
@@ -19,65 +22,37 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-//    private $commentRepository;
-//
-//    public function __construct(CommentRepository $commentRepository)
-//    {
-//        $this->commentRepository=$commentRepository;
-//    }
+    private $articleRepository;
+    private $recordRepository;
+    private $userRepository;
+
+    public function __construct(
+        ArticleRepository $articleRepository,
+        ArticleRepository $articleRepository,
+        UserRepository $userRepository
+    )
+    {
+        $this->articleRepository=$articleRepository;
+        $this->articleRepository=$articleRepository;
+        $this->userRepository=$userRepository;
+    }
 
     public function index()
     {
-        $user = Auth::user();
-        $username = $user->name;
-        $articles = $user
-            ->article()
-            ->where('user_id', Auth::user()->id)
-            ->get();
-        $records = Records::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
-        foreach ($articles as $article) {
-            $article->comment_count = Comment::where('article_id', $article->id)->count();
-        }
-        foreach ($records as $record) {
-            $record->title = Article::where('id', $record->article_id)->value('title');
-        }
-        return view('web.user-center', compact('username', 'articles', 'records'));
-    }
+        $articles = $this->articleRepository->getWithSelf();
+        $records = $this->recordRepository->getWithSelf();
 
-//    public function updateAvatar(Request $request)
-//    {
-//        $filename = $request->user()->email . '.png';
-//        Storage::disk('avatar')->put($filename, file_get_contents($request->file('avatar')->getRealPath()));
-//        if (Storage::disk('avatar')->exists($filename)) {
-//            $url = asset(Storage::url("public/avatar/" . $request->user()->email . '.png'));
-//            User::where('id', $request->user()->id)->update(['avatar_url' => $url]);
-//            return redirect('/setting');
-//        } else {
-//            return 'upload failed';
-//        }
-//    }
-//
-//    public function updateBackground(Request $request)
-//    {
-//        $filename = $request->user()->email . '.png';
-//        Storage::disk('background')->put($filename, file_get_contents($request->file('background')->getRealPath()));
-//        if (Storage::disk('background')->exists($filename)) {
-//            $url = asset(Storage::url("public/background/" . $request->user()->email . '.png'));
-//            User::where('id', $request->user()->id)->update(['background_url' => $url]);
-//            return redirect('/setting');
-//        } else {
-//            return 'upload failed';
-//        }
-//    }
+        return view('web.user-center', compact('articles', 'records'));
+    }
 
     public function setting()
     {
         return view('web.setting');
     }
 
-    public function setInfo(Request $request)
+    public function setInfo()
     {
-        User::where('id', $request->user()->id)->update(['description' => $request->description]);
+        $this->userRepository->updateDescription();
         return redirect('/setting');
     }
 }

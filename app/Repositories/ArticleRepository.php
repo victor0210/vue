@@ -36,6 +36,13 @@ class ArticleRepository
         return Article::find($id);
     }
 
+    public function getWithSelf()
+    {
+        $articles = Auth::user()->article()->get();
+
+        return $this->format($articles);
+    }
+
     public function getArticleWithPage($page_num)
     {
         $articles = Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate($page_num);
@@ -80,11 +87,14 @@ class ArticleRepository
             ]);
     }
 
-    protected function formatImg($articles){
+    protected function formatImg($articles)
+    {
         foreach ($articles as $article) {
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
             $article->avatar = $result[1];
         }
+
+        return $articles;
     }
 
     protected function format($articles)

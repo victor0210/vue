@@ -22,10 +22,9 @@ class NotificationsController extends Controller
         return view('web.notification');
     }
 
-    public function delete(Request $request){
-        foreach ($request->all() as $id){
-            NotifyHelper::delete($id);
-        }
+    public function delete(Request $request)
+    {
+        NotifyHelper::deleteAll($request->all());
         return Redirect::back();
     }
 }

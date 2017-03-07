@@ -11,10 +11,12 @@ namespace App\Helper;
 
 use App\Notifications\Articles;
 use App\Notifications\Comments;
+use App\Notifications\Feedback;
 use App\Notifications\Member;
 use App\Notifications\Notify;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class NotifyHelper
 {
@@ -43,6 +45,17 @@ class NotifyHelper
         }
     }
 
+    public static function feedback(){
+        $admins = User::admin();
+        foreach ($admins as $admin) {
+            $admin->notify(new Feedback(Input::get('feedback'), Auth::user()->name, Auth::user()->id));
+        }
+
+        $content = '亲爱的 ' . Auth::user()->name . ',我们已经收到您的反馈,如果是重要问题我们一定会在第一时间进行处理,谢谢!';
+        $user = Auth::user();
+        $user->notify(new Notify($content));
+    }
+
     public static function readNotify()
     {
         Auth::user()->notifications->where('type', 'App\Notifications\Notify')->markAsRead();
@@ -50,8 +63,10 @@ class NotifyHelper
         Auth::user()->notifications->where('type', 'App\Notifications\Comments')->markAsRead();
     }
 
-    public static function delete($id)
+    public static function deleteAll($id_arr)
     {
-        Auth::user()->notifications()->find($id)->delete();
+        foreach ($id_arr as $id){
+            Auth::user()->notifications()->find($id)->delete();
+        }
     }
 }
