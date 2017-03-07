@@ -15,8 +15,9 @@ class UserRepository
         return Auth::user()->isAdmin();
     }
 
-    public function user(){
-
+    public function incrementBrowse($id){
+        User::find($id)->increment('browse');
+        return User::find($id);
     }
 
     public function admins(){

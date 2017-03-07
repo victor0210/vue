@@ -31,4 +31,8 @@ class RecordRepository
     public function updateRecordWithArticle($article_id){
         Records::where(['article_id' => $article_id, 'user_id' => Auth::user()->id])->update(['updated_at' => gmdate('Y-m-d H:i:s')]);
     }
+
+    public function getWithBelong($user_id,$record_num){
+        Records::orderBy('updated_at', 'desc')->where('belong', $user_id)->limit($record_num)->get();
+    }
 }

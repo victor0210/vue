@@ -11,5 +11,7 @@ namespace App\Library;
 
 class Page
 {
+    const Default_Page_Num=50;
     const Face_Page_Num=20;
+    const Other_User_Page_Num=3;
 }

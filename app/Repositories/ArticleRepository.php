@@ -36,16 +36,25 @@ class ArticleRepository
         return Article::find($id);
     }
 
-    public function getArticleFormatPage($page_num){
-        $articles=Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate($page_num);
+    public function getArticleWithPage($page_num)
+    {
+        $articles = Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate($page_num);
 
         return $this->format($articles);
     }
 
-    public function getArticleCollectionPage($collection,$page_num){
-        $articles=Article::where(['collection' => $collection, 'isValidated' => true])->orderBy('created_at', 'desc')->paginate($page_num);
+    public function getArticleWithCollectionPage($collection, $page_num)
+    {
+        $articles = Article::where(['collection' => $collection, 'isValidated' => true])->orderBy('created_at', 'desc')->paginate($page_num);
 
         return $this->format($articles);
+    }
+
+    public function getArticleWithUserPage($user_id, $page_num)
+    {
+        $articles = Article::where(['user_id' => $user_id, 'isValidated' => true])->paginate($page_num);
+
+        return $this->formatImg($articles);
     }
 
     public function getUserByArticle($id)
@@ -71,7 +80,15 @@ class ArticleRepository
             ]);
     }
 
-    protected function format($articles){
+    protected function formatImg($articles){
+        foreach ($articles as $article) {
+            preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
+            $article->avatar = $result[1];
+        }
+    }
+
+    protected function format($articles)
+    {
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
             $article->content = EndaEditor::MarkDecode(Storage::disk('article')->get($article->content));
@@ -82,7 +99,8 @@ class ArticleRepository
         return $articles;
     }
 
-    public function addSearchIndex(){
+    public function addSearchIndex()
+    {
         Article::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first()->searchable();
     }
 }
