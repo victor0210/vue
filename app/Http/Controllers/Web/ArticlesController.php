@@ -26,33 +26,33 @@ use App\Repositories\CommentRepository;
 
 class ArticlesController
 {
-    private $ArticleRepository;
+    private $articleRepository;
 
-    private $UserRepository;
+    private $userRepository;
 
-    private $RecordRepository;
+    private $recordRepository;
 
-    private $ThumbsRepository;
+    private $thumbsRepository;
 
-    private $CommentRepository;
+    private $commentRepository;
 
-    private $CollectionRepository;
+    private $collectionRepository;
 
     public function __construct(
-        ArticleRepository $ArticleRepository,
-        UserRepository $UserRepository,
-        RecordRepository $RecordRepository,
-        ThumbsRepository $ThumbsRepository,
-        CommentRepository $CommentRepository,
-        CollectionRepository $CollectionRepository
+        ArticleRepository $articleRepository,
+        UserRepository $userRepository,
+        RecordRepository $recordRepository,
+        ThumbsRepository $thumbsRepository,
+        CommentRepository $commentRepository,
+        CollectionRepository $collectionRepository
     )
     {
-        $this->ArticleRepository = $ArticleRepository;
-        $this->UserRepository = $UserRepository;
-        $this->RecordRepository= $RecordRepository;
-        $this->CommentRepository= $CommentRepository;
-        $this->ThumbsRepository= $ThumbsRepository;
-        $this->CollectionRepository= $CollectionRepository;
+        $this->articleRepository = $articleRepository;
+        $this->userRepository = $userRepository;
+        $this->recordRepository = $recordRepository;
+        $this->commentRepository = $commentRepository;
+        $this->thumbsRepository = $thumbsRepository;
+        $this->collectionRepository = $collectionRepository;
     }
 
     /**
@@ -61,47 +61,37 @@ class ArticlesController
      */
     public function index($id)
     {
-        if ($this->ArticleRepository->exist($id)) {
+        if ($this->articleRepository->exist($id)) {
 
-            $status = false;
+            $status = false;    // flag 'is_thumb'
 
-            if ($this->ArticleRepository->existWithValidate($id) && $this->UserRepository->isAdmin()) {
+            if ($this->articleRepository->existWithValidate($id) && $this->userRepository->isAdmin()) {
+                $this->articleRepository->incrementView($id);
 
-                $this->ArticleRepository->incrementView($id);
-
-                $article = $this->ArticleRepository->getArticle($id);
+                $article = $this->articleRepository->getArticle($id);
 
                 $article->content = ArticleHelper::format($article->content);
-
                 return view('admin.web.article.content', compact('article'));
+            } elseif (!$this->articleRepository->existWithValidate($id)) {
+                $this->articleRepository->incrementView($id);
 
-            } elseif (!$this->ArticleRepository->existWithValidate($id)) {
-
-                $this->ArticleRepository->incrementView($id);
-
-                $user = $this->ArticleRepository->getUserByArticle($id);
+                $user = $this->articleRepository->getUserByArticle($id);
 
                 if (Auth::check()) {
-
-                    if ($this->RecordRepository->isEmptyWithArticle($id)) {
-
-                        $this->RecordRepository->addRecord($id);
-
+                    if ($this->recordRepository->isEmptyWithArticle($id)) {
+                        $this->recordRepository->addRecord($id);
                     } else {
-
-                        $this->RecordRepository->updateRecordWithArticle($id);
-
+                        $this->recordRepository->updateRecordWithArticle($id);
                     }
-                    $status = $this->ThumbsRepository->isThumb($id);
+
+                    $status = $this->thumbsRepository->isThumb($id);
+
                 }
-
-                $article = $this->ArticleRepository->getArticle($id);
-
+                $article = $this->articleRepository->getArticle($id);
                 $article->content = ArticleHelper::format($article->content);
-
                 ArticleHelper::getImg($article->content);
 
-                $comments = $this->CommentRepository->getCommentsWithFormat($id);
+                $comments = $this->commentRepository->getCommentsWithFormat($id);
 
                 return view('web.article-content', compact('article', 'comments', 'status', 'user'));
             } else {
@@ -109,7 +99,6 @@ class ArticlesController
             }
         } else {
             return view('errors.404');
-
         }
     }
 
@@ -120,49 +109,53 @@ class ArticlesController
      */
     public function postComment(Request $request, $id)
     {
-        $validator=ValidateHelper::customValidate($request->all(),'Comment');
+        $validator = ValidateHelper::customValidate($request->all(), 'Comment');
+
         if ($validator->fails()) {
-            return $this->redirectBack($validator,$request->all());
+            return $this->redirectBack($validator, $request->all());
         } else {
-            $this->CommentRepository->insertComment($request->comment,$id);
+            $this->commentRepository->insertComment($request->comment, $id);
 
-            $notify_user_id=$this->ArticleRepository->getUserId($id);
-            $notify_content=$request->user()->name . ' 评论了您的文章 : ' . $request->comment;
+            $notify_user_id = $this->articleRepository->getUserId($id);
+            $notify_content = $request->user()->name . ' 评论了您的文章 : ' . $request->comment;
 
-            NotifyHelper::notify($notify_user_id,$notify_content,'Comment');
+            NotifyHelper::notify($notify_user_id, $notify_content, 'Comment');
             return redirect('/content/' . $id);
         }
     }
 
     public function add()
     {
-        $collections = $this->CollectionRepository->getByAsc();
+        $collections = $this->collectionRepository->getByAsc();
+
         return view('web.edit', compact('collections'));
     }
 
     public function validateArticle(Request $request)
     {
-        $admins = $this->UserRepository->admins();
+        $admins = $this->userRepository->admins();
+        $validator = ValidateHelper::customValidate($request->all(), 'Article');
 
-        $validator = ValidateHelper::customValidate($request->all(),'Article');
         if ($validator->fails()) {
-            return $this->redirectBack($validator,$request->input());
+            return $this->redirectBack($validator, $request->input());
         } else {
             $filename = ArticleHelper::generateFileNmae();
-            Storage::disk('article')->put($filename, $request->contents);
 
-            if ($this->ArticleRepository->addArticle($request['title'],$this->CollectionRepository->getName($request['collection']),$filename)) {
-                $this->ArticleRepository->addSearchIndex();
+            Storage::disk('article')->put($filename, $request->contents);
+            if ($this->articleRepository->addArticle($request['title'], $this->collectionRepository->getName($request['collection']), $filename)) {
+                $this->articleRepository->addSearchIndex();
                 foreach ($admins as $admin) {
-                    $notify_id=$admin->id;
-                    $notify_content=Article::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
-                    NotifyHelper::notify($notify_id,$notify_content,'Article');
+
+                    $notify_id = $admin->id;
+                    $notify_content = Article::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+
+                    NotifyHelper::notify($notify_id, $notify_content, 'Article');
                 }
 
-                $notify_id=Auth::user()->id;
-                $notify_content='您的文章将' . $request['title'] . '会在第一时间进行审核并给您回复,请耐心等待!';
-                NotifyHelper::notify($notify_id,$notify_content,'Notify');
+                $notify_id = Auth::user()->id;
+                $notify_content = '您的文章将' . $request['title'] . '会在第一时间进行审核并给您回复,请耐心等待!';
 
+                NotifyHelper::notify($notify_id, $notify_content, 'Notify');
                 return redirect('/user');
             } else {
                 return view('errors.404');
@@ -172,17 +165,19 @@ class ArticlesController
 
     public function reply(Request $request)
     {
-        $this->CommentRepository->insertReply($request['comment'],$request['receiver'],$request['content']);
+        $this->commentRepository->insertReply($request['comment'], $request['receiver'], $request['content']);
         return Redirect::back();
     }
 
     public function search(Request $request)
     {
         $articles = Article::search($request->input('query'))->get();
-        foreach ($articles as $article) {
-            $article->avatar=ArticleHelper::getImg($article->content);
-        }
         $tag = $request->input('query');
+
+        foreach ($articles as $article) {
+            $article->avatar = ArticleHelper::getImg($article->content);
+        }
+
         return view('web.result', compact('articles', 'tag'));
     }
 
@@ -191,10 +186,10 @@ class ArticlesController
         return ($timediff->i + ($timediff->h * 60) + ($timediff->d * 1440) + ($timediff->m * 4320) > 5);
     }
 
-    protected function redirectBack($validator,$input){
+    protected function redirectBack($validator, $input)
+    {
         return Redirect::back()
             ->withErrors($validator)
             ->with($input);
     }
 }
-
