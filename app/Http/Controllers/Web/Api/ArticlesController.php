@@ -9,22 +9,31 @@ namespace App\Http\Controllers\Web\Api;
  */
 
 use App\Http\Controllers\Controller;
+use App\Library\Page;
 use App\Models\Article;
-use App\Models\Thumbs;
-use App\Notifications\Thumb;
-use App\User;
+use App\Repositories\ArticleRepository;
+use App\Repositories\ThumbsRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use YuanChao\Editor\EndaEditor;
 
 class ArticlesController extends Controller
 {
+    private $articleRepository;
+
+    private $thumbRepository;
+
+    public function __construct(
+        ArticleRepository $articleRepository,
+        ThumbsRepository $thumbsRepository
+    )
+    {
+        $this->articleRepository = $articleRepository;
+        $this->thumbRepository = $thumbsRepository;
+    }
+
     public function index(Request $request)
     {
-        $articles = Article::search($request->val)->get();
-        if ($articles->count() == 0) {
-            $articles = Article::get();
-        }
+        $articles = $this->articleRepository->searchArticles($request->val);
         return $articles;
     }
 
@@ -36,58 +45,22 @@ class ArticlesController extends Controller
 
     public function getArticlePage()
     {
-        $articles = Article::where('isValidated',true)->paginate(10);
+        $articles = Article::where('isValidated', true)->paginate(10);
         return $articles;
     }
 
     public function getArticleList(Request $request)
     {
-        if ($request->status == 'latest' || $request->status == 'hottest') {
-            switch ($request->status) {
-                case 'latest':
-                    $articles = Article::where('isValidated',true)->orderBy('created_at', 'desc')->paginate(10);
-                    foreach ($articles as $article) {
-                        preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
-                        $article->avatar = $result[1];
-                    }
-                    break;
-                case 'hottest':
-                    $articles = Article::where('isValidated',true)->orderBy('view', 'desc')->paginate(10);
-                    foreach ($articles as $article) {
-                        preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
-                        $article->avatar = $result[1];
-                    }
-                    break;
-            }
-        } else {
-            $articles =Article::where(['collection'=>$request->status,'isValidated'=>true])->orderBy('view', 'desc')->paginate(10);
-            foreach ($articles as $article) {
-                preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
-                $article->avatar = $result[1];
-            }
-        }
-        foreach ($articles as $article) {
-            $article->user = User::find($article->user_id);
-            $article->comment_count = $article->comment->count();
-            $article->created = $article->created_at->diffForHumans();
-        }
+        $articles = $this->articleRepository->getArticleWithCollectionPageApi($request->status, Page::Ajax_Default_Page_Num);
         return $articles;
     }
 
     public function thumb(Request $request)
     {
-        if (!!Thumbs::where(['article_id' => $request->article_id, 'user_id' => Auth::user()->id])->value('created_at')) {
+        if ($this->thumbRepository->isThumb($request->article_id)) {
             return response('Failed', 500);
-        } else {
-            Thumbs::insert([
-                'article_id' => $request->article_id,
-                'user_id' => Auth::user()->id,
-                'created_at' => gmdate('Y-m-d H:i:s'),
-                'updated_at' => gmdate('Y-m-d H:i:s')
-            ]);
-            Article::find($request->article_id)->increment('thumb_up');
-            User::find($request->user_id)->notify(new Thumb(Auth::user(),Article::find($request->article_id)));
-            return response('Success', 200);
         }
+        $this->thumbRepository->addThumb($request->article_id);
+        return response('Success', 200);
     }
 }

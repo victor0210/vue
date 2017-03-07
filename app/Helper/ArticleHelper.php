@@ -32,4 +32,13 @@ class ArticleHelper
     public static function generateFileNmae(){
         return 'article' . md5(random_int(0, 9999999999999)) . '.md';
     }
+
+    public static function formatForApi($articles){
+        foreach ($articles as $article) {
+            $article->user = User::find($article->user_id);
+            $article->comment_count = $article->comment->count();
+            $article->created = $article->created_at->diffForHumans();
+        }
+        return $articles;
+    }
 }

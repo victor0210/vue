@@ -18,7 +18,8 @@ class CollectionRepository
         return Collection::orderBy('id', 'asc')->get();
     }
 
-    public function getActiveByAsc(){
+    public function getActiveByAsc()
+    {
         return Collection::where('is_active', 1)->orderBy('id', 'asc')->get();
     }
 
@@ -27,7 +28,16 @@ class CollectionRepository
         return Collection::where('id', $collection_id)->value('name');
     }
 
-    public function getAllNames(){
+    public function getAllNames()
+    {
         return Collection::orderBy('id', 'asc')->get()->pluck('name');
+    }
+
+    //admin function
+    public function toggleStatus($collection_id,$status)
+    {
+        if(Collection::where(['id' => $collection_id])->update(['is_active' => $status]))
+            return true;
+        return false;
     }
 }

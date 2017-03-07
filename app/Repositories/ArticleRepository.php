@@ -8,6 +8,7 @@ namespace App\Repositories;
  * Time: 20:16
  */
 
+use App\Helper\ArticleHelper;
 use App\Models\Article;
 use App\Models\Comment;
 use Auth;
@@ -54,7 +55,38 @@ class ArticleRepository
     {
         $articles = Article::where(['collection' => $collection, 'isValidated' => true])->orderBy('created_at', 'desc')->paginate($page_num);
 
-        return $this->format($articles);
+        return $this->formatImg($articles);
+    }
+
+    public function getArticleWithCollectionPageApi($collection, $page_num)
+    {
+        $articles = null;
+
+        switch ($collection) {
+            case 'latest':
+                $articles = $this->getLatestWithPage($page_num);
+                break;
+            case 'hottest':
+                $articles = $this->getHottestWithPage($page_num);
+                break;
+            default:
+                $articles = $this->getArticleWithCollectionPage($collection, $page_num);
+                break;
+        }
+
+        return ArticleHelper::formatForApi($articles);
+    }
+
+    public function getLatestWithPage($page_num)
+    {
+        return $this->formatImg($this->getArticleWithPage($page_num));
+    }
+
+    public function getHottestWithPage($page_num)
+    {
+        $articles = Article::where('isValidated', true)->orderBy('view', 'desc')->paginate($page_num);
+
+        return $this->formatImg($articles);
     }
 
     public function getArticleWithUserPage($user_id, $page_num)
@@ -67,6 +99,11 @@ class ArticleRepository
     public function getUserByArticle($id)
     {
         return Article::find($id)->user;
+    }
+
+    public function getUserIdByArticle($id)
+    {
+        return Article::find($id)->user_id;
     }
 
     public function getUserId($id)
@@ -87,7 +124,7 @@ class ArticleRepository
             ]);
     }
 
-    protected function formatImg($articles)
+    public function formatImg($articles)
     {
         foreach ($articles as $article) {
             preg_match_all('/<img.*?src="(.*?)".*?>/is', EndaEditor::MarkDecode($article->content), $result);
@@ -97,7 +134,7 @@ class ArticleRepository
         return $articles;
     }
 
-    protected function format($articles)
+    public function format($articles)
     {
         foreach ($articles as $article) {
             $article->comment_count = Comment::where('article_id', $article->id)->count();
@@ -112,5 +149,23 @@ class ArticleRepository
     public function addSearchIndex()
     {
         Article::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first()->searchable();
+    }
+
+    public function searchArticles($query)
+    {
+        $articles = Article::search($query)->get();
+        if ($articles->count() == 0) {
+            $articles = Article::get();
+        }
+
+        return $articles;
+    }
+
+    //admin function
+    public function toggleStatus($article_id, $status)
+    {
+        if (Article::where(['id' => $article_id])->update(['isValidated' => $status]))
+            return true;
+        return false;
     }
 }
