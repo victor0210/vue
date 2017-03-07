@@ -9,6 +9,7 @@ namespace App\Repositories;
  */
 
 use App\Helper\ArticleHelper;
+use App\Helper\NotifyHelper;
 use App\Models\Article;
 use App\Models\Comment;
 use Auth;
@@ -17,6 +18,16 @@ use YuanChao\Editor\EndaEditor;
 
 class ArticleRepository
 {
+    public function delete($article_id)
+    {
+        if (Auth::user()->is_admin) {
+            $user_id = $this->getUserByArticle($article_id);
+            $content = '非常抱歉! 您的文章 << ' . Article::find($article_id)->value('title') . ' >> 已被管理员删除 , 请不要在文章加入任何不良信息 , 谢谢您的合作 !';
+            NotifyHelper::notify($user_id, $content, 'Notify');
+        }
+        Article::find($article_id)->delete();
+    }
+
     public function exist($id)
     {
         return !!Article::find($id);

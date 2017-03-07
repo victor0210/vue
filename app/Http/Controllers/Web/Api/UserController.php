@@ -10,19 +10,28 @@ namespace App\Http\Controllers\Web\Api;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-use App\Models\Comment;
+use App\Library\Page;
 use App\Models\Records;
-use App\Notifications\Notify;
+use App\Services\ArticleService;
+use App\Services\UserService;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    function constructor()
+    private $articleService;
+
+    private $userService;
+
+    function constructor(
+        ArticleService $articleService,
+        UserService $userService
+    )
     {
         $this->middleware('auth');
+
+        $this->articleService = $articleService;
+        $this->userService = $userService;
     }
 
     public function deleteRecords(Request $request)
@@ -33,41 +42,21 @@ class UserController extends Controller
 
     public function deleteArticles(Request $request)
     {
-        if (Auth::user()->id == Article::find($request->id)->user->id || Auth::user()->is_admin==1) {
-            $comments = Article::find($request->id)->comment()->get();
-            foreach ($comments as $comment) {
-                Comment::find($comment->id)->comment_replies()->delete();
-            }
-            Article::find($request->id)->comment()->delete();
-            if (Auth::user()->is_admin==1){
-                User::find(Article::where(['id' => $request->id])->value('user_id'))->notify(new Notify('非常抱歉! 您的文章 << '.Article::where(['id' => $request->id])->value('title').' >> 未通过审核 , 请不要在文章加入任何不良信息 , 谢谢您的合作 !' ));
-            }
-            Article::find($request->id)->delete();
-            Records::where('article_id', $request->id)->delete();
+        if ($this->articleService->canDelete($request->id)) {
+            $this->articleService->delete($request->id);
             return response('Succeed', 200);
-        } else {
-            return response('Failed', 500);
         }
+        return response('Failed', 500);
+
     }
 
     function getUser(Request $request)
     {
-        $users = User::search($request->val)->get();
-        if ($users->count() == 0) {
-            $users = User::get();
-        }
-        foreach ($users as $user) {
-            $user->created_at->timezone('Asia/Chongqing');
-        }
-        return $users;
+        return $this->userService->timezoneFormat($this->userService->search($request->val));
     }
 
     public function getUserPage()
     {
-        $users = User::paginate(10);
-        foreach ($users as $user) {
-            $user->created_at->timezone('Asia/Chongqing');
-        }
-        return $users;
+        return $this->userService->timezoneFormat(User::paginate(Page::Ajax_Default_Page_Num));
     }
 }
