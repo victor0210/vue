@@ -11,11 +11,12 @@ namespace App\Helper;
 
 use App\Library\Message;
 use App\Library\Rule;
+use Illuminate\Support\Facades\Redirect;
 use Validator;
 
 class ValidateHelper
 {
-    public static function customValidate($content, $type)
+    public static function customValidate(array $content, $type)
     {
 
         $rules = null;
@@ -39,9 +40,25 @@ class ValidateHelper
                 $rules = Rule::Validate_Collection_Change_Rule;
                 $messages = Message::Validate_Collection_Change_Message;
                 break;
+            case 'Login':
+                $rules = Rule::Validate_Login_Rule;
+                $messages = Message::Validate_Collection_Change_Message;
+                break;
+            case 'Register':
+                $rules = Rule::Validate_Register_Rule;
+                $messages = Message::Validate_Register_Message;
+                break;
+
             default:
                 break;
         }
         return Validator::make($content, $rules, $messages);
+    }
+
+    public static function redirect($validate, $input = '')
+    {
+        return Redirect::back()
+            ->withErrors($validate)
+            ->withInput($input);
     }
 }

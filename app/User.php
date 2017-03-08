@@ -37,10 +37,6 @@ class User extends Authenticatable
         return $this->is_admin;
     }
 
-    public static function Admin(){
-        return User::where('is_admin',1)->get();
-    }
-
     public function comment()
     {
         return $this->hasMany('App\Models\Comment', 'user_id');
@@ -59,5 +55,11 @@ class User extends Authenticatable
     public function comment_replies()
     {
         return $this->hasMany('App\Models\Comment_Replies');
+    }
+
+    //helper api
+    public static function admins()
+    {
+        return User::where('is_admin', 1)->get();
     }
 }

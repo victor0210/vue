@@ -15,7 +15,6 @@ use App\Models\Article;
 use App\Models\Collection;
 use App\Services\AdminService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -36,7 +35,7 @@ class AdminController extends Controller
     {
         $validate = ValidateHelper::customValidate($request->all(), 'Collection');
         if ($validate->fails()) {
-            return $this->redirect($validate, $request->input());
+            return ValidateHelper::redirect($validate, $request->input());
         }
         $this->adminService->uploadCollection($request->file('image'));
         return redirect('/admin/categories');
@@ -63,16 +62,9 @@ class AdminController extends Controller
     {
         $validate = ValidateHelper::customValidate($request->all(), 'Collection_Change');
         if ($validate->fails()) {
-            return $this->redirect($validate);
+            return ValidateHelper::redirect($validate);
         }
         $this->adminService->uploadCollection($request->file('image'));
         return redirect('/admin/categories');
-    }
-
-    protected function redirect($validate, $input = '')
-    {
-        return Redirect::back()
-            ->withErrors($validate)
-            ->withInput($input);
     }
 }

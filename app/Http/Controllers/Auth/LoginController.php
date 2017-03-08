@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helper\ValidateHelper;
 use App\Http\Controllers\Controller;
+use App\Services\AuthService;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Request;
 use Validator;
 
@@ -32,14 +33,18 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
+    private $authService;
+
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @internal param AuthService $authService
+     * @param AuthService $authService
      */
-    public function __construct()
+    public function __construct(AuthService $authService)
     {
         $this->middleware('guest', ['except' => 'logout']);
+        $this->authService=$authService;
     }
 
     public function showLoginForm()
@@ -49,28 +54,14 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $rules=['email'=>'required|email|exists:users','password'=>'required|min:6'];
-        $message=[
-            'email.required'=>'请填写邮箱',
-            'email.email'=>'邮箱格式不正确',
-            'email.exists'=>'邮箱未注册',
-            'password.required'=>'请填写密码',
-            'password.min'=>'密码至少为6位',
-        ];
-        $validator=Validator::make($request->input(),$rules,$message);
-        if($validator->fails()){
-            $token = $request->input() ? $request->header('X-CSRF-Token') : $request->input('_token');
-            return Redirect::back()
-                ->withErrors($validator)
-                ->with($request->input());
+        $validator = ValidateHelper::customValidate($request->input(), 'Login');
+        if ($validator->fails()) {
+//            $token = $request->input() ? $request->header('X-CSRF-Token') : $request->input('_token');
+            ValidateHelper::redirect($validator, $request->input());
         }
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // 认证通过...
-            return redirect('/');
-        } else {
-            return Redirect::back()
-                ->withErrors(['password'=>'password would be wrong! check it']);
-        }
+        // 认证通过...
+        $this->authService->login();
+        return redirect('/');
     }
 
     public function logout()
