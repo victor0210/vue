@@ -9,43 +9,37 @@
 namespace App\Http\Controllers\Web\Api;
 
 
-use App\Helper\NotifyHelper;
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-use App\Repositories\ArticleRepository;
-use App\Repositories\CollectionRepository;
+use App\Services\ArticleService;
+use App\Services\CollectionService;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    private $collectionRepository;
-    private $articleRepository;
+    private $collectionService;
+    private $articleService;
 
     public function constructor(
-        CollectionRepository $collectionRepository,
-        ArticleRepository $articleRepository
+        CollectionService $collectionService,
+        ArticleService $articleService
     )
     {
         $this->middleware('admin');
 
-        $this->collectionRepository = $collectionRepository;
-        $this->articleRepository = $articleRepository;
+        $this->collectionService = $collectionService;
+        $this->articleService = $articleService;
     }
 
     public function collectionStatus(Request $request)
     {
-
-        if ($this->collectionRepository->toggleStatus($request->id, $request->status))
+        if ($this->collectionService->toggleStatus($request->id, $request->status))
             return response('Success', 200);
         return response('Failed', 500);
     }
 
     public function articleStatus(Request $request)
     {
-        if ($this->articleRepository->toggleStatus($request->id, $request->status)) {
-            $user_id = $this->articleRepository->getUserIdByArticle($request->id);
-            $content = '您的文章 << ' . Article::where(['id' => $request->id])->value('title') . ' >> 已通过审核';
-            NotifyHelper::notify($user_id, $content, 'Article');
+        if ($this->articleService->toggleStatus($request)) {
             return response('Success', 200);
         }
         return response('Failed', 500);

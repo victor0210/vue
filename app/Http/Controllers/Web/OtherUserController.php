@@ -13,35 +13,35 @@ use App\Http\Controllers\Controller;
 use App\Library\Page;
 use App\Library\Record;
 use App\Repositories\ArticleRepository;
-use App\Repositories\RecordRepository;
-use App\Repositories\UserRepository;
+use App\Services\RecordService;
+use App\Services\UserService;
 use App\User;
 
 class OtherUserController extends Controller
 {
     private $articleRepository;
 
-    private $userRepository;
+    private $userSerive;
 
-    private $recordRepository;
+    private $recordService;
 
     public function __construct(
         ArticleRepository $articleRepository,
-        UserRepository $userRepository,
-        RecordRepository $recordRepository
+        UserService $userService,
+        RecordService $recordService
     )
     {
         $this->articleRepository = $articleRepository;
-        $this->userRepository = $userRepository;
-        $this->recordRepository = $recordRepository;
+        $this->userSerive = $userService;
+        $this->recordService = $recordService;
     }
 
     public function index($id)
     {
         if (!!User::find($id)) {
-            $user =$this->userRepository->incrementBrowse($id);
+            $user =$this->userSerive->incrementBrowse($id);
             $articles = $this->articleRepository->getArticleWithUserPage($id,Page::Other_User_Page_Num);
-            $records = $this->recordRepository->getWithBelong($id,Record::Other_User_Record_Num);
+            $records = $this->recordService->getWithBelong($id,Record::Other_User_Record_Num);
             return view('web.other-user.index', compact('user', 'articles', 'records'));
         }
         return view('errors.404');

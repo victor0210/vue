@@ -8,32 +8,36 @@ namespace App\Http\Controllers\Web\Api;
  * Time: 16:34
  */
 
+use App\Checkers\ThumbChecker;
 use App\Http\Controllers\Controller;
 use App\Library\Page;
 use App\Models\Article;
 use App\Repositories\ArticleRepository;
-use App\Repositories\ThumbsRepository;
+use App\Services\ArticleService;
+use App\Services\ThumbService;
 use Illuminate\Http\Request;
 use YuanChao\Editor\EndaEditor;
 
 class ArticlesController extends Controller
 {
     private $articleRepository;
-
-    private $thumbRepository;
+    private $articleService;
+    private $thumbService;
 
     public function __construct(
         ArticleRepository $articleRepository,
-        ThumbsRepository $thumbsRepository
+        ArticleService $articleService,
+        ThumbService $thumbService
     )
     {
         $this->articleRepository = $articleRepository;
-        $this->thumbRepository = $thumbsRepository;
+        $this->articleService = $articleService;
+        $this->thumbService = $thumbService;
     }
 
     public function index(Request $request)
     {
-        $articles = $this->articleRepository->searchArticles($request->val);
+        $articles = $this->articleService->search($request->val);
         return $articles;
     }
 
@@ -57,10 +61,10 @@ class ArticlesController extends Controller
 
     public function thumb(Request $request)
     {
-        if ($this->thumbRepository->isThumb($request->article_id)) {
+        if (ThumbChecker::isThumb($request->article_id)) {
             return response('Failed', 500);
         }
-        $this->thumbRepository->addThumb($request->article_id);
+        $this->thumbService->addThumb($request->article_id);
         return response('Success', 200);
     }
 }

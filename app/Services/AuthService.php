@@ -39,7 +39,7 @@ class AuthService
         return $this;
     }
 
-    protected function notify(array $admins)
+    protected function notify($admins)
     {
         Auth::user()->notify(new Notify('欢迎来到论塘,如果有什么疑问请点击屏幕右下方的问好按钮,祝您在这里玩的愉快!'));
         foreach ($admins as $admin) {

@@ -2,24 +2,21 @@
 /**
  * Created by PhpStorm.
  * User: humengtao
- * Date: 2017/3/6
- * Time: 20:58
+ * Date: 2017/3/8
+ * Time: 15:36
  */
 
-namespace App\Repositories;
+namespace App\Services;
 
 
 use App\Models\Article;
 use App\Models\Thumbs;
+use App\Notifications\Thumb;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
-class ThumbsRepository
+class ThumbService
 {
-    public function isThumb($article_id){
-        return !!Thumbs::where(['article_id' => $article_id, 'user_id' => Auth::user()->id])->first();
-    }
-
     public function addThumb($article_id){
         Thumbs::insert([
             'article_id' => $article_id,

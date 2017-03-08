@@ -8,51 +8,36 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Helper\ArticleHelper;
-use App\Helper\NotifyHelper;
 use App\Helper\ValidateHelper;
-use App\Models\Article;
+use App\Http\Controllers\Controller;
+use App\Services\ArticleService;
+use App\Checkers\ArticleChecker;
+use App\Checkers\UserChecker;
+use App\Services\CollectionService;
+use App\Services\CommentService;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Request;
 use Auth;
 use EndaEditor;
-use App\Repositories\CollectionRepository;
-use App\Repositories\ArticleRepository;
-use App\Repositories\UserRepository;
-use App\Repositories\RecordRepository;
-use App\Repositories\ThumbsRepository;
-use App\Repositories\CommentRepository;
 
-class ArticlesController
+class ArticlesController extends Controller
 {
-    private $articleRepository;
+    private $commentService;
 
-    private $userRepository;
+    private $collectionService;
 
-    private $recordRepository;
-
-    private $thumbsRepository;
-
-    private $commentRepository;
-
-    private $collectionRepository;
+    private $articleService;
 
     public function __construct(
-        ArticleRepository $articleRepository,
-        UserRepository $userRepository,
-        RecordRepository $recordRepository,
-        ThumbsRepository $thumbsRepository,
-        CommentRepository $commentRepository,
-        CollectionRepository $collectionRepository
+        CommentService $commentService,
+        CollectionService $collectionService,
+        ArticleService $articleService
     )
     {
-        $this->articleRepository = $articleRepository;
-        $this->userRepository = $userRepository;
-        $this->recordRepository = $recordRepository;
-        $this->commentRepository = $commentRepository;
-        $this->thumbsRepository = $thumbsRepository;
-        $this->collectionRepository = $collectionRepository;
+        $this->commentService = $commentService;
+        $this->collectionService = $collectionService;
+        $this->articleService = $articleService;
     }
 
     /**
@@ -61,45 +46,23 @@ class ArticlesController
      */
     public function index($id)
     {
-        if ($this->articleRepository->exist($id)) {
+        if (ArticleChecker::isExist($id)) {
+            if (!ArticleChecker::isValidate($id) && UserChecker::isAdmin()) {
+                $article = $this->articleService->adminSee($id);
 
-            $status = false;    // flag 'is_thumb'
-
-            if ($this->articleRepository->existWithValidate($id) && $this->userRepository->isAdmin()) {
-                $this->articleRepository->incrementView($id);
-
-                $article = $this->articleRepository->getArticle($id);
-
-                $article->content = ArticleHelper::format($article->content);
                 return view('admin.web.article.content', compact('article'));
-            } elseif (!$this->articleRepository->existWithValidate($id)) {
-                $this->articleRepository->incrementView($id);
-
-                $user = $this->articleRepository->getUserByArticle($id);
-
-                if (Auth::check()) {
-                    if ($this->recordRepository->isEmptyWithArticle($id)) {
-                        $this->recordRepository->addRecord($id);
-                    } else {
-                        $this->recordRepository->updateRecordWithArticle($id);
-                    }
-
-                    $status = $this->thumbsRepository->isThumb($id);
-
-                }
-                $article = $this->articleRepository->getArticle($id);
-                $article->content = ArticleHelper::format($article->content);
-                ArticleHelper::getImg($article->content);
-
-                $comments = $this->commentRepository->getCommentsWithFormat($id);
+            } elseif (ArticleChecker::isValidate($id)) {
+                $arr = $this->articleService->userSee($id);
+                $user = $arr[0];
+                $article = $arr[1];
+                $comments = $arr[2];
+                $status = $arr[3];
 
                 return view('web.article-content', compact('article', 'comments', 'status', 'user'));
-            } else {
-                return view('errors.validating');
             }
-        } else {
-            return view('errors.404');
+            return view('errors.validating');
         }
+        return view('errors.404');
     }
 
     /**
@@ -112,84 +75,44 @@ class ArticlesController
         $validator = ValidateHelper::customValidate($request->all(), 'Comment');
 
         if ($validator->fails()) {
-            return $this->redirectBack($validator, $request->all());
+            return ValidateHelper::redirect($validator, $request->all());
         } else {
-            $this->commentRepository->insertComment($request->comment, $id);
-
-            $notify_user_id = $this->articleRepository->getUserId($id);
-            $notify_content = $request->user()->name . ' 评论了您的文章 : ' . $request->comment;
-
-            NotifyHelper::notify($notify_user_id, $notify_content, 'Comment');
+            $this->articleService->commentSuccess($id);
             return redirect('/content/' . $id);
         }
     }
 
     public function add()
     {
-        $collections = $this->collectionRepository->getByAsc();
+        $collections = $this->collectionService->getByAsc();
 
         return view('web.edit', compact('collections'));
     }
 
     public function validateArticle(Request $request)
     {
-        $admins = $this->userRepository->admins();
         $validator = ValidateHelper::customValidate($request->all(), 'Article');
 
         if ($validator->fails()) {
-            return $this->redirectBack($validator, $request->input());
-        } else {
-            $filename = ArticleHelper::generateFileNmae();
-
-            Storage::disk('article')->put($filename, $request->contents);
-            if ($this->articleRepository->addArticle($request['title'], $this->collectionRepository->getName($request['collection']), $filename)) {
-                $this->articleRepository->addSearchIndex();
-                foreach ($admins as $admin) {
-
-                    $notify_id = $admin->id;
-                    $notify_content = Article::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
-
-                    NotifyHelper::notify($notify_id, $notify_content, 'Article');
-                }
-
-                $notify_id = Auth::user()->id;
-                $notify_content = '您的文章将' . $request['title'] . '会在第一时间进行审核并给您回复,请耐心等待!';
-
-                NotifyHelper::notify($notify_id, $notify_content, 'Notify');
-                return redirect('/user');
-            } else {
-                return view('errors.404');
-            }
+            return ValidateHelper::redirect($validator, $request->input());
         }
+
+        if ($this->articleService->save()) {
+            return redirect('/user');
+        }
+        return view('errors.404');
     }
 
     public function reply(Request $request)
     {
-        $this->commentRepository->insertReply($request['comment'], $request['receiver'], $request['content']);
+        $this->commentService->addReply($request['comment'], $request['receiver'], $request['content']);
         return Redirect::back();
     }
 
-    public function search(Request $request)
+    public function search()
     {
-        $articles = Article::search($request->input('query'))->get();
-        $tag = $request->input('query');
-
-        foreach ($articles as $article) {
-            $article->avatar = ArticleHelper::getImg($article->content);
-        }
-
+        $tag = Input::get('query');
+        $articles = $this->articleService->search($tag);
         return view('web.result', compact('articles', 'tag'));
-    }
-
-    public function ifFiveMinites($timediff)
-    {
-        return ($timediff->i + ($timediff->h * 60) + ($timediff->d * 1440) + ($timediff->m * 4320) > 5);
-    }
-
-    protected function redirectBack($validator, $input)
-    {
-        return Redirect::back()
-            ->withErrors($validator)
-            ->with($input);
     }
 }

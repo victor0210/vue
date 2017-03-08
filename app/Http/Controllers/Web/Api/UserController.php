@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Web\Api;
 
 
 use App\Http\Controllers\Controller;
+use App\Checkers\UserChecker;
 use App\Library\Page;
 use App\Models\Records;
 use App\Services\ArticleService;
@@ -23,15 +24,15 @@ class UserController extends Controller
 
     private $userService;
 
-    function constructor(
-        ArticleService $articleService,
-        UserService $userService
+    function __construct(
+        UserService $userService,
+        ArticleService $articleService
     )
     {
         $this->middleware('auth');
 
-        $this->articleService = $articleService;
         $this->userService = $userService;
+        $this->articleService= $articleService;
     }
 
     public function deleteRecords(Request $request)
@@ -42,12 +43,11 @@ class UserController extends Controller
 
     public function deleteArticles(Request $request)
     {
-        if ($this->articleService->canDelete($request->id)) {
-            $this->articleService->delete($request->id);
+        if (UserChecker::ifCanDelete($request->id)) {
+            $this->articleService->deleteQueue($request->id);
             return response('Succeed', 200);
         }
         return response('Failed', 500);
-
     }
 
     function getUser(Request $request)

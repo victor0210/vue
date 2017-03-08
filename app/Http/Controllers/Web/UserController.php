@@ -9,38 +9,34 @@
 namespace App\Http\Controllers\Web;
 
 
-use App\Models\Article;
 use App\Http\Controllers\Controller;
-use App\Models\Records;
 use App\Repositories\ArticleRepository;
-use App\Repositories\RecordRepository;
-use App\Repositories\UserRepository;
-use App\User;
+use App\Services\ArticleService;
+use App\Services\RecordService;
+use App\Services\UserService;
 use Auth;
-use App\Models\Comment;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     private $articleRepository;
-    private $recordRepository;
-    private $userRepository;
+    private $recordService;
+    private $userService;
 
     public function __construct(
         ArticleRepository $articleRepository,
-        ArticleRepository $articleRepository,
-        UserRepository $userRepository
+        RecordService $recordService,
+        UserService $userService
     )
     {
         $this->articleRepository=$articleRepository;
-        $this->articleRepository=$articleRepository;
-        $this->userRepository=$userRepository;
+        $this->recordService=$recordService;
+        $this->userService=$userService;
     }
 
     public function index()
     {
-        $articles = $this->articleRepository->getWithSelf();
-        $records = $this->recordRepository->getWithSelf();
+        $articles = Auth::user()->article()->get();
+        $records = $this->recordService->getWithSelf();
 
         return view('web.user-center', compact('articles', 'records'));
     }
@@ -52,7 +48,7 @@ class UserController extends Controller
 
     public function setInfo()
     {
-        $this->userRepository->updateDescription();
+        $this->userService->updateDescription();
         return redirect('/setting');
     }
 }

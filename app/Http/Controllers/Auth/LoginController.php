@@ -57,7 +57,7 @@ class LoginController extends Controller
         $validator = ValidateHelper::customValidate($request->input(), 'Login');
         if ($validator->fails()) {
 //            $token = $request->input() ? $request->header('X-CSRF-Token') : $request->input('_token');
-            ValidateHelper::redirect($validator, $request->input());
+            return ValidateHelper::redirect($validator, $request->input());
         }
         // 认证通过...
         $this->authService->login();

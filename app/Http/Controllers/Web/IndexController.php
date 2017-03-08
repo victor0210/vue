@@ -9,9 +9,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Library\Page;
+use App\Models\Article;
 use App\Models\Collection;
 use App\Repositories\ArticleRepository;
-use App\Repositories\CollectionRepository;
+use App\Services\ArticleService;
+use App\Services\CommentService;
 use DB;
 use App\Http\Controllers\Controller;
 use Mail;
@@ -19,21 +21,24 @@ use Mail;
 class IndexController extends Controller
 {
     private $articleRepository;
+    private $articleService;
 
-    private $collectionRepository;
+    private $commentService;
 
     public function __construct(
         ArticleRepository $articleRepository,
-        CollectionRepository $collectionRepository
+        ArticleService $articleService,
+        CommentService $commentService
     )
     {
         $this->articleRepository = $articleRepository;
-        $this->collectionRepository = $collectionRepository;
+        $this->articleService = $articleService;
+        $this->commentService = $commentService;
     }
 
     public function all()
     {
-        $articles = $this->articleRepository->getArticleWithPage(Page::Face_Page_Num);
+        $articles = Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate(Page::Face_Page_Num);
         $collections = Collection::orderBy('id', 'asc')->get();
         $page = 'all';
 
@@ -43,7 +48,7 @@ class IndexController extends Controller
 
     public function index($collection)
     {
-        if ($this->collectionRepository->getAllNames()->search($collection)>=0) {
+        if ($this->commentService->getAllNames()->search($collection) >= 0) {
             $articles = $this->articleRepository->getArticleWithCollectionPage($collection, Page::Face_Page_Num);
             $page = $collection;
             $collections = Collection::all();
@@ -55,7 +60,7 @@ class IndexController extends Controller
 
     public function collection()
     {
-        $collections = $this->collectionRepository->getActiveByAsc();
+        $collections = Collection::where('is_active', 1)->orderBy('id', 'asc')->get();
         return view('face-page', compact('collections'));
     }
 }

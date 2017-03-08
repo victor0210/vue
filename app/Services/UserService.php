@@ -10,6 +10,8 @@ namespace App\Services;
 
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class UserService
 {
@@ -26,5 +28,18 @@ class UserService
             $user->created_at->timezone('Asia/Chongqing');   //set time zone in Chongqing
         }
         return $users;
+    }
+
+    public function incrementBrowse($id){
+        User::find($id)->increment('browse');
+        return User::find($id);
+    }
+
+    public function admins(){
+        return User::where('is_admin', '1')->get();
+    }
+
+    public function updateDescription(){
+        User::find(Auth::user()->id)->update(['description' => Input::get('description')]);
     }
 }

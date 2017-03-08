@@ -9,17 +9,16 @@
 namespace App\Services;
 
 
-use App\Repositories\CollectionRepository;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
 class AdminService
 {
-    private $collectionRepository;
+    private $collectionService;
 
-    public function __construct(CollectionRepository $collectionRepository)
+    public function __construct(CollectionService $collectionService)
     {
-        $this->collectionRepository=$collectionRepository;
+        $this->collectionService=$collectionService;
     }
 
     public function uploadCollection($file)
@@ -27,7 +26,7 @@ class AdminService
         $name = Input::get('name');
         $filename = $name . '.jpg';
         $url = $this->saveCollection($filename, $file);
-        $this->collectionRepository->save($name,$url);
+        $this->collectionService->save($name,$url);
     }
 
     protected function saveCollection($filename, $file)
