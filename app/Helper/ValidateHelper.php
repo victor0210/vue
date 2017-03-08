@@ -15,13 +15,14 @@ use Validator;
 
 class ValidateHelper
 {
-    public static function customValidate($content,$type){
+    public static function customValidate($content, $type)
+    {
 
-        $rules=null;
+        $rules = null;
 
-        $messages=null;
+        $messages = null;
 
-        switch ($type){
+        switch ($type) {
             case 'Comment':
                 $rules = Rule::Validate_Comment_Rule;
                 $messages = Message::Validate_Comment_Message;
@@ -29,6 +30,14 @@ class ValidateHelper
             case 'Article':
                 $rules = Rule::Validate_Article_Rule;
                 $messages = Message::Validate_Article_Message;
+                break;
+            case 'Collection':
+                $rules = Rule::Validate_Collection_Rule;
+                $messages = Message::Validate_Collection_Message;
+                break;
+            case 'Collection_Change':
+                $rules = Rule::Validate_Collection_Change_Rule;
+                $messages = Message::Validate_Collection_Change_Message;
                 break;
             default:
                 break;

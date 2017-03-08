@@ -34,10 +34,24 @@ class CollectionRepository
     }
 
     //admin function
-    public function toggleStatus($collection_id,$status)
+    public function toggleStatus($collection_id, $status)
     {
-        if(Collection::where(['id' => $collection_id])->update(['is_active' => $status]))
+        if (Collection::where(['id' => $collection_id])->update(['is_active' => $status]))
             return true;
         return false;
+    }
+
+    public function save($name, $url)
+    {
+        if (Collection::where('name', $name)->get()->isEmpty()) {
+            Collection::create([
+                'name' => $name,
+                'image' => $url,
+                'created_at' => gmdate('Y-m-d H:i:s'),
+                'updated_at' => gmdate('Y-m-d H:i:s')
+            ]);
+        } else {
+            Collection::where('name', $name)->update(['image' => $url]);
+        }
     }
 }
