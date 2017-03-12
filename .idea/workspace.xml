@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc8b8209-7af6-431f-8c96-1ed8f987d017" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/Api/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/Api/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/ArticleService.php" afterPath="$PROJECT_DIR$/app/Services/ArticleService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/CollectionService.php" afterPath="$PROJECT_DIR$/app/Services/CollectionService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/web/article/article.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/web/article/article.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/web/user-center.blade.php" afterPath="$PROJECT_DIR$/resources/views/web/user-center.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/ArticleRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/ArticleRepository.php" />
     </list>
     <ignored path="vue-laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,33 +64,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-center.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/web/user-center.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="laravel.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArticleService.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ArticleService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/ArticleService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="-1446">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
               <folding>
                 <element signature="e#117#148#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+              <folding>
+                <element signature="e#127#148#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArticleRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/ArticleRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+              <folding>
+                <element signature="e#120#149#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,6 +110,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CommentService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Services/CommentService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-351">
+              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+              <folding>
+                <element signature="e#117#140#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/Api/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -118,16 +130,6 @@
               <folding>
                 <element signature="e#135#163#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="audit.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/web/article/audit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -179,11 +181,9 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Services/CommentService.php" />
         <option value="$PROJECT_DIR$/app/Checkers/UserChecker.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/ArticleRepository.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/Api/UserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/ArticlesController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Checkers/RecordChecker.php" />
         <option value="$PROJECT_DIR$/app/Services/AdminService.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
@@ -199,6 +199,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Web/Api/AdminController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/web/article/article.blade.php" />
         <option value="$PROJECT_DIR$/app/Services/ArticleService.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/ArticleRepository.php" />
       </list>
     </option>
   </component>
@@ -357,43 +359,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Providers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Notifications" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Checkers" />
+              <option name="myItemId" value="Services" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -412,7 +378,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="UserCon&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/Api/UserController.php&#10;web&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;article&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/article/article.blade.php&#10;ArticleCon&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Admin/ArticleController.php&#10;audit&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/article/audit.blade.php&#10;Admin&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/Api/AdminController.php&#10;cate&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/category/category.blade.php&#10;category-edit&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/category/category-edit.blade.php&#10;toggleS&#9;null&#9;null&#10;user-center&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/user-center.blade.php&#10;UserController&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/UserController.php&#10;index&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/index.blade.php&#10;Other&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/OtherUserController.php&#10;User&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/User.php&#10;regis&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Auth/RegisterController.php&#10;register&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Auth/RegisterController.php&#10;login&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Auth/LoginController.php&#10;we&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;Auth&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/AuthService.php&#10;Articles&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/ArticlesController.php&#10;Index&#9;null&#9;null&#10;app.php&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/config/app.php&#10;in&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/IndexController.php&#10;colle&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/CollectionRepository.php&#10;arti&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/ArticleService.php&#10;art&#9;null&#9;null&#10;coll&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/CollectionRepository.php&#10;Ar&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/ArticlesController.php&#10;comment&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/CommentService.php&#10;ar&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/ArticleService.php&#10;Thumb&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Checkers/ThumbChecker.php&#10;Articlese&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/ArticleService.php&#10;v&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ValidateHelper.php&#10;Mes&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Library/Message.php&#10;Valida&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ValidateHelper.php&#10;Validat&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ValidateHelper.php&#10;Messa&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Library/Message.php&#10;Rule&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Library/Rule.php&#10;Notif&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/NotifyHelper.php&#10;Helper&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ArticleHelper.php&#10;Article&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/ArticleRepository.php&#10;notification&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/notification.blade.php&#10;common&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/common.js&#10;back&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/back-top.blade.php&#10;app&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/app.blade.php&#10;Comment&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/CommentRepository.php&#10;ArticleRe&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/ArticleRepository.php&#10;footer&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/layouts/footer.blade.php&#10;artic&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/article-content/article-content.blade.php&#10;articles&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/articles/articles.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="Index&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/IndexController.php&#10;UserCon&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/Api/UserController.php&#10;web&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;article&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/article/article.blade.php&#10;ArticleCon&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Admin/ArticleController.php&#10;audit&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/article/audit.blade.php&#10;Admin&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/Api/AdminController.php&#10;cate&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/category/category.blade.php&#10;category-edit&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/admin/web/category/category-edit.blade.php&#10;toggleS&#9;null&#9;null&#10;user-center&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/user-center.blade.php&#10;UserController&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/UserController.php&#10;index&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/index.blade.php&#10;Other&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/OtherUserController.php&#10;User&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/User.php&#10;regis&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Auth/RegisterController.php&#10;register&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Auth/RegisterController.php&#10;login&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Auth/LoginController.php&#10;we&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/routes/web.php&#10;Auth&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/AuthService.php&#10;Articles&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/ArticlesController.php&#10;app.php&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/config/app.php&#10;in&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/IndexController.php&#10;colle&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/CollectionRepository.php&#10;arti&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/ArticleService.php&#10;art&#9;null&#9;null&#10;coll&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/CollectionRepository.php&#10;Ar&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Http/Controllers/Web/ArticlesController.php&#10;comment&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/CommentService.php&#10;ar&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/ArticleService.php&#10;Thumb&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Checkers/ThumbChecker.php&#10;Articlese&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Services/ArticleService.php&#10;v&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ValidateHelper.php&#10;Mes&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Library/Message.php&#10;Valida&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ValidateHelper.php&#10;Validat&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ValidateHelper.php&#10;Messa&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Library/Message.php&#10;Rule&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Library/Rule.php&#10;Notif&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/NotifyHelper.php&#10;Helper&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Helper/ArticleHelper.php&#10;Article&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/ArticleRepository.php&#10;notification&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/notification.blade.php&#10;common&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/assets/js/common.js&#10;back&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/back-top.blade.php&#10;app&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/other-user/app.blade.php&#10;Comment&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/CommentRepository.php&#10;ArticleRe&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/app/Repositories/ArticleRepository.php&#10;footer&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/layouts/footer.blade.php&#10;artic&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/article-content/article-content.blade.php&#10;articles&#9;FILE&#9;file:///Users/humengtao/Desktop/bishe/vue/resources/views/web/component/articles/articles.blade.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
@@ -595,12 +561,12 @@
       <workItem from="1488611308588" duration="2502000" />
       <workItem from="1488686884709" duration="41801000" />
       <workItem from="1488802441663" duration="10485000" />
-      <workItem from="1488850945881" duration="43681000" />
+      <workItem from="1488850945881" duration="44149000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="621590000" />
+    <option name="totallyTimeSpent" value="622058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="956" extended-state="0" />
@@ -610,8 +576,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28410372" sideWeight="0.5315476" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2835648" sideWeight="0.4684524" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4085648" sideWeight="0.45357144" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2835648" sideWeight="0.4684524" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4085648" sideWeight="0.45357144" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21632653" sideWeight="0.46092796" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18315019" sideWeight="0.5073826" order="3" side_tool="true" content_ui="tabs" />
@@ -681,7 +647,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -749,16 +715,6 @@
         <state relative-caret-position="-143">
           <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/CommentService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding>
-            <element signature="e#117#140#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,16 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ArticleRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="e#120#149#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/RecordService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -884,16 +830,6 @@
           <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
           <folding>
             <element signature="e#127#157#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#127#148#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1052,18 +988,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/CollectionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1118,12 +1046,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/CommentService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-351">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="e#117#140#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/ArticleService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state relative-caret-position="-1446">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
           <folding>
             <element signature="e#117#148#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/CollectionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding>
+            <element signature="e#127#148#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/ArticleRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+          <folding>
+            <element signature="e#120#149#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

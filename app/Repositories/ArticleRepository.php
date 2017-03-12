@@ -45,7 +45,7 @@ class ArticleRepository
     public function getArticleWithCollectionPage($collection, $page_num)
     {
         $articles = Article::where(['collection' => $collection, 'isValidated' => true])->orderBy('created_at', 'desc')->paginate($page_num);
-        return $this->formatImg($articles);
+        return $this->format($articles);
     }
 
     public function getArticleWithCollectionPageApi($collection, $page_num)

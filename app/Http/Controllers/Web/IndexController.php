@@ -13,7 +13,7 @@ use App\Models\Article;
 use App\Models\Collection;
 use App\Repositories\ArticleRepository;
 use App\Services\ArticleService;
-use App\Services\CommentService;
+use App\Services\CollectionService;
 use DB;
 use App\Http\Controllers\Controller;
 use Mail;
@@ -21,19 +21,20 @@ use Mail;
 class IndexController extends Controller
 {
     private $articleRepository;
+
     private $articleService;
 
-    private $commentService;
+    private $collectionService;
 
     public function __construct(
         ArticleRepository $articleRepository,
         ArticleService $articleService,
-        CommentService $commentService
+        CollectionService $collectionService
     )
     {
         $this->articleRepository = $articleRepository;
         $this->articleService = $articleService;
-        $this->commentService = $commentService;
+        $this->collectionService = $collectionService;
     }
 
     public function all()
@@ -48,7 +49,7 @@ class IndexController extends Controller
 
     public function index($collection)
     {
-        if ($this->commentService->getAllNames()->search($collection) >= 0) {
+        if ($this->collectionService->getAllNames()->search($collection) >= 0) {
             $articles = $this->articleRepository->getArticleWithCollectionPage($collection, Page::Face_Page_Num);
             $page = $collection;
             $collections = Collection::all();
