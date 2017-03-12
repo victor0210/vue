@@ -46,7 +46,7 @@ class NotifyHelper
     }
 
     public static function feedback(){
-        $admins = User::admin();
+        $admins = User::admins();
         foreach ($admins as $admin) {
             $admin->notify(new Feedback(Input::get('feedback'), Auth::user()->name, Auth::user()->id));
         }
