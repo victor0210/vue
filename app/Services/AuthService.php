@@ -10,6 +10,7 @@ namespace App\Services;
 
 
 use App\Helper\NotifyHelper;
+use App\Notifications\Notify;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -43,7 +44,7 @@ class AuthService
     {
         Auth::user()->notify(new Notify('欢迎来到论塘,如果有什么疑问请点击屏幕右下方的问好按钮,祝您在这里玩的愉快!'));
         foreach ($admins as $admin) {
-            NotifyHelper::notify($admin->id, null, 'Member');
+            NotifyHelper::notify($admin->id, Auth::user()->name.' 加入论塘', 'Member');
         }
     }
 }

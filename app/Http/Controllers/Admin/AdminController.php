@@ -37,7 +37,7 @@ class AdminController extends Controller
         if ($validate->fails()) {
             return ValidateHelper::redirect($validate, $request->input());
         }
-        $this->adminService->uploadCollection($request->file('image'));
+        $this->adminService->uploadCollection($request->file('image')->getRealPath());
         return redirect('/admin/categories');
     }
 
@@ -54,7 +54,7 @@ class AdminController extends Controller
 
     public function categoryEdit($id)
     {
-        $name = Collection::where('id', $id)->value('name');
+        $name = explode('.',Collection::where('id', $id)->value('name'))[0];
         return view('admin.web.category.category-edit', compact('name'));
     }
 
@@ -64,7 +64,7 @@ class AdminController extends Controller
         if ($validate->fails()) {
             return ValidateHelper::redirect($validate);
         }
-        $this->adminService->uploadCollection($request->file('image'));
+        $this->adminService->uploadCollection($request->file('image')->getRealPath());
         return redirect('/admin/categories');
     }
 }

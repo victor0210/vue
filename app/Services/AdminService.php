@@ -23,15 +23,18 @@ class AdminService
 
     public function uploadCollection($file)
     {
-        $name = Input::get('name');
-        $filename = $name . '.jpg';
-        $url = $this->saveCollection($filename, $file);
-        $this->collectionService->save($name,$url);
+        $filename = Input::get('name').'.jpg';
+        $url = $this->saveCollection($filename,$file);
+        $this->collectionService->save($filename,$url);
     }
 
-    protected function saveCollection($filename, $file)
+    public function getCollections(){
+
+    }
+
+    protected function saveCollection($filename,$file)
     {
-        Storage::disk('collection')->put($filename, file_get_contents($file->getRealPath()));
-        return asset(Storage::url("public/collection/" . $filename . '.jpg'));
+        Storage::disk('collection')->put($filename, file_get_contents($file));
+        return asset(Storage::url("public/collection/" . $filename));
     }
 }

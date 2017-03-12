@@ -9,6 +9,7 @@
 namespace App\Services;
 
 
+use App\Checkers\RecordChecker;
 use App\Checkers\ThumbChecker;
 use App\Helper\ArticleHelper;
 use App\Helper\NotifyHelper;

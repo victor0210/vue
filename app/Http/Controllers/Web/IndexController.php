@@ -38,7 +38,7 @@ class IndexController extends Controller
 
     public function all()
     {
-        $articles = Article::orderBy('created_at', 'desc')->where(['isValidated' => true])->paginate(Page::Face_Page_Num);
+        $articles = $this->articleRepository->getArticleWithPage(Page::Face_Page_Num);
         $collections = Collection::orderBy('id', 'asc')->get();
         $page = 'all';
 

@@ -11,23 +11,23 @@ class Member extends Notification
 {
     use Queueable;
 
+    private $content;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($content)
     {
-        $this->user=$user;
+        $this->content=$content;
     }
 
     /**
      * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
      * @return array
+     * @internal param mixed $notifiable
      */
-    public function via($notifiable)
+    public function via()
     {
         return ['database'];
     }
@@ -35,14 +35,13 @@ class Member extends Notification
 
     /**
      * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
      * @return array
+     * @internal param mixed $notifiable
      */
-    public function toArray($notifiable)
+    public function toArray()
     {
         return [
-            'content'=>$this->user->name.' 加入了论塘 !'
+            'content'=>$this->content
         ];
     }
 }
