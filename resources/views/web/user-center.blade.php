@@ -30,8 +30,9 @@
                     @foreach($articles as $article)
                         <div class="col-md-12">
                             <li class="list-group-item" id="articles-board">
-                                <p><a href="content/{{ $article->id }}">{{$article->title}}</a></p>
-                                <p><span class="badge articles-badge">{{ $article->comment_count }}</span>
+                                <p><a href="content/{{ $article->id }}">{{ $article->title }}</a></p>
+                                <p>
+                                    <span class="badge articles-badge">{{ $article->created_at->diffForHumans() }}</span>
                                     <span class="glyphicon glyphicon-remove text-danger articles-remove"
                                           data-id="{{ $article->id }}"></span></p>
                             </li>

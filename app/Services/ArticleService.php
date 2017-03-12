@@ -57,13 +57,12 @@ class ArticleService
             ]);
     }
 
-    public function deleteQueue()
+    public function deleteQueue($article_id)
     {
-        return 1;
         //删除顺序 : 文章二级回复,文章一级回复,文章主体
-//        $this->commentService->delete($article_id);
-//        $this->articleRepository->delete($article_id);
-//        $this->recordService->deleteByArticle($article_id);
+        $this->commentService->delete($article_id);
+        $this->articleRepository->delete($article_id);
+        $this->recordService->deleteByArticle($article_id);
     }
 
     protected function incrementView($id)
@@ -142,17 +141,5 @@ class ArticleService
     protected function addSearchIndex()
     {
         Article::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first()->searchable();
-    }
-
-    //admin function
-    public function toggleStatus($request)
-    {
-        if (Article::where(['id' => $request->article_id])->update(['isValidated' => $request->status])) {
-            $user_id = Article::find($request->id)->user_id;
-            $content = '您的文章 << ' . Article::where(['id' => $request->id])->value('title') . ' >> 已通过审核';
-            NotifyHelper::notify($user_id, $content, 'Article');
-            return true;
-        }
-        return false;
     }
 }

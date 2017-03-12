@@ -138,7 +138,7 @@
             }
         };
 
-        getArticlePage('/api/articles-page?page=1')
+        getArticlePage('/api/articles-page?page=1');
 
         function remove(id) {
             $.ajax('/api/delete-article', {

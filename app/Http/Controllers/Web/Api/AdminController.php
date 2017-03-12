@@ -9,37 +9,32 @@
 namespace App\Http\Controllers\Web\Api;
 
 
+use App\Helper\NotifyHelper;
 use App\Http\Controllers\Controller;
-use App\Services\ArticleService;
-use App\Services\CollectionService;
+use App\Models\Article;
+use App\Models\Collection;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    private $collectionService;
-    private $articleService;
-
-    public function constructor(
-        CollectionService $collectionService,
-        ArticleService $articleService
-    )
+    public function constructor()
     {
         $this->middleware('admin');
-
-        $this->collectionService = $collectionService;
-        $this->articleService = $articleService;
     }
 
     public function collectionStatus(Request $request)
     {
-        if ($this->collectionService->toggleStatus($request->id, $request->status))
+        if (Collection::where(['id' => $request->id])->update(['is_active' => $request->status]))
             return response('Success', 200);
         return response('Failed', 500);
     }
 
     public function articleStatus(Request $request)
     {
-        if ($this->articleService->toggleStatus($request)) {
+        if (Article::where(['id' => $request->id])->update(['isValidated' => $request->status])) {
+            $user_id = Article::find($request->id)->user_id;
+            $content = '您的文章 << ' . Article::where(['id' => $request->id])->value('title') . ' >> 已通过审核';
+            NotifyHelper::notify($user_id, $content, 'Article');
             return response('Success', 200);
         }
         return response('Failed', 500);

@@ -33,14 +33,6 @@ class CollectionService
         return Collection::orderBy('id', 'asc')->get()->pluck('name');
     }
 
-    //admin function
-    public function toggleStatus($collection_id, $status)
-    {
-        if (Collection::where(['id' => $collection_id])->update(['is_active' => $status]))
-            return true;
-        return false;
-    }
-
     public function save($name, $url)
     {
         if (Collection::where('name', $name)->get()->isEmpty()) {
