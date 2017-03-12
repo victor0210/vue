@@ -40,6 +40,6 @@ class UserService
     }
 
     public function updateDescription(){
-        User::find(Auth::user()->id)->update(['description' => Input::get('description')]);
+        User::where('id',Auth::user()->id)->update(['description' => Input::get('description')]);
     }
 }

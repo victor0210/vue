@@ -15,6 +15,7 @@ use App\Services\ArticleService;
 use App\Services\RecordService;
 use App\Services\UserService;
 use Auth;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
